@@ -1,0 +1,6 @@
+build/
+*.ninja_log
+*.qmltypes
+*.cpp
+*.json
+*.gen
