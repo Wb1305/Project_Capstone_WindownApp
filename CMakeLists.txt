@@ -8,12 +8,24 @@ find_package(Qt6 6.5 REQUIRED COMPONENTS Quick)
 
 find_package(Qt6 6.5 REQUIRED COMPONENTS Charts)
 
+find_package(Qt6 6.5 REQUIRED COMPONENTS Test)
+
 
 qt_standard_project_setup(REQUIRES 6.5)
 
 qt_add_executable(appMyWindownApp
     main.cpp
 )
+
+# Test executable
+# add_executable(TestIviSocketServer
+#     tests/test_IviSocketServer.cpp
+#     core/ivisocketserver.cpp
+# )
+
+# target_include_directories(TestIviSocketServer PRIVATE
+#     ${CMAKE_CURRENT_SOURCE_DIR}/core
+# )
 
 qt_policy(SET QTP0004 NEW)
 
@@ -35,11 +47,24 @@ qt_add_qml_module(appMyWindownApp
         QML_FILES UI/Screens/ProcessesListView/ColumnUtils.qml
         QML_FILES
         QML_FILES UI/Screens/ProcessesListView/ComponentTable.qml
+        SOURCES core/systemmonitor.h core/systemmonitor.cpp
+        SOURCES model/systemstats.h model/systemstats.cpp
+        SOURCES model/cpucore.h model/cpucore.cpp
+        SOURCES model/cpugeneral.h model/cpugeneral.cpp
+        SOURCES model/systemcpu.h model/systemcpu.cpp
+        SOURCES model/systemmem.h model/systemmem.cpp
+        SOURCES core/ISystemMonitor.h
+        SOURCES model/processinfo.h model/processinfo.cpp
+        SOURCES viewmodel/systemstatsviewmodel.h viewmodel/systemstatsviewmodel.cpp
+        SOURCES core/ivisocketserver.h core/ivisocketserver.cpp
+        SOURCES tests/test_IviSocketServer.cpp
         # QML_FILES UI/Screens/Processes/ProcessView.qml
         # QML_FILES UI/Screens/ResourcesView.qml
         # QML_FILES UI/Screens/HistoryView.qml
 
 )
+
+add_test(NAME IviSocketServerTest COMMAND TestIviSocketServer)
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
@@ -57,6 +82,8 @@ target_link_libraries(appMyWindownApp
         Qt6::Quick
         Qt6::Charts
         # Qt6::ChartsQml
+        Qt6::Test
+        Qt6::Network
 )
 
 

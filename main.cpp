@@ -1,5 +1,6 @@
 
 #include "BE/Processes/updateprocessesui.h"
+#include "core/systemmonitor.h"
 // #include <QGuiApplication>
 #include <QApplication>
 #include <QQmlApplicationEngine>
@@ -17,6 +18,8 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
     QQmlApplicationEngine engine;
 
+    SystemMonitor monitor;
+    monitor.startMonitoring();
     UpdateProcessesUI processModel;
 
     processModel.addProcess({"Qt Creator", "1123", "2%", "503MB", "0MB/s", "0Mbps"});
