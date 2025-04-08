@@ -2,11 +2,13 @@
 #define SYSTEMMONITOR_H
 
 #include "ISystemMonitor.h"
+#include "core/dataprocessor.h"
+#include "core/ivisocketserver.h"
 #include "model/processinfo.h"
 
 #include <QObject>
 
-class SystemMonitor : ISystemMonitor
+class SystemMonitor : public QObject, public ISystemMonitor
 {
     Q_OBJECT
 public:
@@ -17,21 +19,26 @@ public:
     void stopMonitoring() override;
 
     SystemStats getCurrentSystemStats() const override;
-    QList<ProcessInfo> getCurrentProcesses() const override;
+    QVector<ProcessInfo> getCurrentProcesses() const override;
 
-    void generateFakeData();
+    void setDataProcessor(DataProcessor* processor);
+    void generateFakeData();    
+    void printParsedData(const SystemStats& systemStats, const QVector<ProcessInfo>& processes);
 
-// private slots:
-//     void onDataReceived(const QByteArray& rawData);
+signals:
+    void systemUpdated(const SystemStats& systemStats, const QVector<ProcessInfo>& processes);
+
+private slots:
+    void onDataReceived(const QByteArray& rawData);
 
 private:
-    // TcpServer* m_tcpServer = nullptr;
-    // DataProcessor* m_processor = nullptr;
+    IviSocketServer* m_iviServer = nullptr;
+    DataProcessor* m_dataProcessor = nullptr;
     // OverloadDetector* m_detector = nullptr;
     // ConfigManager* m_config = nullptr;
 
     SystemStats m_systemStats;
-    QList<ProcessInfo> m_processList;
+    QVector<ProcessInfo> m_processList;
 };
 
 #endif // SYSTEMMONITOR_H

@@ -1,4 +1,5 @@
 #include "systemstats.h"
+#include <qjsonobject.h>
 
 SystemStats::SystemStats() {}
 
@@ -30,6 +31,24 @@ void SystemStats::setMemStats(const SystemMEM &mem)
 void SystemStats::setTimestamp(const QDateTime &time)
 {
     m_timestamp = time;
+}
+
+bool SystemStats::fromJson(const QJsonObject &obj)
+{
+    if(!obj.contains("SystemStats")) return false;
+    QJsonObject systemObj = obj["SystemStats"].toObject();
+
+    if(!systemObj.contains("GeneralCPU") || !systemObj.contains("coresCPU") || !systemObj.contains("MEM"))
+        return false;
+
+    QJsonObject generalCpuObj = systemObj["GeneralCPU"].toObject();
+    QJsonObject coresCpuObj = systemObj["coresCPU"].toObject();
+    QJsonObject memObj = systemObj["MEM"].toObject();
+
+    bool cpuOk = m_cpuStats.fromJson(generalCpuObj, coresCpuObj);
+    bool memOk = m_memStats.fromJson(memObj);
+
+    return cpuOk & memOk;
 }
 
 QStringList SystemStats::toRow() const

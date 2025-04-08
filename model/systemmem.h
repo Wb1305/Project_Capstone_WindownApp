@@ -1,6 +1,8 @@
 #ifndef SYSTEMMEM_H
 #define SYSTEMMEM_H
 
+#include <QJsonObject>
+
 class SystemMEM
 {
 public:
@@ -17,11 +19,13 @@ public:
     void setRamUtilization(double ramUse);
     void setSwapUtilization(double swapUse);
 
+    bool fromJson(const QJsonObject& memObj);
+
 private:
-    double m_maxRamSystem;
-    double m_maxSwapSystem;
-    double m_ramUtilization;
-    double m_swapUtilization;
+    double m_maxRamSystem = 0;
+    double m_maxSwapSystem = 0;
+    double m_ramUtilization = 0;
+    double m_swapUtilization = 0;
 };
 
 #endif // SYSTEMMEM_H

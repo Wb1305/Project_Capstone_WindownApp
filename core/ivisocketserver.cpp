@@ -7,7 +7,7 @@ IviSocketServer::IviSocketServer(QObject *parent)
     : QObject{parent}, m_server(new QTcpServer(this))
 {
     connect(m_server, &QTcpServer::newConnection, this, &IviSocketServer::onNewConnection);
-    connect(this, &IviSocketServer::dataReceived, this, &IviSocketServer::printRawData);
+    // connect(this, &IviSocketServer::dataReceived, this, &IviSocketServer::printRawData);
 }
 
 IviSocketServer::~IviSocketServer()

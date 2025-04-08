@@ -2,8 +2,12 @@
 
 CpuGeneral::CpuGeneral() {}
 
-CpuGeneral::CpuGeneral(double util, double temp, double freq_current, double freq_max, double freq_min)
-    : m_utilization(util), m_temperature(temp), m_frequencyCurrent(freq_current), m_frequencyMax(freq_max), m_frequencyMin(freq_min){}
+CpuGeneral::CpuGeneral(double util, double temp, double freq_current, double freq_percent)
+    : m_utilization(util),
+    m_temperature(temp),
+    m_frequencyCurrent(freq_current),
+    m_frequencyPercent(freq_percent)
+{}
 
 double CpuGeneral::utilization() const
 {
@@ -20,15 +24,20 @@ double CpuGeneral::frequencyCurrent() const
     return m_frequencyCurrent;
 }
 
-double CpuGeneral::frequencyMax() const
+double CpuGeneral::frequencyPercent() const
 {
-    return m_frequencyMax;
+    return m_frequencyPercent;
 }
 
-double CpuGeneral::frequencyMin() const
-{
-    return m_frequencyMin;
-}
+// double CpuGeneral::frequencyMax() const
+// {
+//     return m_frequencyMax;
+// }
+
+// double CpuGeneral::frequencyMin() const
+// {
+//     return m_frequencyMin;
+// }
 
 void CpuGeneral::setUtilization(double util)
 {
@@ -45,15 +54,20 @@ void CpuGeneral::setFrequencyCurrent(double freq_current)
     m_frequencyCurrent = freq_current;
 }
 
-void CpuGeneral::setFrequencyMax(double freq_max)
+void CpuGeneral::setFrequencypercent(double freq_percent)
 {
-    m_frequencyMax = freq_max;
+    m_frequencyPercent = freq_percent;
 }
 
-void CpuGeneral::setFrequencyMin(double freq_min)
-{
-    m_frequencyMin = freq_min;
-}
+// void CpuGeneral::setFrequencyMax(double freq_max)
+// {
+//     m_frequencyMax = freq_max;
+// }
+
+// void CpuGeneral::setFrequencyMin(double freq_min)
+// {
+//     m_frequencyMin = freq_min;
+// }
 
 
 

@@ -57,7 +57,13 @@ qt_add_qml_module(appMyWindownApp
         SOURCES model/processinfo.h model/processinfo.cpp
         SOURCES viewmodel/systemstatsviewmodel.h viewmodel/systemstatsviewmodel.cpp
         SOURCES core/ivisocketserver.h core/ivisocketserver.cpp
-        SOURCES tests/test_IviSocketServer.cpp
+        SOURCES
+        SOURCES viewmodel/cpustatsviewmodel.h viewmodel/cpustatsviewmodel.cpp
+        SOURCES viewmodel/memstatsviewmodel.h viewmodel/memstatsviewmodel.cpp
+        SOURCES core/dataprocessor.h core/dataprocessor.cpp
+        RESOURCES config/ivi_settings.ini
+        SOURCES core/configmanager.h core/configmanager.cpp
+        SOURCES tests/test_SystemMonitor.cpp
         # QML_FILES UI/Screens/Processes/ProcessView.qml
         # QML_FILES UI/Screens/ResourcesView.qml
         # QML_FILES UI/Screens/HistoryView.qml

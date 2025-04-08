@@ -45,3 +45,21 @@ void SystemMEM::setSwapUtilization(double swapUse)
     m_swapUtilization = swapUse;
 }
 
+bool SystemMEM::fromJson(const QJsonObject &memObj)
+{
+    if (!memObj.contains("RAM") ||
+        !memObj.contains("RAMPercent") ||
+        !memObj.contains("SWAP") ||
+        !memObj.contains("SWAPPercent"))
+    {
+        qWarning() << "[SystemMEM] Missing one or more required fields: RAM, RAMPercent, SWAP, SWAPPercent";
+        return false;
+    }
+    m_maxRamSystem = memObj["RAM"].toDouble();
+    m_ramUtilization = memObj["RAMPercent"].toDouble();
+    m_maxSwapSystem = memObj["SWAP"].toDouble();
+    m_swapUtilization = memObj["SWAPPercent"].toDouble();
+
+    return true;
+}
+

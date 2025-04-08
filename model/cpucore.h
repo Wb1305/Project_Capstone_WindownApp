@@ -19,10 +19,10 @@ public:
     void setTemperature(double temp);
 
 private:
-    int m_coreID;
-    double m_utilization;
-    double m_frequency;
-    double m_temperature;
+    int m_coreID = -1;
+    double m_utilization = 0;
+    double m_frequency = 0;
+    double m_temperature = 0;
 };
 
 #endif // CPUCORE_H

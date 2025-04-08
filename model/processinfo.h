@@ -3,6 +3,7 @@
 
 #include<QString>
 #include<QDateTime>
+#include<QJsonObject>
 
 class ProcessInfo
 {
@@ -14,20 +15,30 @@ public:
     int pid() const;
     QString name() const;
     QString user() const;
-    QDateTime time() const;
+    QDateTime timestamp() const;
     double cpuUsagePercent() const;
     double memUsagePercent() const;
     double memUsageMB() const;
 
+    void setPID(int pid);
+    void setName(const QString& name);
+    void setUser(const QString& user);
+    void setTimestamp(const QDateTime& timestamp);
+    void setCpuPercent(double cpuPercent);
+    void setMemPercent(double memPercent);
+    void setMemMB(double memMB);
+
+    // bool fromJson(const QJsonObject& obj, const QDateTime& timestamp);
+    static std::optional<ProcessInfo> fromJson(const QJsonObject& obj, const QDateTime& timestamp);
     QStringList toRow() const;
 private:
-    int m_pid;
+    int m_pid = -1;
     QString m_name;
     QString m_user;
     QDateTime m_timestamp;
-    double m_cpuUsagePercent;
-    double m_memUsagePercent;
-    double m_memUsageMB;
+    double m_cpuUsagePercent = 0;
+    double m_memUsagePercent = 0;
+    double m_memUsageMB = 0;
 };
 
 #endif // PROCESSINFO_H

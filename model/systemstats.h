@@ -4,6 +4,7 @@
 #include <QDateTime>
 #include "model/systemcpu.h"
 #include "model/systemmem.h"
+#include <QJsonObject>
 
 class SystemStats
 {
@@ -18,6 +19,7 @@ public:
     void setMemStats(const SystemMEM& mem);
     void setTimestamp(const QDateTime& time);
 
+    bool fromJson(const QJsonObject& obj);
     QStringList toRow() const;
 
 private:

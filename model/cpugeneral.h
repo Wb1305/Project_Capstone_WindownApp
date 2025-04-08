@@ -5,26 +5,30 @@ class CpuGeneral
 {
 public:
     CpuGeneral();
-    CpuGeneral(double util, double temp, double freq_current, double freq_max, double freq_min);
+    CpuGeneral(double util, double temp, double freq_current, double freq_percent);
 
     double utilization() const;
     double temperature() const;
     double frequencyCurrent() const;
-    double frequencyMax() const;
-    double frequencyMin() const;
+    double frequencyPercent() const;
+    // double frequencyMax() const;
+    // double frequencyMin() const;
 
     void setUtilization(double util);
     void setTemperature(double temp);
     void setFrequencyCurrent(double freq_current);
-    void setFrequencyMax(double freq_max);
-    void setFrequencyMin(double freq_min);
+    void setFrequencypercent(double freq_percent);
+
+    // void setFrequencyMax(double freq_max);
+    // void setFrequencyMin(double freq_min);
 
 private:
-    double m_utilization;
-    double m_temperature;
-    double m_frequencyCurrent;
-    double m_frequencyMax;
-    double m_frequencyMin;
+    double m_utilization = 0;
+    double m_temperature = 0;
+    double m_frequencyCurrent = 0;
+    double m_frequencyPercent = 0;
+    // double m_frequencyMax;
+    // double m_frequencyMin;
 };
 
 #endif // CPUGENERAL_H

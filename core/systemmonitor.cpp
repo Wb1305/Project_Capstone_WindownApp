@@ -4,30 +4,52 @@
 
 // SystemMonitor::SystemMonitor() {}
 
-SystemMonitor::SystemMonitor(QObject *parent) : ISystemMonitor(parent)
-{
+// SystemMonitor::SystemMonitor(QObject* parent)
+//     : ISystemMonitor(parent),
+//     m_config(new ConfigManager),
+//     m_tcp(new TcpServer),
+//     m_processor(new DataProcessor),
+//     m_detector(new OverloadDetector)
 
+SystemMonitor::SystemMonitor(QObject *parent)
+    : QObject(parent),
+    m_iviServer(new IviSocketServer(this)),
+    m_dataProcessor(new DataProcessor(this))
+{
+    connect(m_iviServer, &IviSocketServer::dataReceived, this, &SystemMonitor::onDataReceived);
 }
 
 void SystemMonitor::startMonitoring()
 {
     qDebug()<< "Start monitor.";
-    generateFakeData();
+    m_iviServer->startListening(8000);
+    // generateFakeData();
 }
 
 void SystemMonitor::stopMonitoring()
 {
+    m_iviServer->stopListening();
     qDebug()<< "Stop monitor.";
 }
 
+// SystemStats SystemMonitor::getCurrentSystemStats() const
+// {
+//     return m_systemStats;
+// }
+
+// QList<ProcessInfo> SystemMonitor::getCurrentProcesses() const
+// {
+//     return m_processList;
+// }
+
 SystemStats SystemMonitor::getCurrentSystemStats() const
 {
-    return m_systemStats;
+    return m_dataProcessor ? m_dataProcessor->systemStats() : SystemStats{};
 }
 
-QList<ProcessInfo> SystemMonitor::getCurrentProcesses() const
+QVector<ProcessInfo> SystemMonitor::getCurrentProcesses() const
 {
-    return m_processList;
+    return m_dataProcessor ? m_dataProcessor->processList() : QList<ProcessInfo>{};
 }
 
 //fake data
@@ -41,8 +63,8 @@ void SystemMonitor::generateFakeData()
     generalCpu.setUtilization(QRandomGenerator::global()->bounded(5,60));
     generalCpu.setTemperature(QRandomGenerator::global()->bounded(40,75));
     generalCpu.setFrequencyCurrent(2.2);
-    generalCpu.setFrequencyMax(2.6);
-    generalCpu.setFrequencyMin(1.6);
+    generalCpu.setFrequencypercent(2.6);
+
 
     QList<CpuCore> coreList;
     for (int i = 0; i < 8; ++i) {
@@ -102,4 +124,63 @@ void SystemMonitor::generateFakeData()
             .arg(proc.cpuUsagePercent(), 0, 'f', 1)
             .arg(proc.memUsagePercent(), 0, 'f', 1);
     }
+}
+
+void SystemMonitor::printParsedData(const SystemStats &systemStats, const QVector<ProcessInfo> &processes)
+{
+    qDebug() << "\n[SystemMonitor] Parsed System Stats:";
+    qDebug() << "Timestamp:" << systemStats.timestamp().toString("yyyy-MM-dd HH:mm:ss");
+
+    // CPU
+    const SystemCPU& cpu = systemStats.cpuStats();
+    qDebug() << "General CPU:";
+    qDebug() << "  Utilization:" << cpu.general().utilization();
+    qDebug() << "  Temperature:" << cpu.general().temperature();
+    qDebug() << "  Frequency Current:" << cpu.general().frequencyCurrent();
+
+    qDebug() << "CPU Cores:";
+    for (const CpuCore& core : cpu.cores()) {
+        qDebug() << "  Core" << core.coreID()
+        << "Usage:" << core.utilization()
+        << "Freq:" << core.frequency()
+        << "Temp:" << core.temperature();
+    }
+
+    // MEM
+    const SystemMEM& mem = systemStats.memStats();
+    qDebug() << "MEM:";
+    qDebug() << "  RAM:" << mem.maxRamSystem() << "MB (" << mem.ramUtilization() << "%)";
+    qDebug() << "  SWAP:" << mem.maxSwapSystem() << "MB (" << mem.swapUtilization() << "%)";
+
+    // Processes
+    qDebug() << "\nProcesses:";
+    for (const ProcessInfo& proc : processes) {
+        qDebug() << "Name:" << proc.name()
+        << "User:" <<proc.user()
+        << "PID:" << proc.pid()
+        << "CPU %:" << proc.cpuUsagePercent()
+        << "MEM MB:" << proc.memUsageMB()
+        << "MEM %:" << proc.memUsagePercent();
+    }
+}
+
+void SystemMonitor::setDataProcessor(DataProcessor* processor)
+{
+    m_dataProcessor = processor;
+    connect(processor, &DataProcessor::dataUpdated, this, [this](){
+        emit systemUpdated(m_dataProcessor->systemStats(), m_dataProcessor->processList());
+    });
+}
+
+void SystemMonitor::onDataReceived(const QByteArray &rawData)
+{
+    qDebug() << "[SystemMonitor] Raw data from socket:";
+    qDebug().noquote() << QString::fromUtf8(rawData);
+
+    if(!m_dataProcessor) return;
+    if(!m_dataProcessor->parseJsonData(rawData)){
+        qWarning() << "[SystemMonitor] Failed to parse data";
+    }
+
+    printParsedData(m_dataProcessor->systemStats(), m_dataProcessor->processList());
 }
