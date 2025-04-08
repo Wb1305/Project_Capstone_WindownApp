@@ -5,6 +5,11 @@ MemStatsViewModel::MemStatsViewModel(QObject *parent)
     : QObject{parent}
 {}
 
+// QList<QObject *> MemStatsViewModel::series() const
+// {
+
+// }
+
 QList<QAbstractSeries *> MemStatsViewModel::series() const
 {
     return m_series;

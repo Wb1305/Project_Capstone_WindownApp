@@ -10,6 +10,8 @@ find_package(Qt6 6.5 REQUIRED COMPONENTS Charts)
 
 find_package(Qt6 6.5 REQUIRED COMPONENTS Test)
 
+# find_package(Qt6 6.5 REQUIRED COMPONENTS Graphs)
+
 
 qt_standard_project_setup(REQUIRES 6.5)
 
@@ -64,6 +66,7 @@ qt_add_qml_module(appMyWindownApp
         RESOURCES config/ivi_settings.ini
         SOURCES core/configmanager.h core/configmanager.cpp
         SOURCES tests/test_SystemMonitor.cpp
+        QML_FILES UI/Screens/Performance/CpuChart.qml
         # QML_FILES UI/Screens/Processes/ProcessView.qml
         # QML_FILES UI/Screens/ResourcesView.qml
         # QML_FILES UI/Screens/HistoryView.qml
@@ -90,6 +93,7 @@ target_link_libraries(appMyWindownApp
         # Qt6::ChartsQml
         Qt6::Test
         Qt6::Network
+        # Qt6::Graphs
 )
 
 

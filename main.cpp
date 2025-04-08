@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
     DataProcessor* processor = new DataProcessor;
     systemMonitor->setDataProcessor(processor);
 
-    // SystemStatsViewModel* systemStatsViewModel = new SystemStatsViewModel;
+    SystemStatsViewModel* systemStatsViewModel = new SystemStatsViewModel;
 
 
 
@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
     //                  systemStatsViewModel, [=](const SystemStats& systemStats, const QVector<ProcessInfo>&){
     //                      systemStatsViewModel->updateFromStats(systemStats);
     //                  });
-    // systemStatsViewModel->bindToMonitor(systemMonitor);
+    systemStatsViewModel->bindToMonitor(systemMonitor);
 
     // UpdateProcessesUI processModel;
     // processModel.addProcess({"Qt Creator", "1123", "2%", "503MB", "0MB/s", "0Mbps"});
@@ -44,13 +44,15 @@ int main(int argc, char *argv[])
 
     // engine.rootContext()->setContextProperty("processModel", &processModel);
 
-    // QObject::connect(
-    //     &engine,
-    //     &QQmlApplicationEngine::objectCreationFailed,
-    //     &app,
-    //     []() { QCoreApplication::exit(-1); },
-    //     Qt::QueuedConnection);
-    // engine.loadFromModule("MyWindownApp", "Main");
+    engine.rootContext()->setContextProperty("SystemStatsVM", systemStatsViewModel);
+
+    QObject::connect(
+        &engine,
+        &QQmlApplicationEngine::objectCreationFailed,
+        &app,
+        []() { QCoreApplication::exit(-1); },
+        Qt::QueuedConnection);
+    engine.loadFromModule("MyWindownApp", "Main");
 
     systemMonitor->startMonitoring();
 

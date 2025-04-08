@@ -174,8 +174,8 @@ void SystemMonitor::setDataProcessor(DataProcessor* processor)
 
 void SystemMonitor::onDataReceived(const QByteArray &rawData)
 {
-    qDebug() << "[SystemMonitor] Raw data from socket:";
-    qDebug().noquote() << QString::fromUtf8(rawData);
+    // qDebug() << "[SystemMonitor] Raw data from socket:";
+    // qDebug().noquote() << QString::fromUtf8(rawData);
 
     if(!m_dataProcessor) return;
     if(!m_dataProcessor->parseJsonData(rawData)){

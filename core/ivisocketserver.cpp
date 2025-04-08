@@ -1,6 +1,9 @@
 #include "ivisocketserver.h"
 #include <QDebug>
 #include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonArray>
+#include <QTimer>
 
 
 IviSocketServer::IviSocketServer(QObject *parent)
@@ -71,18 +74,9 @@ void IviSocketServer::sendData(const QByteArray &data)
         emit sendFailed("Client is not connected.");
         return;
     }
-    m_clientSocket->write(data);
-    m_clientSocket->flush();
+    qDebug()<<"Sending comman to linux: "<< data;
 
-    // qint64 bytesWritten = m_clientSocket->write(data);
-    // if (bytesWritten == -1) {
-    //     emit sendFailed("Failed to write to socket: " + m_clientSocket->errorString());
-    //     return;
-    // }
-
-    // if (forceFlush && !m_clientSocket->flush()) {
-    //     emit sendFailed("Failed to flush data to socket.");
-    // }
+    m_clientSocket->write(data + "\n");
 }
 
 void IviSocketServer::printRawData(const QByteArray &data)
@@ -101,6 +95,22 @@ void IviSocketServer::onNewConnection()
     connect(m_clientSocket, &QTcpSocket::disconnected, this, &IviSocketServer::onDisconnected);
     qDebug() << "Client connected from" << m_clientSocket->peerAddress().toString();
     emit clientConnected();
+    // Gửi lệnh "kill" sau 10 giây
+    QTimer::singleShot(4000, this, [this](){
+        qDebug()<<"=== Kill proesses ===";
+        QJsonObject obj;
+        obj["type"] = "PNames";
+
+        QJsonArray pnameList;
+        pnameList << "brave";
+        obj["PNames"] = pnameList;
+
+        QJsonDocument doc(obj);
+        QByteArray data = doc.toJson(QJsonDocument::Compact);
+
+        sendData(data);
+    });
+
 }
 
 void IviSocketServer::onReadyRead()
@@ -113,7 +123,7 @@ void IviSocketServer::onReadyRead()
         emit dataReceived(m_buffer);
         m_buffer.clear();
     } else {
-        qDebug() << "Invalid JSON:" << error.errorString();
+        qDebug() << "Invalid JSON 162:" << error.errorString();
         return;
     }
 }
