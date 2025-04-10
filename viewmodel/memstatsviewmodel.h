@@ -16,13 +16,15 @@ class MemStatsViewModel : public QObject
 public:
     explicit MemStatsViewModel(QObject *parent = nullptr);
     QList<QAbstractSeries*> series() const;
-    // QList<QObject*> series() const;
     void updateFromMem(const SystemMEM& memData);
 
     // QString totalRAM() const;
     // QString totalSWAP() const;
     // QString cacheSize() const;
 
+    Q_INVOKABLE QPointF getLatestPoint(int index) const;
+    Q_INVOKABLE QPointF getLatestRamPoint() const;
+    Q_INVOKABLE QPointF getLatestSwapPoint() const;
     void debugPrintSeries() const;
 
 signals:
@@ -32,7 +34,6 @@ private:
     QLineSeries* m_ramSeries = nullptr;
     QLineSeries* m_swapSeries = nullptr;
     QList<QAbstractSeries*> m_series;
-    // QList<QObject*> m_series;
     qint64 m_time = 0;
     // QString m_totalRAM;
     // QString m_totalSWAP;

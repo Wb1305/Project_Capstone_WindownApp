@@ -17,7 +17,7 @@ Window {
     id: mainWindow
 
     width: 900
-    height: 700
+    height: 650
     visible: true
     title: qsTr("IVI System Monitor")
 
@@ -32,14 +32,11 @@ Window {
 
     StackLayout {
         id: stackLayout
-        // Layout.fillWidth: true
-        // // Layout.fillHeight: true
-        // Layout.topMargin: 10
-        // currentIndex: navigationBar.currentIndex
         anchors.top: navigationBar.bottom
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
+
         currentIndex: navigationBar.currentIndex
 
         ProcessesListView {
@@ -55,6 +52,7 @@ Window {
             Layout.fillWidth: true
             Layout.fillHeight: true
             performModel: SystemStatsVM
+            setHeight: parent.height * 0.45
         }
 
         // TestCpuLineChart{
@@ -63,6 +61,7 @@ Window {
         //     Layout.fillHeight: true
         // }
     }
+
 
 
 

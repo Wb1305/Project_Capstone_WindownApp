@@ -59,6 +59,29 @@ void MemStatsViewModel::updateFromMem(const SystemMEM &memData)
     // debugPrintSeries();
 }
 
+QPointF MemStatsViewModel::getLatestPoint(int index) const
+{
+    if (index >= 0 && index < m_series.size()) {
+        auto* series = qobject_cast<QLineSeries*>(m_series[index]);
+        if (series) {
+            const auto& points = series->points();
+            if (!points.isEmpty())
+                return points.constLast();
+        }
+    }
+    return {};
+}
+
+QPointF MemStatsViewModel::getLatestRamPoint() const
+{
+    return getLatestPoint(0); // mem index 0
+}
+
+QPointF MemStatsViewModel::getLatestSwapPoint() const
+{
+    return getLatestPoint(1); // swap index 1
+}
+
 void MemStatsViewModel::debugPrintSeries() const
 {
     qDebug()<<"---Print MEM Series---";

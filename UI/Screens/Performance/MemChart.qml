@@ -5,48 +5,38 @@ pragma ComponentBehavior: Bound
 
 ChartView {
     id: memChart
-    required property var seriesModel
-    // anchors.fill: parent
+    required property var seriesMemModel
+    property alias xAxis: xAxis
+    property alias yAxis: yAxis
+    property int maxSeconds: 60
+
     antialiasing: true
-    theme: ChartView.ChartThemeDark
+    // theme: ChartView.ChartThemeDark
     legend.visible: true
-    backgroundColor: 'blue'
+    legend.alignment: Qt.AlignBottom
+
 
     ValueAxis {
-        id: xMemAxis
+        id: xAxis
         min: 0
-        max: 60
-        titleText: "Time (s)"
+        max: memChart.maxSeconds
+        tickCount: 7
+        labelFormat: "%d secs"
     }
 
     ValueAxis {
-        id: yMemAxis
+        id: yAxis
         min: 0
         max: 100
-        titleText: "Memory (%)"
+        tickCount: 6
+        labelFormat: "%d %%"
     }
 
-    // Gắn các series trực tiếp từ ViewModel
-    // Component.onCompleted: {
-    //     for (var i = 0; i < memChart.seriesModel.length; ++i) {
-    //         var s = seriesModel[i]
-    //         s.axisX = xAxis
-    //         s.axisY = yAxis
-    //         cpuChart.addSeries(s)
-    //     }
-    // }
-
-    Repeater {
-        model: memChart.seriesModel
-        delegate: Item{
-            LineSeries {
-                // property var modelData
-                axisX: xMemAxis
-                axisY: yMemAxis
-                // name: modelData.name
-                name: "MEM"
-                useOpenGL: true
-            }
-        }
+    // Tạo LineSeries mem (ram - swap)
+    ComponentChartUpdater{
+        chartView: memChart
+        viewModel: memChart.seriesMemModel.mem
+        maxSeconds: memChart.maxSeconds
     }
+
 }

@@ -36,11 +36,11 @@ qt_add_qml_module(appMyWindownApp
     VERSION 1.0
     QML_FILES
         Main.qml
-        QML_FILES UI/Screens/Processes/ProcessView.qml
+        QML_FILES
         QML_FILES UI/Components/NavigationBar.qml
         QML_FILES UI/Screens/Performance/PerformanceView.qml
-        QML_FILES UI/Screens/Processes/ProcessRow.qml
-        QML_FILES UI/Screens/Processes/ProcessHeader.qml
+        QML_FILES
+        QML_FILES
         SOURCES BE/Processes/updateprocessesui.h BE/Processes/updateprocessesui.cpp
         QML_FILES
         QML_FILES UI/Screens/ProcessesListView/ProcessesListView.qml
@@ -70,6 +70,7 @@ qt_add_qml_module(appMyWindownApp
         QML_FILES UI/Screens/Performance/MemChart.qml
         QML_FILES
         QML_FILES UI/Screens/Performance/TestCpuLineChart.qml
+        QML_FILES UI/Screens/Performance/ComponentChartUpdater.qml
         # QML_FILES UI/Screens/Processes/ProcessView.qml
         # QML_FILES UI/Screens/ResourcesView.qml
         # QML_FILES UI/Screens/HistoryView.qml

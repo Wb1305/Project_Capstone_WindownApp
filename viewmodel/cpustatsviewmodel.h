@@ -19,7 +19,7 @@ public:
     void debugPrintSeries() const;
 
     Q_INVOKABLE QList<QPointF> getPointsForCore(int index) const;
-    Q_INVOKABLE QPointF getLatestPointForCore(int index) const;
+    Q_INVOKABLE QPointF getLatestPoint(int index) const;
 
 signals:
     void seriesChanged();

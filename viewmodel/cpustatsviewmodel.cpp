@@ -69,7 +69,7 @@ QList<QPointF> CpuStatsViewModel::getPointsForCore(int index) const
     return {};
 }
 
-QPointF CpuStatsViewModel::getLatestPointForCore(int index) const
+QPointF CpuStatsViewModel::getLatestPoint(int index) const
 {
     if (index >= 0 && index < m_series.size()) {
         auto* series = qobject_cast<QLineSeries*>(m_series[index]);
