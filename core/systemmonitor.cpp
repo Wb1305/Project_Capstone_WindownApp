@@ -1,5 +1,6 @@
 #include "systemmonitor.h"
 #include <QRandomGenerator>
+#include <QJsonDocument>
 #include <QDebug>
 
 // SystemMonitor::SystemMonitor() {}
@@ -52,78 +53,64 @@ QVector<ProcessInfo> SystemMonitor::getCurrentProcesses() const
     return m_dataProcessor ? m_dataProcessor->processList() : QList<ProcessInfo>{};
 }
 
-//fake data
-void SystemMonitor::generateFakeData()
+//generate fake data
+QByteArray SystemMonitor::generateFakeData()
 {
-    SystemStats systemStats;
-    systemStats.setTimestamp(QDateTime::currentDateTime());
+    QJsonObject root;
 
-    // Tạo dữ liệu CPU
-    CpuGeneral generalCpu;
-    generalCpu.setUtilization(QRandomGenerator::global()->bounded(5,60));
-    generalCpu.setTemperature(QRandomGenerator::global()->bounded(40,75));
-    generalCpu.setFrequencyCurrent(2.2);
-    generalCpu.setFrequencypercent(2.6);
+    // Timestamp
+    root["timestamp"] = QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss");
 
+    // === SystemStats ===
+    QJsonObject systemStats;
 
-    QList<CpuCore> coreList;
+    // GeneralCPU
+    QJsonObject generalCpu;
+    generalCpu["CPUUtilization"] = QRandomGenerator::global()->bounded(10, 80);
+    generalCpu["CPUTemperature"] = QRandomGenerator::global()->bounded(45, 75);
+    generalCpu["CPUFrequency"] = 2200.0;
+    generalCpu["CPUFrequencyPercent"] = 65.0;
+    systemStats["GeneralCPU"] = generalCpu;
+
+    // coresCPU
+    QJsonObject coresCpu;
     for (int i = 0; i < 8; ++i) {
-        CpuCore core(i+1,
-                     QRandomGenerator::global()->bounded(1, 60),
-                     2.0,
-                     QRandomGenerator::global()->bounded(40, 70));
-        coreList.append(core);
+        QJsonObject core;
+        core["CPUUtilization"] = QRandomGenerator::global()->bounded(5, 70);
+        core["CPUFrequency"] = 2200.0 + QRandomGenerator::global()->bounded(100);
+        core["CPUTemperature"] = QRandomGenerator::global()->bounded(40, 75);
+        coresCpu[QString::number(i)] = core;
     }
+    systemStats["coresCPU"] = coresCpu;
 
-    SystemCPU cpu;
-    cpu.setGeneral(generalCpu);
-    cpu.setCores(coreList);
-    systemStats.setCpuStats(cpu);
+    // MEM
+    QJsonObject mem;
+    mem["RAM"] = 16000.0;
+    mem["SWAP"] = 2000.0;
+    mem["RAMPercent"] = QRandomGenerator::global()->bounded(30, 90);
+    mem["SWAPPercent"] = QRandomGenerator::global()->bounded(5, 40);
+    systemStats["MEM"] = mem;
 
-    // Tạo dữ liệu RAM
-    SystemMEM mem(16.0, 2.0,
-                  QRandomGenerator::global()->bounded(20, 70),
-                  QRandomGenerator::global()->bounded(0, 20));
-    systemStats.setMemStats(mem);
+    root["SystemStats"] = systemStats;
 
-    // Tạo danh sách tiến trình giả
-    QList<ProcessInfo> processes;
+    // === ProcessesStats ===
+    QJsonObject processes;
     for (int i = 0; i < 10; ++i) {
-        ProcessInfo proc(
-            1000 + i,
-            QString("App%1").arg(i),
-            "user",
-            QDateTime::currentDateTime(),
-            QRandomGenerator::global()->bounded(0, 30),
-            QRandomGenerator::global()->bounded(0, 40),
-            QRandomGenerator::global()->bounded(0, 300)
-            );
-        processes.append(proc);
+        QJsonObject proc;
+        proc["PID"] = 1000 + i;
+        proc["User"] = "user";
+        proc["PName"] = QString("App_%1").arg(i+1);
+        proc["PCPUUsagePercent"] = QRandomGenerator::global()->bounded(0, 30);
+        proc["PMEMUsageMB"] = QRandomGenerator::global()->bounded(50, 500);
+        proc["PMEMUsagePercent"] = QRandomGenerator::global()->bounded(1, 25);
+
+        processes[QString::number(1000 + i)] = proc;
     }
+    root["ProcessesStats"] = processes;
 
-    // Lưu và phát signal
-    m_systemStats = systemStats;
-    m_processList = processes;
-    // emit systemUpdated(stats, processes);
-
-    // In SystemStats
-    qDebug() << "===== Fake System Stats =====";
-    qDebug() << "Time:" << systemStats.timestamp().toString("yyyy-MM-dd hh:mm:ss");
-    qDebug() << "CPU Utilization:" << systemStats.cpuStats().general().utilization() << "%";
-    qDebug() << "CPU Temp:" << systemStats.cpuStats().general().temperature() << "°C";
-    qDebug() << "RAM Used:" << systemStats.memStats().maxRamSystem() << "%";
-    qDebug() << "Swap Used:" << systemStats.memStats().maxRamSystem() << "GB";
-
-    // In danh sách tiến trình
-    qDebug() << "----- Process List -----";
-    for (const auto& proc : processes) {
-        qDebug().noquote() << QString("%1 (PID: %2) | User: %3 | CPU: %4% | MEM: %5%")
-        .arg(proc.name())
-            .arg(proc.pid())
-            .arg(proc.user())
-            .arg(proc.cpuUsagePercent(), 0, 'f', 1)
-            .arg(proc.memUsagePercent(), 0, 'f', 1);
-    }
+    // Convert to QByteArray
+    QJsonDocument doc(root);
+    return doc.toJson(QJsonDocument::Compact);
 }
 
 void SystemMonitor::printParsedData(const SystemStats &systemStats, const QVector<ProcessInfo> &processes)
@@ -164,6 +151,11 @@ void SystemMonitor::printParsedData(const SystemStats &systemStats, const QVecto
     }
 }
 
+void SystemMonitor::feedFakeData(const QByteArray &fakeData)
+{
+    onDataReceived(fakeData);
+}
+
 void SystemMonitor::setDataProcessor(DataProcessor* processor)
 {
     m_dataProcessor = processor;
@@ -182,5 +174,5 @@ void SystemMonitor::onDataReceived(const QByteArray &rawData)
         qWarning() << "[SystemMonitor] Failed to parse data";
     }
 
-    printParsedData(m_dataProcessor->systemStats(), m_dataProcessor->processList());
+    // printParsedData(m_dataProcessor->systemStats(), m_dataProcessor->processList());
 }

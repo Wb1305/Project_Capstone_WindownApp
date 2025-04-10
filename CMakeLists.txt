@@ -67,6 +67,9 @@ qt_add_qml_module(appMyWindownApp
         SOURCES core/configmanager.h core/configmanager.cpp
         SOURCES tests/test_SystemMonitor.cpp
         QML_FILES UI/Screens/Performance/CpuChart.qml
+        QML_FILES UI/Screens/Performance/MemChart.qml
+        QML_FILES
+        QML_FILES UI/Screens/Performance/TestCpuLineChart.qml
         # QML_FILES UI/Screens/Processes/ProcessView.qml
         # QML_FILES UI/Screens/ResourcesView.qml
         # QML_FILES UI/Screens/HistoryView.qml

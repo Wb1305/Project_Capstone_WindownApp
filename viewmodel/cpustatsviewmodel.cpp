@@ -1,5 +1,6 @@
 #include "cpustatsviewmodel.h"
 #include <QLineSeries>
+#include <QDebug>
 
 CpuStatsViewModel::CpuStatsViewModel(QObject *parent)
     : QObject{parent}
@@ -19,7 +20,7 @@ void CpuStatsViewModel::updateFromCpu(const SystemCPU &cpuData)
             series->setName(QString("CPU%1").arg(i+1));
             m_series.append(series);
         }
-        emit seriesChanged(); // Để QML gán lại series
+        // emit seriesChanged(); // Để QML gán lại series
     }
     for (int i = 0; i < cpuData.cores().size() && i < m_series.size(); ++i) {
         auto* series = qobject_cast<QLineSeries*>(m_series[i]);
@@ -34,5 +35,49 @@ void CpuStatsViewModel::updateFromCpu(const SystemCPU &cpuData)
     }
 
     ++m_time;
-    // emit seriesChanged();
+
+    emit timeChanged();
+    emit seriesChanged();
+
+    // debugPrintSeries();
+}
+
+int CpuStatsViewModel::time() const
+{
+    return m_time;
+}
+
+void CpuStatsViewModel::debugPrintSeries() const
+{
+    qDebug()<<"---Print CPU Series---";
+    for (int i = 0; i < m_series.size(); ++i) {
+        auto* series = qobject_cast<QLineSeries*>(m_series[i]);
+        if (!series) continue;
+        qDebug() << "Series" << series->name() << ":";
+        for (const QPointF& point : series->points()) {
+            qDebug() << "  (" << point.x() << "," << point.y() << ")";
+        }
+    }
+}
+
+QList<QPointF> CpuStatsViewModel::getPointsForCore(int index) const
+{
+    if (index >= 0 && index < m_series.size()) {
+        auto* series = qobject_cast<QLineSeries*>(m_series[index]);
+        if (series) return series->points();
+    }
+    return {};
+}
+
+QPointF CpuStatsViewModel::getLatestPointForCore(int index) const
+{
+    if (index >= 0 && index < m_series.size()) {
+        auto* series = qobject_cast<QLineSeries*>(m_series[index]);
+        if (series) {
+            const auto& points = series->points();
+            if (!points.isEmpty())
+                return points.constLast();
+        }
+    }
+    return {};
 }

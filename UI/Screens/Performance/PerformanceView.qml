@@ -1,25 +1,60 @@
 import QtQuick
 // import QtQuick.Controls
-import QtCharts
-Rectangle {
-    width: 600
-    height: 300
-    color: "#1e1e1e"
-    radius: 12
-    border.color: "#4a4a4a"
-    border.width: 1
-    ChartView {
-        title: "Biểu đồ Đường"
-        anchors.fill: parent
-        antialiasing: true
+import QtQuick.Layouts
+// import QtCharts
+pragma ComponentBehavior: Bound
 
-        LineSeries {
-            name: "Dữ liệu"
-            XYPoint { x: 0; y: 0 }
-            XYPoint { x: 1; y: 2 }
-            XYPoint { x: 2; y: 3 }
-            XYPoint { x: 3; y: 2.5 }
-            XYPoint { x: 4; y: 4 }
+Rectangle {
+    id: perfView
+    required property var performModel
+    // Layout.preferredWidth: 900
+    // Layout.preferredHeight: 700
+
+    ColumnLayout{
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+        // Layout.alignment: Qt.AlignHCenter
+        spacing: 10
+        Text { text: "CPU Usage"; font.pixelSize: 18; color: "black"; font.bold: true }
+
+        CpuChart {
+            // property var seriesModel
+            Layout.preferredWidth: 800
+            Layout.preferredHeight: 400
+            // anchors.fill: parent
+            seriesCpuModel: perfView.performModel
         }
+
+        Text { text: "Memory Usage"; font.pixelSize: 18; color: "black"; font.bold: true }
+        // Rectangle{
+        //     Layout.fillWidth: true
+        //     Layout.preferredWidth: 800
+        //     Layout.preferredHeight: 250
+        //     Layout.alignment: Qt.AlignVCenter
+        //     color:"lightgreen"
+        //     MemChart {
+        //         Layout.preferredWidth: 800
+        //         Layout.preferredHeight: parent.height
+        //         seriesModel: perfView.systemStatsVM.mem.series
+        //     }
+        // }
     }
+
+
+
+
+    // Connections {
+    //     target: perfView.performModel.cpu
+    //     function onSeriesChanged() {
+    //         console.log("Series length = ", perfView.performModel.cpu.series.length);
+    //         console.log("[Performance] Series updated in QML");
+
+    //         for (let i = 0; i < perfView.performModel.cpu.series.length; ++i) {
+    //             let s = perfView.performModel.cpu.series[i];
+    //             console.log("Series:", s.name);
+    //             let pt = perfView.performModel.cpu.getLatestPointForCore(i);
+    //             console.log("New Point: x =", pt.x, ", y =", pt.y);
+    //         }
+    //     }
+    // }
 }

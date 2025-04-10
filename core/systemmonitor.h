@@ -22,8 +22,12 @@ public:
     QVector<ProcessInfo> getCurrentProcesses() const override;
 
     void setDataProcessor(DataProcessor* processor);
-    void generateFakeData();    
+    //tạo data giả lập
+    QByteArray generateFakeData();
+    //in data nhận được khi đã xử lý
     void printParsedData(const SystemStats& systemStats, const QVector<ProcessInfo>& processes);
+    // cung cấp data giả
+    void feedFakeData(const QByteArray& fakeData);
 
 signals:
     void systemUpdated(const SystemStats& systemStats, const QVector<ProcessInfo>& processes);

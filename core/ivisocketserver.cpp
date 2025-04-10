@@ -96,20 +96,20 @@ void IviSocketServer::onNewConnection()
     qDebug() << "Client connected from" << m_clientSocket->peerAddress().toString();
     emit clientConnected();
     // Gửi lệnh "kill" sau 10 giây
-    QTimer::singleShot(4000, this, [this](){
-        qDebug()<<"=== Kill proesses ===";
-        QJsonObject obj;
-        obj["type"] = "PNames";
+    // QTimer::singleShot(4000, this, [this](){
+    //     qDebug()<<"=== Kill proesses ===";
+    //     QJsonObject obj;
+    //     obj["type"] = "PNames";
 
-        QJsonArray pnameList;
-        pnameList << "brave";
-        obj["PNames"] = pnameList;
+    //     QJsonArray pnameList;
+    //     pnameList << "brave";
+    //     obj["PNames"] = pnameList;
 
-        QJsonDocument doc(obj);
-        QByteArray data = doc.toJson(QJsonDocument::Compact);
+    //     QJsonDocument doc(obj);
+    //     QByteArray data = doc.toJson(QJsonDocument::Compact);
 
-        sendData(data);
-    });
+    //     sendData(data);
+    // });
 
 }
 
@@ -123,7 +123,7 @@ void IviSocketServer::onReadyRead()
         emit dataReceived(m_buffer);
         m_buffer.clear();
     } else {
-        qDebug() << "Invalid JSON 162:" << error.errorString();
+        qDebug() << "[IviSocketServer]Invalid JSON:" << error.errorString();
         return;
     }
 }

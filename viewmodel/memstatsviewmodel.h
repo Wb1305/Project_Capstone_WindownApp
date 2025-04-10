@@ -23,6 +23,8 @@ public:
     // QString totalSWAP() const;
     // QString cacheSize() const;
 
+    void debugPrintSeries() const;
+
 signals:
     void seriesChanged();
     void infoChanged();

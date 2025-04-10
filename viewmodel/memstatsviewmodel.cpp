@@ -22,14 +22,14 @@ void MemStatsViewModel::updateFromMem(const SystemMEM &memData)
         m_ramSeries = new QLineSeries(this);
         m_ramSeries->setName("RAM");
         m_series.append(m_ramSeries);
-        emit seriesChanged();
+        // emit seriesChanged();
     }
     // Khởi tạo swap series
     if(!m_swapSeries){
         m_swapSeries = new QLineSeries(this);
         m_swapSeries->setName("SWAP");
         m_series.append(m_swapSeries);
-        emit seriesChanged();
+        // emit seriesChanged();
     }
     // Append dữ liệu nếu series đã có
     if (m_ramSeries) {
@@ -54,6 +54,27 @@ void MemStatsViewModel::updateFromMem(const SystemMEM &memData)
     ++m_time;
     // emit timeChanged();  // nếu bạn bind trục X
     // emit infoChanged();  // cập nhật text hiển thị
+    emit seriesChanged();
+
+    // debugPrintSeries();
+}
+
+void MemStatsViewModel::debugPrintSeries() const
+{
+    qDebug()<<"---Print MEM Series---";
+    if (m_ramSeries) {
+        qDebug() << "[RAM Series] Points:" << m_ramSeries->count();
+        for (const QPointF& point : m_ramSeries->points()) {
+            qDebug() << "  (x =" << point.x() << ", y =" << point.y() << ")";
+        }
+    }
+
+    if (m_swapSeries) {
+        qDebug() << "[SWAP Series] Points:" << m_swapSeries->count();
+        for (const QPointF& point : m_swapSeries->points()) {
+            qDebug() << "  (x =" << point.x() << ", y =" << point.y() << ")";
+        }
+    }
 }
 
 // QString MemStatsViewModel::totalRAM() const { return m_totalRAM; }
