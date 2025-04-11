@@ -32,6 +32,12 @@ ChartView {
         labelFormat: "%d %%"
     }
 
+    // LineSeries{
+    //     name: "MEM"
+    //     axisX: xAxis
+    //     axisY: yAxis
+    // }
+
     // Tạo LineSeries mem (ram - swap)
     ComponentChartUpdater{
         chartView: memChart

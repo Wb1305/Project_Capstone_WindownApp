@@ -1,23 +1,18 @@
 import QtQuick
 
 QtObject {
-    function getColumnWidth(column) {
-        switch(column) {
-        case 0: return 350;
-        case 1: return 100;
-        case 2: return 100;
-        case 3: return 100;
-        case 4: return 100;
-        case 5: return 100;
-        default: return 100;
-        }
+    required property int columnCount
+    property int firstColumnWidth: 350
+    property int otherColumnWidth: 100
+
+    function getColumnWidth(index) {
+        if (index === 0)
+            return firstColumnWidth;
+        else
+            return otherColumnWidth;
     }
 
     function getTotalColumnWidth() {
-        let total = 0;
-        for (let i = 0; i <= 5; i++) {
-            total += getColumnWidth(i);
-        }
-        return total;
+        return firstColumnWidth + (columnCount - 1) * otherColumnWidth;
     }
 }

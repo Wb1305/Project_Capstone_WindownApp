@@ -41,7 +41,7 @@ qt_add_qml_module(appMyWindownApp
         QML_FILES UI/Screens/Performance/PerformanceView.qml
         QML_FILES
         QML_FILES
-        SOURCES BE/Processes/updateprocessesui.h BE/Processes/updateprocessesui.cpp
+        SOURCES
         QML_FILES
         QML_FILES UI/Screens/ProcessesListView/ProcessesListView.qml
         QML_FILES UI/Screens/ProcessesListView/HeaderView.qml
@@ -71,6 +71,9 @@ qt_add_qml_module(appMyWindownApp
         QML_FILES
         QML_FILES UI/Screens/Performance/TestCpuLineChart.qml
         QML_FILES UI/Screens/Performance/ComponentChartUpdater.qml
+        SOURCES
+        SOURCES viewmodel/processlistviewmodel.h viewmodel/processlistviewmodel.cpp
+        QML_FILES
         # QML_FILES UI/Screens/Processes/ProcessView.qml
         # QML_FILES UI/Screens/ResourcesView.qml
         # QML_FILES UI/Screens/HistoryView.qml

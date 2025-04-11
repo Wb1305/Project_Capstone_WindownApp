@@ -16,7 +16,7 @@ pragma ComponentBehavior: Bound
 Window {
     id: mainWindow
 
-    width: 900
+    width: 950
     height: 650
     visible: true
     title: qsTr("IVI System Monitor")
@@ -43,8 +43,8 @@ Window {
             id: processesListView
             Layout.fillWidth: true
             Layout.fillHeight: true
-            // model: mainWindow.processModel
-            model: ProcessModel
+            procModel: ProcessListVM
+            setHeight: parent.height
         }
 
         PerformanceView {

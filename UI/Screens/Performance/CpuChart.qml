@@ -33,6 +33,12 @@ ChartView {
         tickCount: 6
     }
 
+    // LineSeries{
+    //     name: "CPU"
+    //     axisX: xAxis
+    //     axisY: yAxis
+    // }
+
     // Tạo LineSeries động theo số core
     ComponentChartUpdater{
         chartView: cpuChart

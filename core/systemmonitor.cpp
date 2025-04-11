@@ -95,10 +95,10 @@ QByteArray SystemMonitor::generateFakeData()
 
     // === ProcessesStats ===
     QJsonObject processes;
-    for (int i = 0; i < 10; ++i) {
+    for (int i = 0; i < 100; ++i) {
         QJsonObject proc;
         proc["PID"] = 1000 + i;
-        proc["User"] = "user";
+        proc["User"] = "user-name";
         proc["PName"] = QString("App_%1").arg(i+1);
         proc["PCPUUsagePercent"] = QRandomGenerator::global()->bounded(0, 30);
         proc["PMEMUsageMB"] = QRandomGenerator::global()->bounded(50, 500);
