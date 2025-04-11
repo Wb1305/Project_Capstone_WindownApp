@@ -74,6 +74,7 @@ qt_add_qml_module(appMyWindownApp
         SOURCES
         SOURCES viewmodel/processlistviewmodel.h viewmodel/processlistviewmodel.cpp
         QML_FILES
+        QML_FILES UI/Screens/ProcessesListView/ColorUtils.qml
         # QML_FILES UI/Screens/Processes/ProcessView.qml
         # QML_FILES UI/Screens/ResourcesView.qml
         # QML_FILES UI/Screens/HistoryView.qml

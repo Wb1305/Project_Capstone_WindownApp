@@ -1,4 +1,5 @@
 #include "processlistviewmodel.h"
+#include <QDebug>
 
 ProcessListViewModel::ProcessListViewModel(QObject *parent)
     : QAbstractTableModel{parent}
@@ -62,8 +63,8 @@ void ProcessListViewModel::bindToMonitor(SystemMonitor *monitor)
 {
     if(!monitor) return;
     QObject::connect(monitor, &SystemMonitor::systemUpdated,
-                     this, [this](const SystemStats&, const QVector<ProcessInfo>& listProcess){
-                        updateList(listProcess);
+                     this, [this](const SystemStats& systemStats, const QVector<ProcessInfo>& listProcess){
+                        updateList(systemStats, listProcess);
                      });
 }
 
@@ -89,17 +90,37 @@ QString ProcessListViewModel::roleNameAt(int index) const
     if (index < 0 || index >= m_roleOrder.size())
         return QString();
     return QString::fromUtf8(roleNames().value(m_roleOrder.at(index)));
-    // auto keys = roleNames().keys();
-    // if (columnIndex < keys.size()) {
-    //     return QString::fromUtf8(roleNames().value(keys[columnIndex]));
-    // }
-    // return QString();
 }
 
-void ProcessListViewModel::updateList(const QVector<ProcessInfo> &newListProcess)
+double ProcessListViewModel::totalCpuUsagePercent() const
+{
+    return m_currentSystemStats.cpuStats().general().utilization();
+}
+
+double ProcessListViewModel::totalRamUsagePercent() const
+{
+    return m_currentSystemStats.memStats().ramUtilization();
+}
+
+void ProcessListViewModel::printtest()
+{
+    qDebug()<<"=== System Usage ===";
+    qDebug()<<"Total CPU: " << totalCpuUsagePercent();
+    qDebug()<<"Total RAM: " << totalRamUsagePercent();
+}
+
+void ProcessListViewModel::updateList(const SystemStats &systempStats, const QVector<ProcessInfo> &newListProcess)
 {
     beginResetModel();
     m_processes = newListProcess;
+
+    if(!qFuzzyCompare(totalCpuUsagePercent(), systempStats.cpuStats().general().utilization()))
+        emit totalCpuUsageChanged();
+
+    if(!qFuzzyCompare(totalRamUsagePercent(), systempStats.memStats().ramUtilization()))
+        emit totalRamUsageChanged();
+
+    m_currentSystemStats = systempStats;
     endResetModel();
 }
 

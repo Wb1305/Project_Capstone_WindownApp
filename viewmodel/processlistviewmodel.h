@@ -12,6 +12,9 @@ class ProcessListViewModel : public QAbstractTableModel
 {
     Q_OBJECT
     Q_PROPERTY(int columnCount READ columnCount CONSTANT)
+    Q_PROPERTY(double totalCpuUsagePercent READ totalCpuUsagePercent NOTIFY totalCpuUsageChanged)
+    Q_PROPERTY(double totalRamUsagePercent READ totalRamUsagePercent NOTIFY totalRamUsageChanged)
+
 public:
     explicit ProcessListViewModel(QObject *parent = nullptr);
 
@@ -36,25 +39,25 @@ public:
     //=== connect to monitor: lay data newprocess
     void bindToMonitor(SystemMonitor* monitor);
 
-    // void addProcess(const ProcessInfo &proc);
-
-    // void clear();
-
-    // Q_INVOKABLE int roleForName(const QString &roleName) const {
-    //     return roleNames().key(roleName.toUtf8(), -1);
-    // }
-
     Q_INVOKABLE QVariant getData(int row, const QString &roleName) const;
     Q_INVOKABLE QString getHeader(int section) const;
     Q_INVOKABLE QString roleNameAt(int index) const;
+    double totalCpuUsagePercent() const;
+    double totalRamUsagePercent() const;
+
+    void printtest();
 
 signals:
+    void totalCpuUsageChanged();
+    void totalRamUsageChanged();
 
 private slots:
-    void updateList(const QVector<ProcessInfo>& newListProcess);
+    // void updateList(const QVector<ProcessInfo>& newListProcess);
+    void updateList(const SystemStats &stats, const QVector<ProcessInfo>& newListProcess);
 
 private:
     QVector<ProcessInfo> m_processes;
+    SystemStats m_currentSystemStats;
     QList<int> m_roleOrder;
 };
 

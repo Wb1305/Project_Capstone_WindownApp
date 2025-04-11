@@ -11,10 +11,13 @@ Rectangle {
         "name": "Name",
         "pid": "PID",
         "user": "User",
-        "cpu": "CPU(%)",
-        "mem": "Ram(%)",
-        "memMB": "Ram(MB)"
+        "cpu": "CPU",
+        "mem": "Ram",
+        "memMB": "Ram"
     }
+
+    property double totalCpuUsage: model.totalCpuUsagePercent
+    property double totalRamUsage: model.totalRamUsagePercent
 
     color: "#e0e0e0"
     height: 40
@@ -32,15 +35,33 @@ Rectangle {
                 required property int index
                 width: headerColumn.columnUtils.getColumnWidth(index)
                 height: headerColumn.height
-                color: "#d0d0d0"
+                color: headerMouseArea.containsMouse ? "#d0e8ff" : "#d0d0d0"
 
                 // tiêu đề Column
                 Text {
-                    // text: headerColumn.model.getHeader(nameCellRow.index)
-                    text: headerColumn.headerMap[headerColumn.model.roleNameAt(nameCellRow.index)] || headerColumn.model.roleNameAt(nameCellRow.index)
                     anchors.centerIn: parent
+                    horizontalAlignment: Text.AlignHCenter
+                    width: parent.width
                     font.bold: true
                     font.pixelSize: 14
+                    text: {
+                        const role = headerColumn.model.roleNameAt(nameCellRow.index);
+                        const label = headerColumn.headerMap[role] || role;
+
+                        // Ví dụ tạm thời - sau này có thể lấy từ ViewModel
+                        let summary = "";
+                        if (role === "cpu") summary = " (" + headerColumn.totalCpuUsage.toFixed(1) + "%)";
+                        else if (role === "mem") summary = " (" + headerColumn.totalRamUsage.toFixed(1)  + "%)";
+                        else if (role === "memMB") summary = " (16 MB)";
+                        return label + summary ;
+                    }
+                }
+
+                MouseArea {
+                    id: headerMouseArea
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    cursorShape: Qt.PointingHandCursor
                 }
 
                 // Viền phải
@@ -53,7 +74,6 @@ Rectangle {
                     }
                     color: "#bbb"
                 }
-
                 // Viền dưới
                 Rectangle {
                     height: 1
@@ -68,40 +88,4 @@ Rectangle {
         }
     }
 }
-
-
-// Rectangle {
-//                 width: columnUtils.getColumnWidth(index)
-//                 height: 60
-//                 color: "#eeeeee"
-//                 border.color: "#ccc"
-
-//                 Column {
-//                     anchors.centerIn: parent
-//                     spacing: 2
-
-//                     // Dòng 1: thông số tổng
-//                     Text {
-//                         font.pixelSize: 14
-//                         text: {
-//                             let role = model.roleNameAt(index);
-//                             if (role === "cpu") return "25%";
-//                             else if (role === "mem") return "37%";
-//                             else return "";
-//                         }
-//                         horizontalAlignment: Text.AlignHCenter
-//                         width: parent.width
-//                     }
-
-//                     // Dòng 2: tên cột
-//                     Text {
-//                         font.pixelSize: 12
-//                         text: headerMap[model.roleNameAt(index)] || model.roleNameAt(index)
-//                         horizontalAlignment: Text.AlignHCenter
-//                         width: parent.width
-//                         font.bold: true
-//                     }
-//                 }
-//             }
-//         }
 

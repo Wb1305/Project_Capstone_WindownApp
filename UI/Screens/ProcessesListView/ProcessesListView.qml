@@ -12,6 +12,7 @@ Rectangle {
     anchors.leftMargin: 30
     required property var procModel
     required property var setHeight
+    property int hoveredRow: -1
     // color: "red"
 
     ColumnUtils {
@@ -44,7 +45,6 @@ Rectangle {
             TableView {
                 id: tableViewData
                 implicitWidth: columnUtils.getTotalColumnWidth()
-                // implicitHeight: parent.height
                 implicitHeight: procTableView.setHeight - headerView.implicitHeight
                 model: procTableView.procModel
 
@@ -55,6 +55,7 @@ Rectangle {
                 delegate: ComponentTable
                 {
                     model: tableViewData.model
+                    tableViewData: procTableView
                 }
 
             }
