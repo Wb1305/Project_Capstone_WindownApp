@@ -16,7 +16,7 @@ pragma ComponentBehavior: Bound
 Window {
     id: mainWindow
 
-    width: 1000
+    width: 1200
     height: 650
     visible: true
     title: qsTr("IVI System Monitor")

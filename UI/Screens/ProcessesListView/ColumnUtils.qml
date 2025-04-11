@@ -3,7 +3,7 @@ import QtQuick
 QtObject {
     required property int columnCount
     property int firstColumnWidth: 350
-    property int otherColumnWidth: 120
+    property int otherColumnWidth: 150
 
     function getColumnWidth(index) {
         if (index === 0)

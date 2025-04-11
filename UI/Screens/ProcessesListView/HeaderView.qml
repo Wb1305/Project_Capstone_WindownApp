@@ -12,8 +12,8 @@ Rectangle {
         "pid": "PID",
         "user": "User",
         "cpu": "CPU",
-        "mem": "Ram",
-        "memMB": "Ram"
+        // "mem": "Ram",
+        "memMB": "Memory"
     }
 
     property double totalCpuUsage: model.totalCpuUsagePercent
@@ -37,23 +37,31 @@ Rectangle {
                 height: headerColumn.height
                 color: headerMouseArea.containsMouse ? "#d0e8ff" : "#d0d0d0"
 
-                // tiêu đề Column
-                Text {
+                Row {
                     anchors.centerIn: parent
-                    horizontalAlignment: Text.AlignHCenter
-                    width: parent.width
-                    font.bold: true
-                    font.pixelSize: 14
-                    text: {
-                        const role = headerColumn.model.roleNameAt(nameCellRow.index);
-                        const label = headerColumn.headerMap[role] || role;
+                    spacing: 5
+                    // Mũi tên ↑ hoặc ↓
+                    Text {
+                        font.pixelSize: 14
+                        color: "#444"
+                        visible: headerColumn.model.currentSortRole === headerColumn.model.roleNameAt(nameCellRow.index)
+                        // visible: true
+                        text: headerColumn.model.sortAscendingStatus ? "▲" : "▼"  // ▲ / ▼
+                    }
 
-                        // Ví dụ tạm thời - sau này có thể lấy từ ViewModel
-                        let summary = "";
-                        if (role === "cpu") summary = " (" + headerColumn.totalCpuUsage.toFixed(1) + "%)";
-                        else if (role === "mem") summary = " (" + headerColumn.totalRamUsage.toFixed(1)  + "%)";
-                        else if (role === "memMB") summary = " (16 MB)";
-                        return label + summary ;
+                    Text {
+                        font.bold: true
+                        font.pixelSize: 14
+                        horizontalAlignment: Text.AlignHCenter
+                        text: {
+                            const role = headerColumn.model.roleNameAt(nameCellRow.index);
+                            const label = headerColumn.headerMap[role] || role;
+
+                            let summary = "";
+                            if (role === "cpu") summary = " (" + headerColumn.totalCpuUsage.toFixed(1) + "%)";
+                            else if (role === "memMB") summary = " (" + headerColumn.totalRamUsage.toFixed(1) + "%)";
+                            return label + summary;
+                        }
                     }
                 }
 
@@ -62,7 +70,15 @@ Rectangle {
                     anchors.fill: parent
                     hoverEnabled: true
                     cursorShape: Qt.PointingHandCursor
+
+                    // click header to sort
+                    onClicked: {
+                        const role = headerColumn.model.roleNameAt(nameCellRow.index)
+                        headerColumn.model.sortBy(role)
+                        console.log("Clicked header:", role)
+                    }
                 }
+
 
                 // Viền phải
                 Rectangle {

@@ -41,7 +41,7 @@ Rectangle {
             if (val === undefined || val === null)
                 return "N/A"
 
-            if (role === "cpu" || role === "mem")
+            if (role === "cpu" /*|| role === "mem"*/)
                 return val + " %"
 
             if (role === "memMB")
@@ -57,11 +57,11 @@ Rectangle {
         anchors.leftMargin: 10
         anchors.rightMargin: 10
         anchors.left: (rectComp.roleName === "name") ? parent.left : undefined
-        anchors.right: (rectComp.roleName === "cpu" || rectComp.roleName === "mem" || rectComp.roleName === "memMB") ? parent.right : undefined
+        anchors.right: (rectComp.roleName === "cpu" || /*rectComp.roleName === "mem" ||*/ rectComp.roleName === "memMB") ? parent.right : undefined
         anchors.centerIn: (rectComp.roleName === "user" || rectComp.roleName === "pid") ? parent : undefined
         // Căn lề thông minh
         horizontalAlignment: {
-            if (rectComp.roleName === "cpu" || rectComp.roleName === "mem" || rectComp.roleName === "memMB")
+            if (rectComp.roleName === "cpu" || /*rectComp.roleName === "mem" ||*/ rectComp.roleName === "memMB")
                 return Text.AlignRight
             if (rectComp.roleName === "name")
                 return Text.AlignLeft
