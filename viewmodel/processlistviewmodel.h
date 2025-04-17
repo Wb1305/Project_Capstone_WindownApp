@@ -14,6 +14,7 @@ class ProcessListViewModel : public QAbstractTableModel
     Q_PROPERTY(int columnCount READ columnCount CONSTANT)
     Q_PROPERTY(double totalCpuUsagePercent READ totalCpuUsagePercent NOTIFY totalCpuUsageChanged)
     Q_PROPERTY(double totalRamUsagePercent READ totalRamUsagePercent NOTIFY totalRamUsageChanged)
+    Q_PROPERTY(double maxRam READ maxRam NOTIFY maxRamChanged)
     Q_PROPERTY(QString currentSortRole READ currentSortRole NOTIFY sortChanged)
     Q_PROPERTY(bool sortAscendingStatus READ sortAscendingStatus NOTIFY sortChanged)
 
@@ -25,7 +26,7 @@ public:
         PidRole,
         UserRole,
         CpuRole,
-        // MemRole,
+        MemRole,
         MemMBRole
         // TimestampRole
     };
@@ -33,6 +34,7 @@ public:
     enum class SortRole {
         None,
         Cpu,
+        Mem,
         MemMB
     };
 
@@ -48,7 +50,6 @@ public:
     //=== connect to monitor: lay data newprocess
     void bindToMonitor(SystemMonitor* monitor);
 
-
     //can get value from QML
     Q_INVOKABLE QVariant getData(int row, const QString &roleName) const;
     Q_INVOKABLE QString getHeader(int section) const;
@@ -60,10 +61,13 @@ public:
     double extractSortValue(const ProcessInfo& proc, SortRole role) const;
     QString currentSortRole() const;
     bool sortAscendingStatus() const;
+    void resetSort();
+    void applySort();
 
     // get value total cpu, ram
     double totalCpuUsagePercent() const;
     double totalRamUsagePercent() const;
+    double maxRam() const;
 
     // print to terminal
     void printtest();
@@ -71,19 +75,23 @@ public:
 signals:
     void totalCpuUsageChanged();
     void totalRamUsageChanged();
+    void maxRamChanged();
     void sortChanged();
 
 private slots:
-    // void updateList(const QVector<ProcessInfo>& newListProcess);
     void updateList(const SystemStats &stats, const QVector<ProcessInfo>& newListProcess);
+    // void updateList(const QVector<ProcessInfo>& newListProcess);
 
 private:
     QVector<ProcessInfo> m_processes;
+    QVector<ProcessInfo> m_originalProcesses;
     SystemStats m_currentSystemStats;
     QList<int> m_roleOrder;
     SortRole m_sortRole = SortRole::None;
     bool m_sortAscending = true;
     QString m_sortRoleName;
+
+    double m_maxRam;
 };
 
 #endif // PROCESSLISTVIEWMODEL_H

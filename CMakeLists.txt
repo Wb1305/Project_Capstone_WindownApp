@@ -75,6 +75,17 @@ qt_add_qml_module(appMyWindownApp
         SOURCES viewmodel/processlistviewmodel.h viewmodel/processlistviewmodel.cpp
         QML_FILES
         QML_FILES UI/Screens/ProcessesListView/ColorUtils.qml
+        QML_FILES UI/Screens/Performance/CustomLegend.qml
+        RESOURCES assets/icon/file.png assets/icon/list.png assets/icon/settings.png assets/icon/speedometer.png
+        RESOURCES assets/icon/history.svg assets/icon/list.svg assets/icon/performance.svg assets/icon/setting.svg
+        QML_FILES UI/Screens/Performance/ComponentTitleBar.qml
+        SOURCES thread/threadmanager.h thread/threadmanager.cpp
+        SOURCES core/overloaddetector.h core/overloaddetector.cpp
+        SOURCES core/IProcessManager.h
+        SOURCES core/processmanager.h core/processmanager.cpp
+        QML_FILES UI/Screens/StressTest/StressTestView.qml
+        QML_FILES
+        QML_FILES UI/Screens/MainPerformance/MainPerformanceView.qml
         # QML_FILES UI/Screens/Processes/ProcessView.qml
         # QML_FILES UI/Screens/ResourcesView.qml
         # QML_FILES UI/Screens/HistoryView.qml

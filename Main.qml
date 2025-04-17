@@ -2,12 +2,10 @@ import QtQuick
 // import QtQuick.Controls
 import QtQuick.Layouts
 // import QtCharts
-// import "./UI"
-// import "./UI/Screens/Processes"
 import "./UI/Screens/ProcessesListView"
 import "./UI/Screens/Performance"
 import "./UI/Components"
-
+import "./UI/Screens/MainPerformance"
 
 pragma ComponentBehavior: Bound
 
@@ -25,8 +23,8 @@ Window {
     NavigationBar{
         id: navigationBar
         width: parent.width
-        height: 40
-        anchors.topMargin: 10
+        height: 50
+        anchors.topMargin: 20
         anchors.bottomMargin: 20
     }
 
@@ -44,7 +42,8 @@ Window {
             Layout.fillWidth: true
             Layout.fillHeight: true
             procModel: ProcessListVM
-            setHeight: parent.height
+            setHeight: mainWindow.height
+            setWidth: mainWindow.width
         }
 
         PerformanceView {
@@ -52,7 +51,8 @@ Window {
             Layout.fillWidth: true
             Layout.fillHeight: true
             performModel: SystemStatsVM
-            setHeight: parent.height * 0.45
+            preferHeight: parent.height * 0.45
+            preferWidth: parent.width
         }
 
         // TestCpuLineChart{
@@ -60,31 +60,15 @@ Window {
         //     Layout.fillWidth: true
         //     Layout.fillHeight: true
         // }
+
+        MainPerformanceView{
+            // id: mainPerform
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            performModel: SystemStatsVM
+            preferHeight: parent.height * 0.45
+            preferWidth: parent.width
+            parentHeight: parent.height
+        }
     }
-
-
-
-
-
-
-    // Connections {
-    //     target: SystemStatsVM.cpu
-    //     function onSeriesChanged() {
-    //         console.log("Series length = ", SystemStatsVM.cpu.series.length);
-    //         console.log("[Main] Series updated in QML");
-
-    //         for (let i = 0; i < SystemStatsVM.cpu.series.length; ++i) {
-    //             let s = SystemStatsVM.cpu.series[i];
-    //             console.log("Series:", s.name);
-    //             // let points = SystemStatsVM.cpu.getPointsForCore(i);
-    //             // for (let i = 0; i < points.length; ++i) {
-    //             //     let pt = points[i];
-    //             //     console.log("Point", i, ": x =", pt.x, ", y =", pt.y);
-    //             // }
-    //             let pt = SystemStatsVM.cpu.getLatestPointForCore(i);
-    //             console.log("New Point: x =", pt.x, ", y =", pt.y);
-    //         }
-    //     }
-    // }
-    // }
 }

@@ -10,22 +10,29 @@ class MemStatsViewModel : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QList<QAbstractSeries*> series READ series NOTIFY seriesChanged)
-    // Q_PROPERTY(QString totalRAM READ totalRAM NOTIFY infoChanged)
-    // Q_PROPERTY(QString totalSWAP READ totalSWAP NOTIFY infoChanged)
-    // Q_PROPERTY(QString cacheSize READ cacheSize NOTIFY infoChanged)
+    Q_PROPERTY(double ramPercent READ ramPercent NOTIFY infoChanged)
+    Q_PROPERTY(double swapPercent READ swapPercent NOTIFY infoChanged)
+    Q_PROPERTY(double totalRam READ totalRam NOTIFY infoChanged)
+    Q_PROPERTY(double totalSwap READ totalSwap NOTIFY infoChanged)
+
 public:
     explicit MemStatsViewModel(QObject *parent = nullptr);
     QList<QAbstractSeries*> series() const;
     void updateFromMem(const SystemMEM& memData);
 
-    // QString totalRAM() const;
-    // QString totalSWAP() const;
-    // QString cacheSize() const;
-
     Q_INVOKABLE QPointF getLatestPoint(int index) const;
     Q_INVOKABLE QPointF getLatestRamPoint() const;
     Q_INVOKABLE QPointF getLatestSwapPoint() const;
     void debugPrintSeries() const;
+
+    double ramPercent() const;
+    double swapPercent() const;
+    double totalRam() const;
+    double totalSwap()const;
+
+    //custom legend
+    QString formatSize(double mb);
+    QString customLegend(QString name, double usagePercent, double usageMB, double totalSys);
 
 signals:
     void seriesChanged();
@@ -35,9 +42,11 @@ private:
     QLineSeries* m_swapSeries = nullptr;
     QList<QAbstractSeries*> m_series;
     qint64 m_time = 0;
-    // QString m_totalRAM;
-    // QString m_totalSWAP;
-    // QString m_cacheSize;
+    double m_ramPercent;
+    double m_swapPercent;
+    double m_totalRam;
+    double m_totalSwap;
+
 };
 
 #endif // MEMSTATSVIEWMODEL_H

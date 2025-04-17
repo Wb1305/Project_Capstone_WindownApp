@@ -19,11 +19,12 @@ int main(int argc, char *argv[])
 
     // Tạo các thành phần backend
     SystemMonitor* systemMonitor = new SystemMonitor;
-    DataProcessor* processor = new DataProcessor;
+
+    // ThreadManager* threadMgr = new ThreadManager();
+    // threadMgr->setup(monitor);
+
     SystemStatsViewModel* systemStatsViewModel = new SystemStatsViewModel;
     ProcessListViewModel* processListViewModel = new ProcessListViewModel;
-
-    systemMonitor->setDataProcessor(processor);
 
 
     // Kết nối: khi Monitor có dữ liệu mới → ViewModel cập nhật
@@ -50,12 +51,8 @@ int main(int argc, char *argv[])
         QByteArray fakeData = systemMonitor->generateFakeData();
         systemMonitor->feedFakeData(fakeData);
     });
-    timer->start(2000);
+    timer->start(1000);
 
-    /*test configmanager*/
-    // ConfigManager config;
-    // QString ip = config.getValue("server/ip").toString();
-    // int port = config.getValue("server/port").toInt();
-    // qDebug()<<"server on: "<<ip<<", "<<port;
+
     return app.exec();
 }

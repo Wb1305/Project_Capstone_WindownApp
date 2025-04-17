@@ -8,9 +8,11 @@ Rectangle {
     required property int column
     required property var model
     required property var tableViewData
+
     property bool isHovered: row === tableViewData.hoveredRow
     property var value: model.getData(row, model.roleNameAt(column))
     property string roleName: model.roleNameAt(column)
+    property var maxRam: model.maxRam
 
     ColorUtils{
         id: colorUtils
@@ -22,7 +24,7 @@ Rectangle {
 
         // Tô màu theo role
         if (roleName === "cpu" || roleName === "mem" || roleName === "memMB") {
-            let maxValue = roleName === "memMB" ? 16384 : 100;
+            let maxValue = roleName === "memMB" ? rectComp.maxRam : 100;
             let ratio = Math.min(Number(value) / maxValue, 1.0);
             let base = Qt.rgba(1, 1, 0.7, 1);         // vàng nhạt
             let highlight = Qt.rgba(1, 0.8, 0, 1);    // vàng đậm
@@ -41,11 +43,12 @@ Rectangle {
             if (val === undefined || val === null)
                 return "N/A"
 
-            if (role === "cpu" /*|| role === "mem"*/)
-                return val + " %"
+            if (role === "cpu" || role === "mem")
+                return Number(val).toFixed(2) + " %"
 
             if (role === "memMB")
-                return Number(val).toLocaleString() + " MB"
+                return Number(val).toFixed(2) + " MB"
+                // return Number(val).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
 
             return val.toString()
         }
@@ -57,11 +60,11 @@ Rectangle {
         anchors.leftMargin: 10
         anchors.rightMargin: 10
         anchors.left: (rectComp.roleName === "name") ? parent.left : undefined
-        anchors.right: (rectComp.roleName === "cpu" || /*rectComp.roleName === "mem" ||*/ rectComp.roleName === "memMB") ? parent.right : undefined
+        anchors.right: (rectComp.roleName === "cpu" || rectComp.roleName === "mem" || rectComp.roleName === "memMB") ? parent.right : undefined
         anchors.centerIn: (rectComp.roleName === "user" || rectComp.roleName === "pid") ? parent : undefined
         // Căn lề thông minh
         horizontalAlignment: {
-            if (rectComp.roleName === "cpu" || /*rectComp.roleName === "mem" ||*/ rectComp.roleName === "memMB")
+            if (rectComp.roleName === "cpu" || rectComp.roleName === "mem" || rectComp.roleName === "memMB")
                 return Text.AlignRight
             if (rectComp.roleName === "name")
                 return Text.AlignLeft

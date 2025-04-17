@@ -28,16 +28,17 @@ bool DataProcessor::parseJsonData(const QByteArray &jsonData)
         qWarning() << "Invalid JSON:" << err.errorString();
         return false;
     }
+
     QJsonObject root = doc.object();
     if(!root.contains("timestamp")){
         qWarning() << "[DataProcessor] Missing timestamp field";
         return false;
     }
 
-
     QDateTime ts = QDateTime::fromString(root["timestamp"].toString(), "yyyy-MM-dd HH:mm:ss");
     m_timestamp = ts;
     m_systemStats.setTimestamp(ts);
+
     // parse system stats
     if (!m_systemStats.fromJson(root)) {
         qWarning() << "[DataProcessor] Failed to parse SystemStats";
@@ -78,7 +79,8 @@ bool DataProcessor::parseJsonData(const QByteArray &jsonData)
         qWarning() << "[DataProcessor] Missing ProcessesStats field";
     }
 
-    emit dataUpdated();
+    // emit dataUpdated();
+    emit parseCompleted();
 
     return true;
 }

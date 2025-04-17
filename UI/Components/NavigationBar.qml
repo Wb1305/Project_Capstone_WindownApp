@@ -1,6 +1,6 @@
 import QtQuick
 import QtQuick.Controls
-import QtQuick.Layouts
+// import QtQuick.Layouts
 
 
 pragma ComponentBehavior: Bound
@@ -9,9 +9,6 @@ pragma ComponentBehavior: Bound
 //=============
 
 Rectangle {
-    // color: "#f5f5f5"
-    // radius: 6
-    // border.color: "#cccccc"
     property alias currentIndex: tabBar.currentIndex
 
     TabBar {
@@ -25,20 +22,40 @@ Rectangle {
             model: ["Processes", "Performance", "History"]
             TabButton {
                 id: tabButton
+                // indicator: null
+                // leftPadding: 0
+                // rightPadding: 0
+                // topPadding: 0
+                // bottomPadding: 0
+
                 required property string modelData
                 required property int index
                 text: modelData
 
-                contentItem: Text {
-                    text: tabButton.modelData
-                    color: "black"
-                    anchors.fill: parent
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                    // anchors.centerIn: parent
-                    font.bold: true
-                    font.pixelSize: 15
+                contentItem: Row {
+                    spacing: 5
+                    anchors.centerIn: parent
+
+                    Image {
+                        source: {
+                            if (tabButton.modelData === "Processes") return "/qt/qml/MyWindownApp/assets/icon/list.svg"
+                            if (tabButton.modelData === "Performance") return "/qt/qml/MyWindownApp/assets/icon/performance.svg"
+                            if (tabButton.modelData === "History") return "/qt/qml/MyWindownApp/assets/icon/history.svg"
+                            return "/qt/qml/MyWindownApp/assets/icon/setting.svg"
+                        }
+                        width: 25
+                        height: 25
+                        fillMode: Image.PreserveAspectFit
+                    }
+
+                    Text {
+                        text: tabButton.modelData
+                        color: "black"
+                        font.bold: true
+                        font.pixelSize: 15
+                    }
                 }
+
                 checkable: true
                 background: Rectangle {
                     radius: 4
@@ -49,39 +66,4 @@ Rectangle {
     }
 }
 
-
-// TabBar {
-//     id: tabBar
-//     // Layout.alignment: Qt.AlignHCenter  //Canh giữa
-//     // Layout.topMargin: 10
-//     // Layout.bottomMargin: 10
-//     // Layout.preferredWidth: parent.width / 3
-//     height: 25
-//     width: parent.width/3
-//     anchors.horizontalCenter: parent.horizontalCenter
-
-//     background: Rectangle { color: "white" }
-
-//     Repeater {
-//         model: ["Processes", "Performance", "History"]
-//         TabButton {
-//             id: tabButton
-//             required property string modelData
-//             required property int index
-//             text: modelData
-
-//             contentItem: Text {
-//                 text: tabButton.text
-//                 color: "black"
-//                 font.bold: true
-//                 anchors.centerIn: parent
-//             }
-
-//             checkable: true
-//             background: Rectangle {
-//                 color: tabBar.currentIndex === tabButton.index ? "lightgray" : "transparent"
-//             }
-//         }
-//     }
-// }
 

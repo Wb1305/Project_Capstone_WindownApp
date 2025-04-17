@@ -18,8 +18,9 @@ public:
     CpuStatsViewModel* cpu() const;
     MemStatsViewModel* mem() const;
 
-    void updateFromStats(const SystemStats& systemStats);
     void bindToMonitor(SystemMonitor* monitor);
+private slots:
+    void updateFromStats(const SystemStats& systemStats);
 private:
     CpuStatsViewModel* m_cpu;
     MemStatsViewModel* m_mem;

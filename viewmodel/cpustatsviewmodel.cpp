@@ -26,7 +26,7 @@ void CpuStatsViewModel::updateFromCpu(const SystemCPU &cpuData)
         auto* series = qobject_cast<QLineSeries*>(m_series[i]);
         if(!series) continue;
         double util = cpuData.cores()[i].utilization();
-        series->append(m_time, util);
+        series->append(m_time, qRound(util));
 
         while(series->count() > 0 && series->at(0).x() < m_time - 60){
             series->remove(0);

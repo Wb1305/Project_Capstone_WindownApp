@@ -14,10 +14,12 @@ public:
     ~IviSocketServer();
 
     void startListening(quint16 port);
-    void startListeningAt(const QHostAddress& address, quint16 port);
+    // void startListeningAt(const QHostAddress& address, quint16 port);
     void stopListening();
     bool isListening() const;
-    void sendData(const QByteArray& data);
+    void sendCommandToLinux(const QByteArray& data);
+    bool isValidJson(const QByteArray& data);
+
     //test data nhận được
     void printRawData(const QByteArray& data);
 
@@ -35,10 +37,10 @@ private slots:
 private:
     QTcpServer* m_server = nullptr;
     QTcpSocket* m_clientSocket = nullptr;
-    QList<QTcpSocket*> m_clientSockets;
+    // QList<QTcpSocket*> m_clientSockets;
     quint16 m_port = 0;
-    QByteArray m_buffer;
     QHostAddress m_hostAddress;
+    // QByteArray m_buffer;
 };
 
 #endif // IVISOCKETSERVER_H

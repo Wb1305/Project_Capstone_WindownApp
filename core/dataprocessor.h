@@ -17,7 +17,8 @@ public:
 
     bool parseJsonData(const QByteArray& jsonData);
 signals:
-    void dataUpdated();
+    // void dataUpdated();
+    void parseCompleted();
 private:
     SystemStats m_systemStats;
     QVector<ProcessInfo> m_processes;

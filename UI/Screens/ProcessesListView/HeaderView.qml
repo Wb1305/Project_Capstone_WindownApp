@@ -12,12 +12,13 @@ Rectangle {
         "pid": "PID",
         "user": "User",
         "cpu": "CPU",
-        // "mem": "Ram",
+        "mem": "Memory",
         "memMB": "Memory"
     }
 
-    property double totalCpuUsage: model.totalCpuUsagePercent
-    property double totalRamUsage: model.totalRamUsagePercent
+    property double totalCpuUsagePercent: model.totalCpuUsagePercent
+    property double totalRamUsagePercent: model.totalRamUsagePercent
+    property double maxRamSystem: model.maxRam / 1000
 
     color: "#e0e0e0"
     height: 40
@@ -39,14 +40,13 @@ Rectangle {
 
                 Row {
                     anchors.centerIn: parent
-                    spacing: 5
+                    spacing: 10
                     // Mũi tên ↑ hoặc ↓
                     Text {
                         font.pixelSize: 14
                         color: "#444"
                         visible: headerColumn.model.currentSortRole === headerColumn.model.roleNameAt(nameCellRow.index)
-                        // visible: true
-                        text: headerColumn.model.sortAscendingStatus ? "▲" : "▼"  // ▲ / ▼
+                        text: headerColumn.model.sortAscendingStatus ? "▲" : "▼"
                     }
 
                     Text {
@@ -58,8 +58,9 @@ Rectangle {
                             const label = headerColumn.headerMap[role] || role;
 
                             let summary = "";
-                            if (role === "cpu") summary = " (" + headerColumn.totalCpuUsage.toFixed(1) + "%)";
-                            else if (role === "memMB") summary = " (" + headerColumn.totalRamUsage.toFixed(1) + "%)";
+                            if (role === "cpu") summary = " (" + headerColumn.totalCpuUsagePercent.toFixed(0) + "%)";
+                            else if (role === "memMB") summary = " (" + headerColumn.maxRamSystem.toFixed(0) + "GB)";
+                            else if (role === "mem") summary = " (" + headerColumn.totalRamUsagePercent.toFixed(0) + "%)";
                             return label + summary;
                         }
                     }
@@ -76,9 +77,9 @@ Rectangle {
                         const role = headerColumn.model.roleNameAt(nameCellRow.index)
                         headerColumn.model.sortBy(role)
                         console.log("Clicked header:", role)
+                        console.log("role:", role, "currentSort:", headerColumn.model.currentSortRole)
                     }
                 }
-
 
                 // Viền phải
                 Rectangle {

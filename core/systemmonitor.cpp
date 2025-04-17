@@ -3,28 +3,31 @@
 #include <QJsonDocument>
 #include <QDebug>
 
-// SystemMonitor::SystemMonitor() {}
-
-// SystemMonitor::SystemMonitor(QObject* parent)
-//     : ISystemMonitor(parent),
-//     m_config(new ConfigManager),
-//     m_tcp(new TcpServer),
-//     m_processor(new DataProcessor),
-//     m_detector(new OverloadDetector)
 
 SystemMonitor::SystemMonitor(QObject *parent)
     : QObject(parent),
     m_iviServer(new IviSocketServer(this)),
-    m_dataProcessor(new DataProcessor(this))
+    m_dataProcessor(new DataProcessor(this)),
+    m_config(new ConfigManager(this))
+    /*m_detector(new OverloadDetector(this)),*/
+    /*m_processManager(new ProcessManager(this))*/
 {
-    connect(m_iviServer, &IviSocketServer::dataReceived, this, &SystemMonitor::onDataReceived);
+    // connect(m_iviServer, &IviSocketServer::dataReceived, this, &SystemMonitor::onDataReceived);
+    bindToDataProcessor(m_dataProcessor); // dùng để test với data fake
 }
 
 void SystemMonitor::startMonitoring()
 {
-    qDebug()<< "Start monitor.";
-    m_iviServer->startListening(8000);
-    // generateFakeData();
+    qDebug() << "[SystemMonitor] Start monitoring...";
+
+    // 1. Connect signal-slot tại đây
+    connect(m_iviServer, &IviSocketServer::dataReceived, this, &SystemMonitor::onDataReceived);
+    // bindToDataProcessor(m_dataProcessor);
+
+    // 2. Bắt đầu lắng nghe
+    quint16 port = m_config->getValue("server/port").toUInt();
+    m_iviServer->startListening(port);
+
 }
 
 void SystemMonitor::stopMonitoring()
@@ -33,24 +36,16 @@ void SystemMonitor::stopMonitoring()
     qDebug()<< "Stop monitor.";
 }
 
-// SystemStats SystemMonitor::getCurrentSystemStats() const
-// {
-//     return m_systemStats;
-// }
-
-// QList<ProcessInfo> SystemMonitor::getCurrentProcesses() const
-// {
-//     return m_processList;
-// }
-
 SystemStats SystemMonitor::getCurrentSystemStats() const
 {
-    return m_dataProcessor ? m_dataProcessor->systemStats() : SystemStats{};
+    // return m_dataProcessor ? m_dataProcessor->systemStats() : SystemStats{};
+    return m_systemStats;
 }
 
 QVector<ProcessInfo> SystemMonitor::getCurrentProcesses() const
 {
-    return m_dataProcessor ? m_dataProcessor->processList() : QList<ProcessInfo>{};
+    // return m_dataProcessor ? m_dataProcessor->processList() : QList<ProcessInfo>{};
+    return m_processList;
 }
 
 //generate fake data
@@ -85,10 +80,12 @@ QByteArray SystemMonitor::generateFakeData()
 
     // MEM
     QJsonObject mem;
-    mem["RAM"] = 16000.0;
-    mem["SWAP"] = 2000.0;
+    mem["MaxRAM"] = 16384,0;
+    mem["MaxSWAP"] = 2048.0;
     mem["RAMPercent"] = QRandomGenerator::global()->bounded(30, 90);
     mem["SWAPPercent"] = QRandomGenerator::global()->bounded(5, 40);
+    mem["RAMUsage"] = QRandomGenerator::global()->bounded(500, 2000);
+    mem["SWAPUsage"] = QRandomGenerator::global()->bounded(100, 1000);
     systemStats["MEM"] = mem;
 
     root["SystemStats"] = systemStats;
@@ -136,8 +133,8 @@ void SystemMonitor::printParsedData(const SystemStats &systemStats, const QVecto
     // MEM
     const SystemMEM& mem = systemStats.memStats();
     qDebug() << "MEM:";
-    qDebug() << "  RAM:" << mem.maxRamSystem() << "MB (" << mem.ramUtilization() << "%)";
-    qDebug() << "  SWAP:" << mem.maxSwapSystem() << "MB (" << mem.swapUtilization() << "%)";
+    qDebug() << "  RAM Usage:" << mem.ramUtilization() << "MB (" << mem.ramPercent() << "%)" << " of "<<mem.maxRamSystem();
+    qDebug() << "  SWAP Usage:" << mem.swapUtilization() << "MB (" << mem.swapPercent() << "%)" << " of "<<mem.maxSwapSystem();
 
     // Processes
     qDebug() << "\nProcesses:";
@@ -156,23 +153,47 @@ void SystemMonitor::feedFakeData(const QByteArray &fakeData)
     onDataReceived(fakeData);
 }
 
-void SystemMonitor::setDataProcessor(DataProcessor* processor)
+void SystemMonitor::bindToDataProcessor(DataProcessor* processor)
 {
     m_dataProcessor = processor;
-    connect(processor, &DataProcessor::dataUpdated, this, [this](){
-        emit systemUpdated(m_dataProcessor->systemStats(), m_dataProcessor->processList());
+    connect(processor, &DataProcessor::parseCompleted, this, [this](){
+
+        m_systemStats = m_dataProcessor->systemStats();
+        m_processList = m_dataProcessor->processList();
+
+        qDebug() << "[SystemMonitor] emit systemUpdated";
+        emit systemUpdated(m_systemStats, m_processList);
+        // emit systemUpdated(m_dataProcessor->systemStats(), m_dataProcessor->processList());
+
+        double cpuCurrent = m_systemStats.cpuStats().general().utilization();
+        double ramCurrent = m_systemStats.memStats().ramUtilization();
+        emit systemUsageChanged(cpuCurrent , ramCurrent);
     });
+}
+
+void SystemMonitor::setOverloadDetector(OverloadDetector *detector)
+{
+    m_detector = detector;
+    connect(this, &SystemMonitor::systemUsageChanged, m_detector, &OverloadDetector::updateUsage);
+    connect(m_detector, &OverloadDetector::overloadDetected, this, &SystemMonitor::onOverloadDetected);
+}
+
+void SystemMonitor::setProcessManager(ProcessManager *procManager)
+{
+    m_processManager = procManager;
 }
 
 void SystemMonitor::onDataReceived(const QByteArray &rawData)
 {
-    // qDebug() << "[SystemMonitor] Raw data from socket:";
-    // qDebug().noquote() << QString::fromUtf8(rawData);
-
     if(!m_dataProcessor) return;
     if(!m_dataProcessor->parseJsonData(rawData)){
         qWarning() << "[SystemMonitor] Failed to parse data";
     }
-
+    // qDebug()<<"raw--data:"<< rawData;
     // printParsedData(m_dataProcessor->systemStats(), m_dataProcessor->processList());
+}
+
+void SystemMonitor::onOverloadDetected()
+{
+    emit processListReady(m_processList);
 }

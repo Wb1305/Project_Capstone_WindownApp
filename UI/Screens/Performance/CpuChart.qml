@@ -33,14 +33,9 @@ ChartView {
         tickCount: 6
     }
 
-    // LineSeries{
-    //     name: "CPU"
-    //     axisX: xAxis
-    //     axisY: yAxis
-    // }
-
     // Tạo LineSeries động theo số core
     ComponentChartUpdater{
+        id: compCpuChart
         chartView: cpuChart
         viewModel: cpuChart.seriesCpuModel.cpu
         maxSeconds: cpuChart.maxSeconds

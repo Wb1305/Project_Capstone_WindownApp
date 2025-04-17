@@ -2,8 +2,14 @@
 
 SystemMEM::SystemMEM() {}
 
-SystemMEM::SystemMEM(double maxRam, double maxSwap, double ramUse, double swapUse)
-    : m_maxRamSystem(maxRam), m_maxSwapSystem(maxSwap), m_ramUtilization(ramUse), m_swapUtilization(swapUse){}
+SystemMEM::SystemMEM(double maxRam, double maxSwap, double ramUse, double swapUse, double ramPercent, double swapPercent)
+    : m_maxRamSystem(maxRam),
+    m_maxSwapSystem(maxSwap),
+    m_ramUtilization(ramUse),
+    m_swapUtilization(swapUse),
+    m_ramPercent(ramPercent),
+    m_swapPercent(swapPercent)
+{}
 
 double SystemMEM::maxRamSystem() const
 {
@@ -23,6 +29,16 @@ double SystemMEM::ramUtilization() const
 double SystemMEM::swapUtilization() const
 {
     return m_swapUtilization;
+}
+
+double SystemMEM::ramPercent() const
+{
+    return m_ramPercent;
+}
+
+double SystemMEM::swapPercent() const
+{
+    return m_swapPercent;
 }
 
 void SystemMEM::setMaxRamSystem(double maxRam)
@@ -45,21 +61,34 @@ void SystemMEM::setSwapUtilization(double swapUse)
     m_swapUtilization = swapUse;
 }
 
+void SystemMEM::setRamPercent(double ramPercent)
+{
+    m_ramPercent = ramPercent;
+}
+
+void SystemMEM::setSwapPercent(double swapPercent)
+{
+    m_swapPercent = swapPercent;
+}
+
 bool SystemMEM::fromJson(const QJsonObject &memObj)
 {
-    if (!memObj.contains("RAM") ||
+    if (!memObj.contains("RAMUsage") ||
         !memObj.contains("RAMPercent") ||
-        !memObj.contains("SWAP") ||
-        !memObj.contains("SWAPPercent"))
+        !memObj.contains("SWAPUsage") ||
+        !memObj.contains("SWAPPercent") ||
+        !memObj.contains("MaxRAM") ||
+        !memObj.contains("MaxSWAP"))
     {
         qWarning() << "[SystemMEM] Missing one or more required fields: RAM, RAMPercent, SWAP, SWAPPercent";
         return false;
     }
-    m_maxRamSystem = memObj["RAM"].toDouble();
-    m_ramUtilization = memObj["RAMPercent"].toDouble();
-    m_maxSwapSystem = memObj["SWAP"].toDouble();
-    m_swapUtilization = memObj["SWAPPercent"].toDouble();
+    m_maxRamSystem = memObj["MaxRAM"].toDouble();
+    m_ramUtilization = memObj["RAMUsage"].toDouble();
+    m_maxSwapSystem = memObj["MaxSWAP"].toDouble();
+    m_swapUtilization = memObj["SWAPUsage"].toDouble();
+    m_ramPercent = memObj["RAMPercent"].toDouble();
+    m_swapPercent = memObj["SWAPPercent"].toDouble();
 
     return true;
 }
-
