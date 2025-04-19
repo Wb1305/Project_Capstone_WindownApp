@@ -22,6 +22,7 @@ void SystemMonitor::startMonitoring()
 
     // 1. Connect signal-slot tại đây
     connect(m_iviServer, &IviSocketServer::dataReceived, this, &SystemMonitor::onDataReceived);
+    connect(this, &SystemMonitor::commandReceived, m_iviServer, &IviSocketServer::onCommandReceived);
     // bindToDataProcessor(m_dataProcessor);
 
     // 2. Bắt đầu lắng nghe
@@ -151,6 +152,57 @@ void SystemMonitor::printParsedData(const SystemStats &systemStats, const QVecto
 void SystemMonitor::feedFakeData(const QByteArray &fakeData)
 {
     onDataReceived(fakeData);
+}
+
+void SystemMonitor::startStressTest(int numberOfTasks, int memUsagePercent, int numberOfCores, int timeout)
+{
+    qDebug() << "Stress Test started with params:";
+    qDebug() << "Number of Tasks:" << numberOfTasks;
+    qDebug() << "MEM Usage Percent:" << memUsagePercent;
+    qDebug() << "Number of Cores:" << numberOfCores;
+    qDebug() << "Timeout:" << timeout;
+
+    QByteArray commandJson = createCommandForStressTestJson(numberOfTasks, memUsagePercent, numberOfCores, timeout);
+
+    emit commandReceived(commandJson);
+}
+
+void SystemMonitor::stopStressTest()
+{
+    qDebug() << "Stop Stress Test";
+    QByteArray commandJson = createCommandStopStressJson();
+
+    emit commandReceived(commandJson);
+}
+
+QByteArray SystemMonitor::createCommandForStressTestJson(int numberOfTasks, int memUsagePercent, int numberOfCores, int timeout)
+{
+    QJsonObject jsonObject;
+    jsonObject["type"] = "startStress";
+    jsonObject["numberOfTaskToRun"] = numberOfTasks;
+    jsonObject["MEMUsagePercent"] = memUsagePercent;
+    jsonObject["numberOfCore"] = numberOfCores;
+    jsonObject["timeout"] = timeout;
+
+    QJsonDocument jsonDoc(jsonObject);
+    QByteArray commandJson = jsonDoc.toJson();
+
+    // In ra JSON để kiểm tra
+    qDebug() << "Generated JSON:" << commandJson;
+
+    return commandJson;
+}
+
+QByteArray SystemMonitor::createCommandStopStressJson()
+{
+    QJsonObject jsonObject;
+    jsonObject["type"] = "stopStress";
+
+    QJsonDocument jsonDoc(jsonObject);
+    QByteArray commandJson = jsonDoc.toJson();
+
+    qDebug() << "Generated JSON:" << commandJson;
+    return commandJson;
 }
 
 void SystemMonitor::bindToDataProcessor(DataProcessor* processor)

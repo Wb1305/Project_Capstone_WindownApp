@@ -29,6 +29,9 @@ signals:
     void clientDisconnected();
     void sendFailed(const QString& reason);
 
+public slots:
+    void onCommandReceived(const QByteArray &commandJson);
+
 private slots:
     void onNewConnection();
     void onReadyRead();

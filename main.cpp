@@ -35,6 +35,9 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("SystemStatsVM", systemStatsViewModel);
     engine.rootContext()->setContextProperty("ProcessListVM", processListViewModel);
 
+    //=========================
+    engine.rootContext()->setContextProperty("SystemMonitor", systemMonitor);
+
     QObject::connect(
         &engine,
         &QQmlApplicationEngine::objectCreationFailed,

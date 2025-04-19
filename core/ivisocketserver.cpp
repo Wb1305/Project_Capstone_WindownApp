@@ -96,6 +96,11 @@ void IviSocketServer::printRawData(const QByteArray &data)
     qDebug().noquote()<<"[Raw Data Received]\n"<<QString::fromUtf8(data);
 }
 
+void IviSocketServer::onCommandReceived(const QByteArray &commandJson)
+{
+    sendCommandToLinux(commandJson);
+}
+
 void IviSocketServer::onNewConnection()
 {
     if(m_clientSocket){

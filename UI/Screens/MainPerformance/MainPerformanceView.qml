@@ -20,9 +20,12 @@ RowLayout {
 
         Button {
             id: btnStess
-            text: stressTest.isToggle ? "Stressing" : "StartStress"
-            Layout.preferredHeight: text.implicitHeight + 50
-            Layout.preferredWidth: text.implicitWidth + 30
+            text: stressTest.isToggle ? "CLOSE" : "OPEN STRESS"
+            font.pixelSize: 14
+            font.bold: true
+
+            Layout.preferredWidth: 100
+            Layout.preferredHeight: 30
             Layout.alignment: Qt.AlignTop
 
             onClicked: {
@@ -33,8 +36,9 @@ RowLayout {
         StressTestView{
             id: stressTest
             property bool isToggle: false
+            isToggleChanged: isToggle
 
-            Layout.preferredWidth: isToggle ? 200 : btnStess.width
+            Layout.preferredWidth: isToggle ? 250 : btnStess.width
             // Layout.preferredHeight: mainPerformance.parentHeight - btnStess.height - 10
             Layout.fillHeight: true
 

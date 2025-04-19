@@ -35,10 +35,17 @@ public:
     // cung cấp data giả
     void feedFakeData(const QByteArray& fakeData);
 
+    Q_INVOKABLE void startStressTest(int numberOfTasks, int memUsagePercent, int numberOfCores, int timeout);
+    Q_INVOKABLE void stopStressTest();
+
+    QByteArray createCommandForStressTestJson(int numberOfTasks, int memUsagePercent, int numberOfCores, int timeout);
+    QByteArray createCommandStopStressJson();
+
 signals:
     void systemUpdated(const SystemStats& systemStats, const QVector<ProcessInfo>& processes);
     void systemUsageChanged(double cpuPercent, double memPercent);
     void processListReady(const QVector<ProcessInfo>& procList);
+    void commandReceived(const QByteArray &commandJson);
 
 private slots:
     void onDataReceived(const QByteArray& rawData);

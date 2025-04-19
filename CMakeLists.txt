@@ -86,6 +86,8 @@ qt_add_qml_module(appMyWindownApp
         QML_FILES UI/Screens/StressTest/StressTestView.qml
         QML_FILES
         QML_FILES UI/Screens/MainPerformance/MainPerformanceView.qml
+        QML_FILES UI/Screens/StressTest/CustomLabel.qml
+        QML_FILES UI/Components/CustomButton.qml
         # QML_FILES UI/Screens/Processes/ProcessView.qml
         # QML_FILES UI/Screens/ResourcesView.qml
         # QML_FILES UI/Screens/HistoryView.qml
