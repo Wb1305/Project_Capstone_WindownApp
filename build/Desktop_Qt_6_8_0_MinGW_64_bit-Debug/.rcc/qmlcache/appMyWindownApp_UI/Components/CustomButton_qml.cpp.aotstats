@@ -1,0 +1,60 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 12,
+                        "durationMicroseconds": 1226,
+                        "errorMessage": "",
+                        "functionName": "color",
+                        "line": 8
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 15,
+                        "durationMicroseconds": 282,
+                        "errorMessage": "",
+                        "functionName": "text",
+                        "line": 18
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 27,
+                        "durationMicroseconds": 186,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 17
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 22,
+                        "durationMicroseconds": 257,
+                        "errorMessage": "",
+                        "functionName": "cursorShape",
+                        "line": 28
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 23,
+                        "durationMicroseconds": 173,
+                        "errorMessage": "",
+                        "functionName": "fill",
+                        "line": 27
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 26,
+                        "durationMicroseconds": 222,
+                        "errorMessage": "",
+                        "functionName": "type",
+                        "line": 38
+                    }
+                ],
+                "filepath": "D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/CustomButton.qml"
+            }
+        ],
+        "moduleId": "MyWindownApp(appMyWindownApp)"
+    }
+]

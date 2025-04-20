@@ -1,0 +1,26 @@
+{
+    "classes": [
+        {
+            "className": "DataProcessor",
+            "lineNumber": 8,
+            "object": true,
+            "qualifiedClassName": "DataProcessor",
+            "signals": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "name": "parseCompleted",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "dataprocessor.h",
+    "outputRevision": 68
+}

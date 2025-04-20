@@ -1,0 +1,36 @@
+{
+    "classes": [
+        {
+            "className": "ProcessManager",
+            "lineNumber": 10,
+            "object": true,
+            "qualifiedClassName": "ProcessManager",
+            "slots": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "procList",
+                            "type": "QList<ProcessInfo>"
+                        }
+                    ],
+                    "index": 0,
+                    "name": "handleOverload",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                },
+                {
+                    "access": "public",
+                    "name": "IProcessManager"
+                }
+            ]
+        }
+    ],
+    "inputFile": "processmanager.h",
+    "outputRevision": 68
+}

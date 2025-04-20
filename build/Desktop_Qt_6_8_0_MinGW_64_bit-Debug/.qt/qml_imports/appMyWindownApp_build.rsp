@@ -1,0 +1,15 @@
+-rootPath
+D:/NMPhuong/PROJ_Qt/MyWindownApp
+-cmake-output
+-output-file
+D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/.qt/qml_imports/appMyWindownApp_build.cmake
+-importPath
+D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/MyWindownApp
+-importPath
+D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug
+-importPath
+D:/NMPhuong/Qt/6.8.0/mingw_64/qml
+-qrcFiles
+D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/.qt/rcc/qmake_MyWindownApp.qrc
+D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/.qt/rcc/appMyWindownApp_raw_qml_0.qrc
+D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/.qt/rcc/appMyWindownApp_raw_qml_0_extra_qmldirs.qrc

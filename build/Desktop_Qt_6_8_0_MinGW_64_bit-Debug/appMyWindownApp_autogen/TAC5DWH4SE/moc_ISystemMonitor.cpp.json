@@ -1,0 +1,36 @@
+{
+    "classes": [
+        {
+            "className": "ISystemMonitor",
+            "lineNumber": 8,
+            "object": true,
+            "qualifiedClassName": "ISystemMonitor",
+            "signals": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "systemStats",
+                            "type": "SystemStats"
+                        },
+                        {
+                            "name": "processes",
+                            "type": "QList<ProcessInfo>"
+                        }
+                    ],
+                    "index": 0,
+                    "name": "systemUpdated",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "ISystemMonitor.h",
+    "outputRevision": 68
+}

@@ -1,0 +1,128 @@
+{
+    "classes": [
+        {
+            "className": "SystemMonitor",
+            "lineNumber": 14,
+            "methods": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "numberOfTasks",
+                            "type": "int"
+                        },
+                        {
+                            "name": "memUsagePercent",
+                            "type": "int"
+                        },
+                        {
+                            "name": "numberOfCores",
+                            "type": "int"
+                        },
+                        {
+                            "name": "timeout",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 6,
+                    "name": "startStressTest",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 7,
+                    "name": "stopStressTest",
+                    "returnType": "void"
+                }
+            ],
+            "object": true,
+            "qualifiedClassName": "SystemMonitor",
+            "signals": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "systemStats",
+                            "type": "SystemStats"
+                        },
+                        {
+                            "name": "processes",
+                            "type": "QList<ProcessInfo>"
+                        }
+                    ],
+                    "index": 0,
+                    "name": "systemUpdated",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "systemStats",
+                            "type": "SystemStats"
+                        }
+                    ],
+                    "index": 1,
+                    "name": "systemUsageChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "procList",
+                            "type": "QList<ProcessInfo>"
+                        }
+                    ],
+                    "index": 2,
+                    "name": "processListReady",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "commandJson",
+                            "type": "QByteArray"
+                        }
+                    ],
+                    "index": 3,
+                    "name": "commandReceived",
+                    "returnType": "void"
+                }
+            ],
+            "slots": [
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "rawData",
+                            "type": "QByteArray"
+                        }
+                    ],
+                    "index": 4,
+                    "name": "onDataReceived",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 5,
+                    "name": "onOverloadDetected",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                },
+                {
+                    "access": "public",
+                    "name": "ISystemMonitor"
+                }
+            ]
+        }
+    ],
+    "inputFile": "systemmonitor.h",
+    "outputRevision": 68
+}

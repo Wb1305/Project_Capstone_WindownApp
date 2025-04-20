@@ -1,0 +1,40 @@
+{
+    "classes": [
+        {
+            "className": "OverloadDetector",
+            "lineNumber": 10,
+            "object": true,
+            "qualifiedClassName": "OverloadDetector",
+            "signals": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "name": "overloadDetected",
+                    "returnType": "void"
+                }
+            ],
+            "slots": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "systemStats",
+                            "type": "SystemStats"
+                        }
+                    ],
+                    "index": 1,
+                    "name": "updateUsage",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "overloaddetector.h",
+    "outputRevision": 68
+}

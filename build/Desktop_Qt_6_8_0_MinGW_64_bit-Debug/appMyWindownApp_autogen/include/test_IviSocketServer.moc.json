@@ -1,0 +1,26 @@
+{
+    "classes": [
+        {
+            "className": "TestIviSocketServer",
+            "lineNumber": 4,
+            "object": true,
+            "qualifiedClassName": "TestIviSocketServer",
+            "slots": [
+                {
+                    "access": "private",
+                    "index": 0,
+                    "name": "testStartListening",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "test_IviSocketServer.cpp",
+    "outputRevision": 68
+}

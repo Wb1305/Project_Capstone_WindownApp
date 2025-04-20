@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/qt/qml/MyWindownApp">
+    <file alias="qmldir">D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/MyWindownApp/qmldir</file>
+  </qresource>
+</RCC>
+

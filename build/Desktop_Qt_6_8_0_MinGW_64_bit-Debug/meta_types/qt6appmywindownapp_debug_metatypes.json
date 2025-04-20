@@ -1,0 +1,861 @@
+[
+    {
+        "classes": [
+            {
+                "className": "CpuStatsViewModel",
+                "lineNumber": 8,
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 2,
+                        "name": "getPointsForCore",
+                        "returnType": "QList<QPointF>"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 3,
+                        "name": "getLatestPoint",
+                        "returnType": "QPointF"
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 0,
+                        "name": "series",
+                        "notify": "seriesChanged",
+                        "read": "series",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QList<QAbstractSeries*>",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 1,
+                        "name": "time",
+                        "notify": "timeChanged",
+                        "read": "time",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    }
+                ],
+                "qualifiedClassName": "CpuStatsViewModel",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "seriesChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "name": "timeChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "cpustatsviewmodel.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "className": "MemStatsViewModel",
+                "lineNumber": 9,
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 2,
+                        "name": "getLatestPoint",
+                        "returnType": "QPointF"
+                    },
+                    {
+                        "access": "public",
+                        "index": 3,
+                        "name": "getLatestRamPoint",
+                        "returnType": "QPointF"
+                    },
+                    {
+                        "access": "public",
+                        "index": 4,
+                        "name": "getLatestSwapPoint",
+                        "returnType": "QPointF"
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 0,
+                        "name": "series",
+                        "notify": "seriesChanged",
+                        "read": "series",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QList<QAbstractSeries*>",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 1,
+                        "name": "ramPercent",
+                        "notify": "infoChanged",
+                        "read": "ramPercent",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "double",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 2,
+                        "name": "swapPercent",
+                        "notify": "infoChanged",
+                        "read": "swapPercent",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "double",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 3,
+                        "name": "totalRam",
+                        "notify": "infoChanged",
+                        "read": "totalRam",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "double",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 4,
+                        "name": "totalSwap",
+                        "notify": "infoChanged",
+                        "read": "totalSwap",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "double",
+                        "user": false
+                    }
+                ],
+                "qualifiedClassName": "MemStatsViewModel",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "seriesChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "name": "infoChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "memstatsviewmodel.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "className": "ProcessListViewModel",
+                "enums": [
+                    {
+                        "isClass": false,
+                        "isFlag": false,
+                        "name": "Roles",
+                        "values": [
+                            "NameRole",
+                            "PidRole",
+                            "UserRole",
+                            "CpuRole",
+                            "MemRole",
+                            "MemMBRole"
+                        ]
+                    },
+                    {
+                        "isClass": true,
+                        "isFlag": false,
+                        "name": "SortRole",
+                        "values": [
+                            "None",
+                            "Cpu",
+                            "Mem",
+                            "MemMB"
+                        ]
+                    }
+                ],
+                "lineNumber": 11,
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "row",
+                                "type": "int"
+                            },
+                            {
+                                "name": "roleName",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 5,
+                        "name": "getData",
+                        "returnType": "QVariant"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "section",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 6,
+                        "name": "getHeader",
+                        "returnType": "QString"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "index",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 7,
+                        "name": "roleNameAt",
+                        "returnType": "QString"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "roleName",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 8,
+                        "name": "sortBy",
+                        "returnType": "void"
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": false,
+                        "index": 0,
+                        "name": "columnCount",
+                        "read": "columnCount",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "int",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 1,
+                        "name": "totalCpuUsagePercent",
+                        "notify": "totalCpuUsageChanged",
+                        "read": "totalCpuUsagePercent",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "double",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 2,
+                        "name": "totalRamUsagePercent",
+                        "notify": "totalRamUsageChanged",
+                        "read": "totalRamUsagePercent",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "double",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 3,
+                        "name": "maxRam",
+                        "notify": "maxRamChanged",
+                        "read": "maxRam",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "double",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 4,
+                        "name": "currentSortRole",
+                        "notify": "sortChanged",
+                        "read": "currentSortRole",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 5,
+                        "name": "sortAscendingStatus",
+                        "notify": "sortChanged",
+                        "read": "sortAscendingStatus",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false
+                    }
+                ],
+                "qualifiedClassName": "ProcessListViewModel",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "totalCpuUsageChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "name": "totalRamUsageChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 2,
+                        "name": "maxRamChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 3,
+                        "name": "sortChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "private",
+                        "arguments": [
+                            {
+                                "name": "stats",
+                                "type": "SystemStats"
+                            },
+                            {
+                                "name": "newListProcess",
+                                "type": "QList<ProcessInfo>"
+                            }
+                        ],
+                        "index": 4,
+                        "name": "updateList",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QAbstractTableModel"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "processlistviewmodel.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "className": "SystemStatsViewModel",
+                "lineNumber": 10,
+                "object": true,
+                "properties": [
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": false,
+                        "index": 0,
+                        "name": "cpu",
+                        "read": "cpu",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "CpuStatsViewModel*",
+                        "user": false
+                    },
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": false,
+                        "index": 1,
+                        "name": "mem",
+                        "read": "mem",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "MemStatsViewModel*",
+                        "user": false
+                    }
+                ],
+                "qualifiedClassName": "SystemStatsViewModel",
+                "slots": [
+                    {
+                        "access": "private",
+                        "arguments": [
+                            {
+                                "name": "systemStats",
+                                "type": "SystemStats"
+                            }
+                        ],
+                        "index": 0,
+                        "name": "updateFromStats",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "systemstatsviewmodel.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "className": "ThreadManager",
+                "lineNumber": 8,
+                "object": true,
+                "qualifiedClassName": "ThreadManager",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "threadmanager.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "className": "ConfigManager",
+                "lineNumber": 8,
+                "object": true,
+                "qualifiedClassName": "ConfigManager",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "configmanager.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "className": "DataProcessor",
+                "lineNumber": 8,
+                "object": true,
+                "qualifiedClassName": "DataProcessor",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "parseCompleted",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "dataprocessor.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "className": "IviSocketServer",
+                "lineNumber": 9,
+                "object": true,
+                "qualifiedClassName": "IviSocketServer",
+                "signals": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "data",
+                                "type": "QByteArray"
+                            }
+                        ],
+                        "index": 0,
+                        "name": "dataReceived",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 1,
+                        "name": "clientConnected",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 2,
+                        "name": "clientDisconnected",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "reason",
+                                "type": "QString"
+                            }
+                        ],
+                        "index": 3,
+                        "name": "sendFailed",
+                        "returnType": "void"
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "commandJson",
+                                "type": "QByteArray"
+                            }
+                        ],
+                        "index": 4,
+                        "name": "onCommandReceived",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 5,
+                        "name": "onNewConnection",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 6,
+                        "name": "onReadyRead",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 7,
+                        "name": "onDisconnected",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "ivisocketserver.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "className": "OverloadDetector",
+                "lineNumber": 10,
+                "object": true,
+                "qualifiedClassName": "OverloadDetector",
+                "signals": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "overloadDetected",
+                        "returnType": "void"
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "systemStats",
+                                "type": "SystemStats"
+                            }
+                        ],
+                        "index": 1,
+                        "name": "updateUsage",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "overloaddetector.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "className": "ProcessManager",
+                "lineNumber": 10,
+                "object": true,
+                "qualifiedClassName": "ProcessManager",
+                "slots": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "procList",
+                                "type": "QList<ProcessInfo>"
+                            }
+                        ],
+                        "index": 0,
+                        "name": "handleOverload",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    },
+                    {
+                        "access": "public",
+                        "name": "IProcessManager"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "processmanager.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "className": "SystemMonitor",
+                "lineNumber": 14,
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "numberOfTasks",
+                                "type": "int"
+                            },
+                            {
+                                "name": "memUsagePercent",
+                                "type": "int"
+                            },
+                            {
+                                "name": "numberOfCores",
+                                "type": "int"
+                            },
+                            {
+                                "name": "timeout",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 6,
+                        "name": "startStressTest",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 7,
+                        "name": "stopStressTest",
+                        "returnType": "void"
+                    }
+                ],
+                "object": true,
+                "qualifiedClassName": "SystemMonitor",
+                "signals": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "systemStats",
+                                "type": "SystemStats"
+                            },
+                            {
+                                "name": "processes",
+                                "type": "QList<ProcessInfo>"
+                            }
+                        ],
+                        "index": 0,
+                        "name": "systemUpdated",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "systemStats",
+                                "type": "SystemStats"
+                            }
+                        ],
+                        "index": 1,
+                        "name": "systemUsageChanged",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "procList",
+                                "type": "QList<ProcessInfo>"
+                            }
+                        ],
+                        "index": 2,
+                        "name": "processListReady",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "commandJson",
+                                "type": "QByteArray"
+                            }
+                        ],
+                        "index": 3,
+                        "name": "commandReceived",
+                        "returnType": "void"
+                    }
+                ],
+                "slots": [
+                    {
+                        "access": "private",
+                        "arguments": [
+                            {
+                                "name": "rawData",
+                                "type": "QByteArray"
+                            }
+                        ],
+                        "index": 4,
+                        "name": "onDataReceived",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 5,
+                        "name": "onOverloadDetected",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    },
+                    {
+                        "access": "public",
+                        "name": "ISystemMonitor"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "systemmonitor.h",
+        "outputRevision": 68
+    }
+]

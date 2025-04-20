@@ -1,0 +1,227 @@
+{
+    "classes": [
+        {
+            "className": "ProcessListViewModel",
+            "enums": [
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "Roles",
+                    "values": [
+                        "NameRole",
+                        "PidRole",
+                        "UserRole",
+                        "CpuRole",
+                        "MemRole",
+                        "MemMBRole"
+                    ]
+                },
+                {
+                    "isClass": true,
+                    "isFlag": false,
+                    "name": "SortRole",
+                    "values": [
+                        "None",
+                        "Cpu",
+                        "Mem",
+                        "MemMB"
+                    ]
+                }
+            ],
+            "lineNumber": 11,
+            "methods": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "row",
+                            "type": "int"
+                        },
+                        {
+                            "name": "roleName",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 5,
+                    "name": "getData",
+                    "returnType": "QVariant"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "section",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 6,
+                    "name": "getHeader",
+                    "returnType": "QString"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "index",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 7,
+                    "name": "roleNameAt",
+                    "returnType": "QString"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "roleName",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 8,
+                    "name": "sortBy",
+                    "returnType": "void"
+                }
+            ],
+            "object": true,
+            "properties": [
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "name": "columnCount",
+                    "read": "columnCount",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 1,
+                    "name": "totalCpuUsagePercent",
+                    "notify": "totalCpuUsageChanged",
+                    "read": "totalCpuUsagePercent",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "double",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 2,
+                    "name": "totalRamUsagePercent",
+                    "notify": "totalRamUsageChanged",
+                    "read": "totalRamUsagePercent",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "double",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 3,
+                    "name": "maxRam",
+                    "notify": "maxRamChanged",
+                    "read": "maxRam",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "double",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 4,
+                    "name": "currentSortRole",
+                    "notify": "sortChanged",
+                    "read": "currentSortRole",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 5,
+                    "name": "sortAscendingStatus",
+                    "notify": "sortChanged",
+                    "read": "sortAscendingStatus",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false
+                }
+            ],
+            "qualifiedClassName": "ProcessListViewModel",
+            "signals": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "name": "totalCpuUsageChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 1,
+                    "name": "totalRamUsageChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 2,
+                    "name": "maxRamChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 3,
+                    "name": "sortChanged",
+                    "returnType": "void"
+                }
+            ],
+            "slots": [
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "stats",
+                            "type": "SystemStats"
+                        },
+                        {
+                            "name": "newListProcess",
+                            "type": "QList<ProcessInfo>"
+                        }
+                    ],
+                    "index": 4,
+                    "name": "updateList",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QAbstractTableModel"
+                }
+            ]
+        }
+    ],
+    "inputFile": "processlistviewmodel.h",
+    "outputRevision": 68
+}

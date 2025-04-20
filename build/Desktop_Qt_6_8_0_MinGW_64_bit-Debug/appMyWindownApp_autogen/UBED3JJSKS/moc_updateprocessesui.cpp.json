@@ -1,0 +1,60 @@
+{
+    "classes": [
+        {
+            "className": "UpdateProcessesUI",
+            "lineNumber": 16,
+            "methods": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "roleName",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 0,
+                    "name": "roleForName",
+                    "returnType": "int"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "row",
+                            "type": "int"
+                        },
+                        {
+                            "name": "roleName",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 1,
+                    "name": "getData",
+                    "returnType": "QVariant"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "section",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 2,
+                    "name": "header",
+                    "returnType": "QString"
+                }
+            ],
+            "object": true,
+            "qualifiedClassName": "UpdateProcessesUI",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QAbstractTableModel"
+                }
+            ]
+        }
+    ],
+    "inputFile": "updateprocessesui.h",
+    "outputRevision": 68
+}

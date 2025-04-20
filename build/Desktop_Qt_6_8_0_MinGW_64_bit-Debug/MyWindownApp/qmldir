@@ -1,0 +1,22 @@
+module MyWindownApp
+typeinfo appMyWindownApp.qmltypes
+prefer :/qt/qml/MyWindownApp/
+Main 1.0 Main.qml
+NavigationBar 1.0 UI/Components/NavigationBar.qml
+PerformanceView 1.0 UI/Screens/Performance/PerformanceView.qml
+ProcessesListView 1.0 UI/Screens/ProcessesListView/ProcessesListView.qml
+HeaderView 1.0 UI/Screens/ProcessesListView/HeaderView.qml
+ColumnUtils 1.0 UI/Screens/ProcessesListView/ColumnUtils.qml
+ComponentTable 1.0 UI/Screens/ProcessesListView/ComponentTable.qml
+CpuChart 1.0 UI/Screens/Performance/CpuChart.qml
+MemChart 1.0 UI/Screens/Performance/MemChart.qml
+TestCpuLineChart 1.0 UI/Screens/Performance/TestCpuLineChart.qml
+ComponentChartUpdater 1.0 UI/Screens/Performance/ComponentChartUpdater.qml
+ColorUtils 1.0 UI/Screens/ProcessesListView/ColorUtils.qml
+CustomLegend 1.0 UI/Screens/Performance/CustomLegend.qml
+ComponentTitleBar 1.0 UI/Screens/Performance/ComponentTitleBar.qml
+StressTestView 1.0 UI/Screens/StressTest/StressTestView.qml
+MainPerformanceView 1.0 UI/Screens/MainPerformance/MainPerformanceView.qml
+CustomLabel 1.0 UI/Screens/StressTest/CustomLabel.qml
+CustomButton 1.0 UI/Components/CustomButton.qml
+

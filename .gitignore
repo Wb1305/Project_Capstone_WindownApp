@@ -74,5 +74,4 @@ CMakeLists.txt.user*
 *.exe
 
 # Custom file
-build/*
-!build/
+

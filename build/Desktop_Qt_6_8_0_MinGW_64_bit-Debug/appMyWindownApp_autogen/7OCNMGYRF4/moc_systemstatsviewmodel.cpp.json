@@ -1,0 +1,60 @@
+{
+    "classes": [
+        {
+            "className": "SystemStatsViewModel",
+            "lineNumber": 10,
+            "object": true,
+            "properties": [
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "name": "cpu",
+                    "read": "cpu",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "CpuStatsViewModel*",
+                    "user": false
+                },
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": false,
+                    "index": 1,
+                    "name": "mem",
+                    "read": "mem",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "MemStatsViewModel*",
+                    "user": false
+                }
+            ],
+            "qualifiedClassName": "SystemStatsViewModel",
+            "slots": [
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "systemStats",
+                            "type": "SystemStats"
+                        }
+                    ],
+                    "index": 0,
+                    "name": "updateFromStats",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "systemstatsviewmodel.h",
+    "outputRevision": 68
+}

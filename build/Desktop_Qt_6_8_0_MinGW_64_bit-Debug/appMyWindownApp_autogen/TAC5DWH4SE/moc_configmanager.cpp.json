@@ -1,0 +1,18 @@
+{
+    "classes": [
+        {
+            "className": "ConfigManager",
+            "lineNumber": 8,
+            "object": true,
+            "qualifiedClassName": "ConfigManager",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "configmanager.h",
+    "outputRevision": 68
+}
