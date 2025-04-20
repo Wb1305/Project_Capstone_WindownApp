@@ -68,6 +68,7 @@ public:
     double totalCpuUsagePercent() const;
     double totalRamUsagePercent() const;
     double maxRam() const;
+    double totalRamUsaged() const;
 
     // print to terminal
     void printtest();

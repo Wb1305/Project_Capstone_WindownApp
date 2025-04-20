@@ -117,10 +117,10 @@ void IviSocketServer::onNewConnection()
     // QTimer::singleShot(4000, this, [this](){
     //     qDebug()<<"=== Kill proesses ===";
     //     QJsonObject obj;
-    //     obj["type"] = "PNames";
+    //     obj["type"] = "killProcess";
 
     //     QJsonArray pnameList;
-    //     pnameList << "brave";
+    //     pnameList << "brave" <<"vlc";
     //     obj["PNames"] = pnameList;
 
     //     QJsonDocument doc(obj);

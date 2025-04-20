@@ -7,5 +7,5 @@ ProcessManager::ProcessManager(QObject *parent)
 
 void ProcessManager::handleOverload(const QVector<ProcessInfo> &procList)
 {
-    qDebug()<<"Handle Overload";
+    qDebug()<<"[ProcessManger]Handle Overload";
 }

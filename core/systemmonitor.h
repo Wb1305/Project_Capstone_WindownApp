@@ -43,7 +43,8 @@ public:
 
 signals:
     void systemUpdated(const SystemStats& systemStats, const QVector<ProcessInfo>& processes);
-    void systemUsageChanged(double cpuPercent, double memPercent);
+    // void systemUsageChanged(double cpuPercent, double memPercent);
+    void systemUsageChanged(const SystemStats& systemStats);
     void processListReady(const QVector<ProcessInfo>& procList);
     void commandReceived(const QByteArray &commandJson);
 

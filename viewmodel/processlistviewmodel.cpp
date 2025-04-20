@@ -186,6 +186,11 @@ double ProcessListViewModel::maxRam() const
     return m_currentSystemStats.memStats().maxRamSystem();
 }
 
+double ProcessListViewModel::totalRamUsaged() const
+{
+    return m_currentSystemStats.memStats().ramUtilization();
+}
+
 void ProcessListViewModel::printtest()
 {
     qDebug()<<"=== System Usage ===";
@@ -202,6 +207,7 @@ void ProcessListViewModel::updateList(const SystemStats &systempStats, const QVe
     bool cpuChanged = !qFuzzyCompare(systempStats.cpuStats().general().utilization(), m_currentSystemStats.cpuStats().general().utilization());
     bool ramChanged = !qFuzzyCompare(systempStats.memStats().ramUtilization(), m_currentSystemStats.memStats().ramUtilization());
     bool maxRamSystemChanged = !qFuzzyCompare(systempStats.memStats().maxRamSystem(), m_currentSystemStats.memStats().maxRamSystem());
+    // bool ramMbChanged = !qFuzzyCompare(systempStats.memStats().ramUtilization(), m_currentSystemStats.memStats().ramUtilization());
 
     m_currentSystemStats = systempStats;
 

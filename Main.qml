@@ -46,14 +46,14 @@ Window {
             setWidth: mainWindow.width
         }
 
-        PerformanceView {
-            id: performanceView
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            performModel: SystemStatsVM
-            preferHeight: parent.height * 0.45
-            preferWidth: parent.width
-        }
+        // PerformanceView {
+        //     id: performanceView
+        //     Layout.fillWidth: true
+        //     Layout.fillHeight: true
+        //     performModel: SystemStatsVM
+        //     preferHeight: parent.height * 0.45
+        //     preferWidth: parent.width
+        // }
 
         // TestCpuLineChart{
         //     id: testCpuChart

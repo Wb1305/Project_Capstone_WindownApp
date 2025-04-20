@@ -12,7 +12,7 @@ const CpuGeneral &SystemCPU::general() const
     return m_general;
 }
 
-void SystemCPU::setCores(const QList<CpuCore> &cores)
+void SystemCPU::setCores(const QVector<CpuCore> &cores)
 {
     m_cores = cores;
 }

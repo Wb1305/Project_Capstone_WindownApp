@@ -185,7 +185,7 @@ QByteArray SystemMonitor::createCommandForStressTestJson(int numberOfTasks, int 
     jsonObject["timeout"] = timeout;
 
     QJsonDocument jsonDoc(jsonObject);
-    QByteArray commandJson = jsonDoc.toJson();
+    QByteArray commandJson = jsonDoc.toJson(QJsonDocument::Compact);
 
     // In ra JSON để kiểm tra
     qDebug() << "Generated JSON:" << commandJson;
@@ -199,7 +199,7 @@ QByteArray SystemMonitor::createCommandStopStressJson()
     jsonObject["type"] = "stopStress";
 
     QJsonDocument jsonDoc(jsonObject);
-    QByteArray commandJson = jsonDoc.toJson();
+    QByteArray commandJson = jsonDoc.toJson(QJsonDocument::Compact);
 
     qDebug() << "Generated JSON:" << commandJson;
     return commandJson;
@@ -217,22 +217,25 @@ void SystemMonitor::bindToDataProcessor(DataProcessor* processor)
         emit systemUpdated(m_systemStats, m_processList);
         // emit systemUpdated(m_dataProcessor->systemStats(), m_dataProcessor->processList());
 
-        double cpuCurrent = m_systemStats.cpuStats().general().utilization();
-        double ramCurrent = m_systemStats.memStats().ramUtilization();
-        emit systemUsageChanged(cpuCurrent , ramCurrent);
+        // double cpuCurrent = m_systemStats.cpuStats().general().utilization();
+        // double ramCurrent = m_systemStats.memStats().ramUtilization();
+        // emit systemUsageChanged(cpuCurrent , ramCurrent);
+
+        emit systemUsageChanged(m_systemStats);
     });
 }
 
 void SystemMonitor::setOverloadDetector(OverloadDetector *detector)
 {
     m_detector = detector;
-    connect(this, &SystemMonitor::systemUsageChanged, m_detector, &OverloadDetector::updateUsage);
+    // connect(this, &SystemMonitor::systemUsageChanged, m_detector, &OverloadDetector::updateUsage);
     connect(m_detector, &OverloadDetector::overloadDetected, this, &SystemMonitor::onOverloadDetected);
 }
 
 void SystemMonitor::setProcessManager(ProcessManager *procManager)
 {
     m_processManager = procManager;
+    // connect(this, &SystemMonitor::processListReady, m_processManager, &ProcessManager::handleOverload);
 }
 
 void SystemMonitor::onDataReceived(const QByteArray &rawData)

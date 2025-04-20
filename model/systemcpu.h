@@ -12,9 +12,9 @@ class SystemCPU
 public:
     SystemCPU();
 
-    const QList<CpuCore>& cores() const;
+    const QVector<CpuCore>& cores() const;
     const CpuGeneral& general() const;
-    void setCores(const QList<CpuCore>& cores);
+    void setCores(const QVector<CpuCore> &cores);
     void setGeneral(const CpuGeneral& general);
 
     bool fromJson(const QJsonObject& generalCpuObj, const QJsonObject& coresObj);

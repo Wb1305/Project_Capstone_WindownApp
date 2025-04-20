@@ -21,11 +21,11 @@ private:
 signals:
 
 private slots:
-    void handleOverloadDetected();
+    // void handleOverloadDetected();
 
 private:
-    QThread* m_overloadThread;
-    QThread* m_processThread;
+    QThread* m_overloadThread = nullptr;
+    QThread* m_processThread = nullptr;
 
     SystemMonitor* m_monitor = nullptr;
     OverloadDetector* m_overloadDetector = nullptr;
