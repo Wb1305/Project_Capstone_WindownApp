@@ -1,9 +1,10 @@
 #ifndef PROCESSINFO_H
 #define PROCESSINFO_H
 
-#include<QString>
-#include<QDateTime>
-#include<QJsonObject>
+#include <QString>
+#include <QStringList>
+#include <QDateTime>
+#include <QJsonObject>
 
 class ProcessInfo
 {

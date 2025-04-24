@@ -1,4 +1,4 @@
-set(qml_import_scanner_imports_count 42)
+set(qml_import_scanner_imports_count 44)
 set(qml_import_scanner_import_0 "CLASSNAME;QtQuick2Plugin;LINKTARGET;Qt6::qtquick2plugin;NAME;QtQuick;PATH;D:/NMPhuong/Qt/6.8.0/mingw_64/qml/QtQuick;PLUGIN;qtquick2plugin;PLUGINISOPTIONAL;;PREFER;:/qt-project.org/imports/QtQuick/;RELATIVEPATH;QtQuick;TYPE;module;")
 set(qml_import_scanner_import_1 "CLASSNAME;QtQmlPlugin;LINKTARGET;Qt6::qmlplugin;NAME;QtQml;PATH;D:/NMPhuong/Qt/6.8.0/mingw_64/qml/QtQml;PLUGIN;qmlplugin;PLUGINISOPTIONAL;;PREFER;:/qt-project.org/imports/QtQml/;RELATIVEPATH;QtQml;TYPE;module;")
 set(qml_import_scanner_import_2 "NAME;QML;PATH;D:/NMPhuong/Qt/6.8.0/mingw_64/qml/QML;PREFER;:/qt-project.org/imports/QML/;RELATIVEPATH;QML;TYPE;module;")
@@ -39,6 +39,8 @@ set(qml_import_scanner_import_36 "CLASSNAME;QtQuickControls2BasicStyleImplPlugin
 set(qml_import_scanner_import_37 "NAME;../Performance;PATH;D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/MyWindownApp/UI/Screens/Performance;TYPE;directory;")
 set(qml_import_scanner_import_38 "NAME;../StressTest;PATH;D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/MyWindownApp/UI/Screens/StressTest;TYPE;directory;")
 set(qml_import_scanner_import_39 "CLASSNAME;QtChartsQml2Plugin;LINKTARGET;Qt6::qtchartsqml2;NAME;QtCharts;PATH;D:/NMPhuong/Qt/6.8.0/mingw_64/qml/QtCharts;PLUGIN;qtchartsqml2plugin;PLUGINISOPTIONAL;;PREFER;:/qt-project.org/imports/QtCharts/;RELATIVEPATH;QtCharts;TYPE;module;")
-set(qml_import_scanner_import_40 "NAME;../Performance;PATH;D:/NMPhuong/PROJ_Qt/MyWindownApp/UI/Screens/Performance;TYPE;directory;")
-set(qml_import_scanner_import_41 "NAME;../StressTest;PATH;D:/NMPhuong/PROJ_Qt/MyWindownApp/UI/Screens/StressTest;TYPE;directory;")
+set(qml_import_scanner_import_40 "NAME;../../Components;PATH;D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/MyWindownApp/UI/Components;TYPE;directory;")
+set(qml_import_scanner_import_41 "NAME;../Performance;PATH;D:/NMPhuong/PROJ_Qt/MyWindownApp/UI/Screens/Performance;TYPE;directory;")
+set(qml_import_scanner_import_42 "NAME;../StressTest;PATH;D:/NMPhuong/PROJ_Qt/MyWindownApp/UI/Screens/StressTest;TYPE;directory;")
+set(qml_import_scanner_import_43 "NAME;../../Components;PATH;D:/NMPhuong/PROJ_Qt/MyWindownApp/UI/Components;TYPE;directory;")
 

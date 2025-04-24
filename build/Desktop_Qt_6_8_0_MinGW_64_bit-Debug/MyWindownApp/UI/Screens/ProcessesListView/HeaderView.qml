@@ -18,6 +18,7 @@ Rectangle {
 
     property double totalCpuUsagePercent: model.totalCpuUsagePercent
     property double totalRamUsagePercent: model.totalRamUsagePercent
+    property double totalRamUsageMB: model.totalRamUsaged
     property double maxRamSystem: model.maxRam / 1000
 
     color: "#e0e0e0"
@@ -59,7 +60,7 @@ Rectangle {
 
                             let summary = "";
                             if (role === "cpu") summary = " (" + headerColumn.totalCpuUsagePercent.toFixed(0) + "%)";
-                            else if (role === "memMB") summary = " (" + headerColumn.maxRamSystem.toFixed(0) + "GB)";
+                            else if (role === "memMB") summary = " (" + headerColumn.totalRamUsageMB.toFixed(0) + "MB)";
                             else if (role === "mem") summary = " (" + headerColumn.totalRamUsagePercent.toFixed(0) + "%)";
                             return label + summary;
                         }

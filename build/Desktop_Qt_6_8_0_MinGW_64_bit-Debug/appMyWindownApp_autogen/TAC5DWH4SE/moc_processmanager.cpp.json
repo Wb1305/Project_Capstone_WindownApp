@@ -2,9 +2,23 @@
     "classes": [
         {
             "className": "ProcessManager",
-            "lineNumber": 10,
+            "lineNumber": 13,
             "object": true,
             "qualifiedClassName": "ProcessManager",
+            "signals": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "processName",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 0,
+                    "name": "killProcessRequested",
+                    "returnType": "void"
+                }
+            ],
             "slots": [
                 {
                     "access": "public",
@@ -14,7 +28,7 @@
                             "type": "QList<ProcessInfo>"
                         }
                     ],
-                    "index": 0,
+                    "index": 1,
                     "name": "handleOverload",
                     "returnType": "void"
                 }

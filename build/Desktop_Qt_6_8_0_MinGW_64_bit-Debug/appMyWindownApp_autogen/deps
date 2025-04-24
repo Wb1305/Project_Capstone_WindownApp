@@ -21,6 +21,7 @@ appMyWindownApp_autogen/timestamp: \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/core/systemmonitor.cpp \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/core/systemmonitor.h \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/main.cpp \
+	D:/NMPhuong/PROJ_Qt/MyWindownApp/model/OverloadSnapshot.h \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/model/cpucore.cpp \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/model/cpucore.h \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/model/cpugeneral.cpp \
@@ -33,6 +34,12 @@ appMyWindownApp_autogen/timestamp: \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/model/systemmem.h \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/model/systemstats.cpp \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/model/systemstats.h \
+	D:/NMPhuong/PROJ_Qt/MyWindownApp/storage/csvwriter.cpp \
+	D:/NMPhuong/PROJ_Qt/MyWindownApp/storage/csvwriter.h \
+	D:/NMPhuong/PROJ_Qt/MyWindownApp/storage/csvwritermanager.cpp \
+	D:/NMPhuong/PROJ_Qt/MyWindownApp/storage/csvwritermanager.h \
+	D:/NMPhuong/PROJ_Qt/MyWindownApp/storage/datastorageworker.cpp \
+	D:/NMPhuong/PROJ_Qt/MyWindownApp/storage/datastorageworker.h \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/tests/test_SystemMonitor.cpp \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/thread/threadmanager.cpp \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/thread/threadmanager.h \
@@ -58,11 +65,20 @@ appMyWindownApp_autogen/timestamp: \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCharts/qxyseries.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QAbstractTableModel \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QDateTime \
+	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QFile \
+	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QHash \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QJsonObject \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QList \
+	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QMap \
+	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QMutex \
+	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QMutexLocker \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QObject \
+	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QQueue \
+	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QSet \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QSettings \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QString \
+	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QStringList \
+	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QTextStream \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QThread \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QVariant \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QVector \
@@ -108,6 +124,8 @@ appMyWindownApp_autogen/timestamp: \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qelapsedtimer.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qendian.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qexceptionhandling.h \
+	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qfile.h \
+	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qfiledevice.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qflags.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qfloat16.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qforeach.h \
@@ -136,6 +154,7 @@ appMyWindownApp_autogen/timestamp: \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qmetacontainer.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qmetatype.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qminmax.h \
+	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qmutex.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qnamespace.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qnumeric.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qobject.h \
@@ -146,6 +165,7 @@ appMyWindownApp_autogen/timestamp: \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qpair.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qpoint.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qprocessordetection.h \
+	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qqueue.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qrect.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qrefcount.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qregularexpression.h \
@@ -188,6 +208,7 @@ appMyWindownApp_autogen/timestamp: \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtnoop.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtpreprocessorsupport.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtresource.h \
+	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtsan_impl.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qttranslation.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qttypetraits.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtversion.h \
@@ -782,11 +803,14 @@ appMyWindownApp_autogen/timestamp: \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_base.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_futex.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_lockfree_defines.h \
+	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.h \
+	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.tcc \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_string.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_string.tcc \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/char_traits.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/charconv.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/chrono.h \
+	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/codecvt.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/concept_check.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/cpp_type_traits.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/cxxabi_forced.h \
@@ -796,6 +820,10 @@ appMyWindownApp_autogen/timestamp: \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/exception.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/exception_defines.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/exception_ptr.h \
+	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_dir.h \
+	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_fwd.h \
+	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_ops.h \
+	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_path.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/functexcept.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/functional_hash.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/hash_bytes.h \
@@ -803,9 +831,15 @@ appMyWindownApp_autogen/timestamp: \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/hashtable_policy.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/invoke.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ios_base.h \
+	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/istream.tcc \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/list.tcc \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_classes.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_classes.tcc \
+	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_conv.h \
+	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.h \
+	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.tcc \
+	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets_nonio.h \
+	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets_nonio.tcc \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/localefwd.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/memory_resource.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/memoryfwd.h \
@@ -813,11 +847,13 @@ appMyWindownApp_autogen/timestamp: \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/nested_exception.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/new_allocator.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/node_handle.h \
+	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream.tcc \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream_insert.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/parse_numbers.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/postypes.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/predefined_ops.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ptr_traits.h \
+	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/quoted_string.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/range_access.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/refwrap.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/requires_hosted.h \
@@ -825,6 +861,7 @@ appMyWindownApp_autogen/timestamp: \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr_atomic.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr_base.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/specfun.h \
+	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/sstream.tcc \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_abs.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_function.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_mutex.h \
@@ -869,6 +906,7 @@ appMyWindownApp_autogen/timestamp: \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/climits \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/clocale \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cmath \
+	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/codecvt \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/compare \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/condition_variable \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstddef \
@@ -878,6 +916,7 @@ appMyWindownApp_autogen/timestamp: \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstring \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ctime \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwchar \
+	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwctype \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/debug/assertions.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/debug/debug.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/exception \
@@ -888,24 +927,31 @@ appMyWindownApp_autogen/timestamp: \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/numeric_traits.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/string_conversions.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/type_traits.h \
+	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/filesystem \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/functional \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/future \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/initializer_list \
+	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iomanip \
+	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ios \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iosfwd \
+	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/istream \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iterator \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/limits \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/list \
+	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/locale \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/map \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/memory \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/mutex \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/new \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/numeric \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/optional \
+	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ostream \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/execution_defs.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_algorithm_defs.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_memory_defs.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_numeric_defs.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ratio \
+	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/sstream \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/stdexcept \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/stdlib.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/streambuf \
@@ -936,10 +982,14 @@ appMyWindownApp_autogen/timestamp: \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++locale.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/cpu_defines.h \
+	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h \
+	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/error_constants.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/gthr-default.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/gthr.h \
+	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
+	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/time_members.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/limits.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdarg.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdbool.h \
@@ -981,4 +1031,5 @@ appMyWindownApp_autogen/timestamp: \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
 	D:/NMPhuong/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
+	D:/NMPhuong/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
 	D:/NMPhuong/Qt/Tools/CMake_64/bin/cmake.exe

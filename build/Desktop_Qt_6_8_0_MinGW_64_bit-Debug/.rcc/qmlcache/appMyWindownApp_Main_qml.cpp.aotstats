@@ -6,7 +6,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 16,
-                        "durationMicroseconds": 549,
+                        "durationMicroseconds": 610,
                         "errorMessage": "",
                         "functionName": "width",
                         "line": 25
@@ -14,7 +14,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 23,
-                        "durationMicroseconds": 89,
+                        "durationMicroseconds": 97,
                         "errorMessage": "Cannot load property currentIndex from  stored as QQuickRectangle.",
                         "functionName": "currentIndex",
                         "line": 38
@@ -22,7 +22,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 22,
-                        "durationMicroseconds": 345,
+                        "durationMicroseconds": 357,
                         "errorMessage": "",
                         "functionName": "top",
                         "line": 33
@@ -30,7 +30,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 23,
-                        "durationMicroseconds": 329,
+                        "durationMicroseconds": 388,
                         "errorMessage": "",
                         "functionName": "left",
                         "line": 34
@@ -38,7 +38,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 24,
-                        "durationMicroseconds": 330,
+                        "durationMicroseconds": 334,
                         "errorMessage": "",
                         "functionName": "right",
                         "line": 35
@@ -46,7 +46,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 25,
-                        "durationMicroseconds": 329,
+                        "durationMicroseconds": 314,
                         "errorMessage": "",
                         "functionName": "bottom",
                         "line": 36
@@ -54,7 +54,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 24,
-                        "durationMicroseconds": 527,
+                        "durationMicroseconds": 536,
                         "errorMessage": "Cannot access value for name ProcessListVM",
                         "functionName": "procModel",
                         "line": 44
@@ -62,7 +62,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 24,
-                        "durationMicroseconds": 320,
+                        "durationMicroseconds": 322,
                         "errorMessage": "",
                         "functionName": "setHeight",
                         "line": 45
@@ -70,7 +70,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 23,
-                        "durationMicroseconds": 296,
+                        "durationMicroseconds": 338,
                         "errorMessage": "",
                         "functionName": "setWidth",
                         "line": 46
@@ -78,7 +78,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 27,
-                        "durationMicroseconds": 474,
+                        "durationMicroseconds": 6780,
                         "errorMessage": "Cannot access value for name SystemStatsVM",
                         "functionName": "performModel",
                         "line": 68
@@ -86,7 +86,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 27,
-                        "durationMicroseconds": 529,
+                        "durationMicroseconds": 597,
                         "errorMessage": "",
                         "functionName": "preferHeight",
                         "line": 69
@@ -94,7 +94,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 26,
-                        "durationMicroseconds": 306,
+                        "durationMicroseconds": 402,
                         "errorMessage": "",
                         "functionName": "preferWidth",
                         "line": 70
@@ -102,7 +102,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 27,
-                        "durationMicroseconds": 307,
+                        "durationMicroseconds": 327,
                         "errorMessage": "",
                         "functionName": "parentHeight",
                         "line": 71

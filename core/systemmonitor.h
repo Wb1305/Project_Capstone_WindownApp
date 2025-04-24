@@ -40,6 +40,7 @@ public:
 
     QByteArray createCommandForStressTestJson(int numberOfTasks, int memUsagePercent, int numberOfCores, int timeout);
     QByteArray createCommandStopStressJson();
+    QByteArray createCommandKillProcessJson(const QString &procName);
 
 signals:
     void systemUpdated(const SystemStats& systemStats, const QVector<ProcessInfo>& processes);
@@ -51,6 +52,7 @@ signals:
 private slots:
     void onDataReceived(const QByteArray& rawData);
     void onOverloadDetected();
+    void onCommandKillProcessReceived(const QString &procName);
 
 private:
     IviSocketServer* m_iviServer = nullptr;

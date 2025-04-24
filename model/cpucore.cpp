@@ -44,3 +44,13 @@ void CpuCore::setTemperature(double temp)
 {
     m_temperature = temp;
 }
+
+QStringList CpuCore::toRow() const
+{
+    return{
+        QString::number(m_coreID),
+        QString::number(m_utilization, 'f', 2),
+        QString::number(m_temperature, 'f', 2),
+        QString::number(m_frequency, 'f', 2)
+    };
+}

@@ -6,7 +6,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 5,
-                        "durationMicroseconds": 2,
+                        "durationMicroseconds": 3,
                         "errorMessage": "Functions without type annotations won't be compiled",
                         "functionName": "lerpColor",
                         "line": 7

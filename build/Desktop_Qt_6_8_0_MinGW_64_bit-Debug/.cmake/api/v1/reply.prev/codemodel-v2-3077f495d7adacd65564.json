@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-a5694ca6fb9ace989cb2.json",
+					"jsonFile" : "directory-.-Debug-88b9fdae63adbac9a7c8.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -103,7 +103,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "appMyWindownApp::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-appMyWindownApp-Debug-e8cc438a1968fc027b90.json",
+					"jsonFile" : "target-appMyWindownApp-Debug-3b28d1c1c67f93d9c254.json",
 					"name" : "appMyWindownApp",
 					"projectIndex" : 0
 				},

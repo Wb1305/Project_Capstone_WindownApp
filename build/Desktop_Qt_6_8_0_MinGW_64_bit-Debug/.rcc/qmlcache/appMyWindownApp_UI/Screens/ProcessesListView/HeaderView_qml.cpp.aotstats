@@ -6,7 +6,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 29,
-                        "durationMicroseconds": 13382,
+                        "durationMicroseconds": 1507,
                         "errorMessage": "",
                         "functionName": "headerMap",
                         "line": 10
@@ -14,7 +14,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 43,
-                        "durationMicroseconds": 78,
+                        "durationMicroseconds": 83,
                         "errorMessage": "Cannot load property totalCpuUsagePercent from (component in D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/HeaderView.qml)::model with type QVariant.",
                         "functionName": "totalCpuUsagePercent",
                         "line": 19
@@ -22,186 +22,194 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 43,
-                        "durationMicroseconds": 45,
+                        "durationMicroseconds": 39,
                         "errorMessage": "Cannot load property totalRamUsagePercent from (component in D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/HeaderView.qml)::model with type QVariant.",
                         "functionName": "totalRamUsagePercent",
                         "line": 20
                     },
                     {
                         "codegenSuccessfull": false,
-                        "column": 35,
-                        "durationMicroseconds": 75,
-                        "errorMessage": "Cannot load property maxRam from (component in D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/HeaderView.qml)::model with type QVariant.",
-                        "functionName": "maxRamSystem",
+                        "column": 38,
+                        "durationMicroseconds": 33,
+                        "errorMessage": "Cannot load property totalRamUsaged from (component in D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/HeaderView.qml)::model with type QVariant.",
+                        "functionName": "totalRamUsageMB",
                         "line": 21
                     },
                     {
                         "codegenSuccessfull": false,
+                        "column": 35,
+                        "durationMicroseconds": 36,
+                        "errorMessage": "Cannot load property maxRam from (component in D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/HeaderView.qml)::model with type QVariant.",
+                        "functionName": "maxRamSystem",
+                        "line": 22
+                    },
+                    {
+                        "codegenSuccessfull": false,
                         "column": 12,
-                        "durationMicroseconds": 779,
+                        "durationMicroseconds": 487,
                         "errorMessage": "Cannot generate efficient code for call to untyped JavaScript function",
                         "functionName": "width",
-                        "line": 25
+                        "line": 26
                     },
                     {
                         "codegenSuccessfull": true,
                         "column": 16,
-                        "durationMicroseconds": 325,
+                        "durationMicroseconds": 335,
                         "errorMessage": "",
                         "functionName": "width",
-                        "line": 28
+                        "line": 29
                     },
                     {
                         "codegenSuccessfull": true,
                         "column": 17,
-                        "durationMicroseconds": 253,
+                        "durationMicroseconds": 271,
                         "errorMessage": "",
                         "functionName": "height",
-                        "line": 29
+                        "line": 30
                     },
                     {
                         "codegenSuccessfull": false,
                         "column": 20,
-                        "durationMicroseconds": 154,
+                        "durationMicroseconds": 163,
                         "errorMessage": "Cannot load property columnCount from (component in D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/HeaderView.qml)::model with type QVariant.",
                         "functionName": "model",
-                        "line": 32
+                        "line": 33
                     },
                     {
                         "codegenSuccessfull": false,
                         "column": 24,
-                        "durationMicroseconds": 700,
+                        "durationMicroseconds": 780,
                         "errorMessage": "Cannot generate efficient code for call to untyped JavaScript function",
                         "functionName": "width",
-                        "line": 37
-                    },
-                    {
-                        "codegenSuccessfull": true,
-                        "column": 25,
-                        "durationMicroseconds": 261,
-                        "errorMessage": "",
-                        "functionName": "height",
                         "line": 38
                     },
                     {
                         "codegenSuccessfull": true,
-                        "column": 24,
-                        "durationMicroseconds": 975,
+                        "column": 25,
+                        "durationMicroseconds": 244,
                         "errorMessage": "",
-                        "functionName": "color",
+                        "functionName": "height",
                         "line": 39
                     },
                     {
                         "codegenSuccessfull": true,
+                        "column": 24,
+                        "durationMicroseconds": 1056,
+                        "errorMessage": "",
+                        "functionName": "color",
+                        "line": 40
+                    },
+                    {
+                        "codegenSuccessfull": true,
                         "column": 39,
-                        "durationMicroseconds": 189,
+                        "durationMicroseconds": 184,
                         "errorMessage": "",
                         "functionName": "centerIn",
-                        "line": 42
+                        "line": 43
                     },
                     {
                         "codegenSuccessfull": false,
                         "column": 34,
-                        "durationMicroseconds": 104,
+                        "durationMicroseconds": 85,
                         "errorMessage": "Cannot load property currentSortRole from (component in D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/HeaderView.qml)::model with type QVariant.",
                         "functionName": "visible",
-                        "line": 48
+                        "line": 49
                     },
                     {
                         "codegenSuccessfull": false,
                         "column": 31,
-                        "durationMicroseconds": 76,
+                        "durationMicroseconds": 60,
                         "errorMessage": "Cannot load property sortAscendingStatus from (component in D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/HeaderView.qml)::model with type QVariant.",
                         "functionName": "text",
-                        "line": 49
+                        "line": 50
                     },
                     {
                         "codegenSuccessfull": true,
                         "column": 46,
-                        "durationMicroseconds": 261,
+                        "durationMicroseconds": 277,
                         "errorMessage": "",
                         "functionName": "horizontalAlignment",
-                        "line": 55
+                        "line": 56
                     },
                     {
                         "codegenSuccessfull": false,
                         "column": 31,
-                        "durationMicroseconds": 41203,
+                        "durationMicroseconds": 6352,
                         "errorMessage": "Cannot generate efficient code for call to untyped JavaScript function",
                         "functionName": "text",
-                        "line": 56
+                        "line": 57
                     },
                     {
                         "codegenSuccessfull": true,
                         "column": 34,
-                        "durationMicroseconds": 310,
+                        "durationMicroseconds": 273,
                         "errorMessage": "",
                         "functionName": "cursorShape",
-                        "line": 73
+                        "line": 74
                     },
                     {
                         "codegenSuccessfull": false,
                         "column": 32,
-                        "durationMicroseconds": 395,
+                        "durationMicroseconds": 339,
                         "errorMessage": "Cannot load property currentSortRole from (component in D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/HeaderView.qml)::model with type QVariant.",
                         "functionName": "onClicked",
-                        "line": 76
+                        "line": 77
                     },
                     {
                         "codegenSuccessfull": true,
                         "column": 35,
-                        "durationMicroseconds": 184,
+                        "durationMicroseconds": 179,
                         "errorMessage": "",
                         "functionName": "fill",
-                        "line": 71
+                        "line": 72
                     },
                     {
                         "codegenSuccessfull": true,
                         "column": 30,
-                        "durationMicroseconds": 363,
+                        "durationMicroseconds": 329,
                         "errorMessage": "",
                         "functionName": "top",
-                        "line": 88
-                    },
-                    {
-                        "codegenSuccessfull": true,
-                        "column": 33,
-                        "durationMicroseconds": 340,
-                        "errorMessage": "",
-                        "functionName": "bottom",
                         "line": 89
                     },
                     {
                         "codegenSuccessfull": true,
-                        "column": 32,
-                        "durationMicroseconds": 330,
+                        "column": 33,
+                        "durationMicroseconds": 314,
                         "errorMessage": "",
-                        "functionName": "right",
+                        "functionName": "bottom",
                         "line": 90
                     },
                     {
                         "codegenSuccessfull": true,
-                        "column": 31,
-                        "durationMicroseconds": 564,
+                        "column": 32,
+                        "durationMicroseconds": 318,
                         "errorMessage": "",
-                        "functionName": "left",
-                        "line": 98
+                        "functionName": "right",
+                        "line": 91
                     },
                     {
                         "codegenSuccessfull": true,
-                        "column": 32,
-                        "durationMicroseconds": 357,
+                        "column": 31,
+                        "durationMicroseconds": 320,
                         "errorMessage": "",
-                        "functionName": "right",
+                        "functionName": "left",
                         "line": 99
                     },
                     {
                         "codegenSuccessfull": true,
+                        "column": 32,
+                        "durationMicroseconds": 307,
+                        "errorMessage": "",
+                        "functionName": "right",
+                        "line": 100
+                    },
+                    {
+                        "codegenSuccessfull": true,
                         "column": 33,
-                        "durationMicroseconds": 385,
+                        "durationMicroseconds": 11074,
                         "errorMessage": "",
                         "functionName": "bottom",
-                        "line": 100
+                        "line": 101
                     }
                 ],
                 "filepath": "D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/HeaderView.qml"

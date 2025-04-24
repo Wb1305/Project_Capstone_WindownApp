@@ -1,6 +1,9 @@
 #ifndef CPUGENERAL_H
 #define CPUGENERAL_H
 
+#include <QStringList>
+#include <QString>
+
 class CpuGeneral
 {
 public:
@@ -21,6 +24,8 @@ public:
 
     // void setFrequencyMax(double freq_max);
     // void setFrequencyMin(double freq_min);
+
+    QStringList toRow() const;
 
 private:
     double m_utilization = 0;

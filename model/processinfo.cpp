@@ -88,10 +88,10 @@ QStringList ProcessInfo::toRow() const
     return {
         m_timestamp.toString(Qt::ISODate),
         QString::number(m_pid),
-        m_name,
         m_user,
+        m_name,
         QString::number(m_cpuUsagePercent, 'f', 2),
-        QString::number(m_memUsagePercent, 'f', 2),
-        QString::number(m_memUsageMB, 'f', 2)
+        QString::number(m_memUsageMB, 'f', 2),
+        QString::number(m_memUsagePercent, 'f', 2)
     };
 }

@@ -2,7 +2,7 @@
     "classes": [
         {
             "className": "OverloadDetector",
-            "lineNumber": 10,
+            "lineNumber": 15,
             "object": true,
             "qualifiedClassName": "OverloadDetector",
             "signals": [
@@ -10,6 +10,30 @@
                     "access": "public",
                     "index": 0,
                     "name": "overloadDetected",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 1,
+                    "name": "warningDetected",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 2,
+                    "name": "systemNormal",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "buffer",
+                            "type": "QQueue<OverloadSnapshot>"
+                        }
+                    ],
+                    "index": 3,
+                    "name": "overloadDetectedWithBuffer",
                     "returnType": "void"
                 }
             ],
@@ -20,10 +44,14 @@
                         {
                             "name": "systemStats",
                             "type": "SystemStats"
+                        },
+                        {
+                            "name": "processes",
+                            "type": "QList<ProcessInfo>"
                         }
                     ],
-                    "index": 1,
-                    "name": "updateUsage",
+                    "index": 4,
+                    "name": "onSystemDataReceived",
                     "returnType": "void"
                 }
             ],

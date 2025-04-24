@@ -1,0 +1,48 @@
+{
+    "classes": [
+        {
+            "className": "DataStorageWorker",
+            "lineNumber": 10,
+            "object": true,
+            "qualifiedClassName": "DataStorageWorker",
+            "slots": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "systemStats",
+                            "type": "SystemStats"
+                        },
+                        {
+                            "name": "processes",
+                            "type": "QList<ProcessInfo>"
+                        }
+                    ],
+                    "index": 0,
+                    "name": "save",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "buffer",
+                            "type": "QQueue<OverloadSnapshot>"
+                        }
+                    ],
+                    "index": 1,
+                    "name": "saveOverloadBuffer",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "datastorageworker.h",
+    "outputRevision": 68
+}

@@ -839,6 +839,12 @@
 			null
 		],
 		[
+			"D:/NMPhuong/PROJ_Qt/MyWindownApp/model/OverloadSnapshot.h",
+			"MU",
+			"NLOY5YBGEN/moc_OverloadSnapshot.cpp",
+			null
+		],
+		[
 			"D:/NMPhuong/PROJ_Qt/MyWindownApp/model/cpucore.h",
 			"MU",
 			"NLOY5YBGEN/moc_cpucore.cpp",
@@ -872,6 +878,24 @@
 			"D:/NMPhuong/PROJ_Qt/MyWindownApp/model/systemstats.h",
 			"MU",
 			"NLOY5YBGEN/moc_systemstats.cpp",
+			null
+		],
+		[
+			"D:/NMPhuong/PROJ_Qt/MyWindownApp/storage/csvwriter.h",
+			"MU",
+			"5XLNPBDXWK/moc_csvwriter.cpp",
+			null
+		],
+		[
+			"D:/NMPhuong/PROJ_Qt/MyWindownApp/storage/csvwritermanager.h",
+			"MU",
+			"5XLNPBDXWK/moc_csvwritermanager.cpp",
+			null
+		],
+		[
+			"D:/NMPhuong/PROJ_Qt/MyWindownApp/storage/datastorageworker.h",
+			"MU",
+			"5XLNPBDXWK/moc_datastorageworker.cpp",
 			null
 		],
 		[
@@ -1054,6 +1078,17 @@
 		[ "D:/NMPhuong/PROJ_Qt/MyWindownApp/model/systemcpu.cpp", "MU", null ],
 		[ "D:/NMPhuong/PROJ_Qt/MyWindownApp/model/systemmem.cpp", "MU", null ],
 		[ "D:/NMPhuong/PROJ_Qt/MyWindownApp/model/systemstats.cpp", "MU", null ],
+		[ "D:/NMPhuong/PROJ_Qt/MyWindownApp/storage/csvwriter.cpp", "MU", null ],
+		[
+			"D:/NMPhuong/PROJ_Qt/MyWindownApp/storage/csvwritermanager.cpp",
+			"MU",
+			null
+		],
+		[
+			"D:/NMPhuong/PROJ_Qt/MyWindownApp/storage/datastorageworker.cpp",
+			"MU",
+			null
+		],
 		[
 			"D:/NMPhuong/PROJ_Qt/MyWindownApp/tests/test_SystemMonitor.cpp",
 			"MU",

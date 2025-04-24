@@ -87,27 +87,27 @@
 				15,
 				16,
 				17,
-				22,
+				18,
 				23,
 				24,
-				25
+				25,
+				26
 			]
 		},
 		{
 			"name" : "Resources",
 			"sourceIndexes" : 
 			[
-				18,
 				19,
 				20,
-				21
+				21,
+				22
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				26,
 				27,
 				28,
 				29,
@@ -132,7 +132,9 @@
 				48,
 				49,
 				50,
-				51
+				51,
+				52,
+				53
 			]
 		}
 	],
@@ -238,6 +240,12 @@
 			"backtrace" : 5,
 			"isGenerated" : true,
 			"path" : "build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/MyWindownApp/UI/Screens/StressTest/CustomLabel.qml",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/MyWindownApp/UI/Components/CustomButton.qml",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -394,6 +402,12 @@
 			"backtrace" : 0,
 			"isGenerated" : true,
 			"path" : "build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/MyWindownApp/UI/Screens/StressTest/CustomLabel.qml.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/MyWindownApp/UI/Components/CustomButton.qml.rule",
 			"sourceGroupIndex" : 2
 		},
 		{

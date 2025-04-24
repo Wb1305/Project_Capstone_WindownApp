@@ -6,7 +6,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 26,
-                        "durationMicroseconds": 1058,
+                        "durationMicroseconds": 944,
                         "errorMessage": "Cannot generate efficient code for storing an array in a non-sequence type",
                         "functionName": "ratios",
                         "line": 7
@@ -14,7 +14,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 30,
-                        "durationMicroseconds": 3098,
+                        "durationMicroseconds": 2976,
                         "errorMessage": "Cannot generate efficient code for LoadElement with non-list base type (component in D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/ColumnUtils.qml)::ratios with type QVariant (stored as QJSValue)",
                         "functionName": "totalRatio",
                         "line": 11

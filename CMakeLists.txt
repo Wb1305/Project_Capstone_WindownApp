@@ -88,6 +88,10 @@ qt_add_qml_module(appMyWindownApp
         QML_FILES UI/Screens/MainPerformance/MainPerformanceView.qml
         QML_FILES UI/Screens/StressTest/CustomLabel.qml
         QML_FILES UI/Components/CustomButton.qml
+        SOURCES storage/csvwriter.h storage/csvwriter.cpp
+        SOURCES storage/csvwritermanager.h storage/csvwritermanager.cpp
+        SOURCES storage/datastorageworker.h storage/datastorageworker.cpp
+        SOURCES model/OverloadSnapshot.h
         # QML_FILES UI/Screens/Processes/ProcessView.qml
         # QML_FILES UI/Screens/ResourcesView.qml
         # QML_FILES UI/Screens/HistoryView.qml

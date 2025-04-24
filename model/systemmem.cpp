@@ -92,3 +92,15 @@ bool SystemMEM::fromJson(const QJsonObject &memObj)
 
     return true;
 }
+
+QStringList SystemMEM::toRow() const
+{
+    return{
+        QString::number(m_ramUtilization, 'f', 2),
+        QString::number(m_ramPercent, 'f', 2),
+        QString::number(m_swapUtilization, 'f', 2),
+        QString::number(m_swapPercent, 'f', 2),
+        QString::number(m_maxRamSystem, 'f', 2),
+        QString::number(m_maxSwapSystem, 'f', 2)
+    };
+}

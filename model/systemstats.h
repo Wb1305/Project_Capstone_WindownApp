@@ -5,6 +5,7 @@
 #include "model/systemcpu.h"
 #include "model/systemmem.h"
 #include <QJsonObject>
+#include <QString>
 
 class SystemStats
 {

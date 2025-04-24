@@ -12,9 +12,10 @@ class ProcessListViewModel : public QAbstractTableModel
 {
     Q_OBJECT
     Q_PROPERTY(int columnCount READ columnCount CONSTANT)
-    Q_PROPERTY(double totalCpuUsagePercent READ totalCpuUsagePercent NOTIFY totalCpuUsageChanged)
-    Q_PROPERTY(double totalRamUsagePercent READ totalRamUsagePercent NOTIFY totalRamUsageChanged)
+    Q_PROPERTY(double totalCpuUsagePercent READ totalCpuUsagePercent NOTIFY totalCpuUsagePercentChanged)
+    Q_PROPERTY(double totalRamUsagePercent READ totalRamUsagePercent NOTIFY totalRamUsagePercentChanged)
     Q_PROPERTY(double maxRam READ maxRam NOTIFY maxRamChanged)
+    Q_PROPERTY(double totalRamUsaged READ totalRamUsaged NOTIFY ramUsageChanged)
     Q_PROPERTY(QString currentSortRole READ currentSortRole NOTIFY sortChanged)
     Q_PROPERTY(bool sortAscendingStatus READ sortAscendingStatus NOTIFY sortChanged)
 
@@ -74,9 +75,10 @@ public:
     void printtest();
 
 signals:
-    void totalCpuUsageChanged();
-    void totalRamUsageChanged();
+    void totalCpuUsagePercentChanged();
+    void totalRamUsagePercentChanged();
     void maxRamChanged();
+    void ramUsageChanged();
     void sortChanged();
 
 private slots:

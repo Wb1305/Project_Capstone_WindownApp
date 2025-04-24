@@ -1,13 +1,18 @@
 D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/appMyWindownApp_autogen/TAC5DWH4SE/moc_overloaddetector.cpp: D:/NMPhuong/PROJ_Qt/MyWindownApp/core/overloaddetector.h \
   D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/appMyWindownApp_autogen/moc_predefs.h \
+  D:/NMPhuong/PROJ_Qt/MyWindownApp/model/OverloadSnapshot.h \
   D:/NMPhuong/PROJ_Qt/MyWindownApp/model/cpucore.h \
   D:/NMPhuong/PROJ_Qt/MyWindownApp/model/cpugeneral.h \
+  D:/NMPhuong/PROJ_Qt/MyWindownApp/model/processinfo.h \
   D:/NMPhuong/PROJ_Qt/MyWindownApp/model/systemcpu.h \
   D:/NMPhuong/PROJ_Qt/MyWindownApp/model/systemmem.h \
   D:/NMPhuong/PROJ_Qt/MyWindownApp/model/systemstats.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QDateTime \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QJsonObject \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QObject \
+  D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QQueue \
+  D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QString \
+  D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QStringList \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QVector \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/q20functional.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/q20memory.h \
@@ -45,6 +50,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/appMy
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qdatastream.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qdatetime.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qdebug.h \
+  D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qelapsedtimer.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qendian.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qexceptionhandling.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qflags.h \
@@ -81,6 +87,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/appMy
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qoverload.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qpair.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qprocessordetection.h \
+  D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qqueue.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qrefcount.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qregularexpression.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qscopedpointer.h \

@@ -204,21 +204,24 @@ void ProcessListViewModel::updateList(const SystemStats &systempStats, const QVe
     m_processes = newListProcess;
 
     //Cập nhật trước khi so sánh
-    bool cpuChanged = !qFuzzyCompare(systempStats.cpuStats().general().utilization(), m_currentSystemStats.cpuStats().general().utilization());
-    bool ramChanged = !qFuzzyCompare(systempStats.memStats().ramUtilization(), m_currentSystemStats.memStats().ramUtilization());
+    bool cpuPercentChanged = !qFuzzyCompare(systempStats.cpuStats().general().utilization(), m_currentSystemStats.cpuStats().general().utilization());
+    bool ramPercentChanged = !qFuzzyCompare(systempStats.memStats().ramPercent(), m_currentSystemStats.memStats().ramPercent());
     bool maxRamSystemChanged = !qFuzzyCompare(systempStats.memStats().maxRamSystem(), m_currentSystemStats.memStats().maxRamSystem());
-    // bool ramMbChanged = !qFuzzyCompare(systempStats.memStats().ramUtilization(), m_currentSystemStats.memStats().ramUtilization());
+    bool ramUsageMBChanged = !qFuzzyCompare(systempStats.memStats().ramUtilization(), m_currentSystemStats.memStats().ramUtilization());
 
     m_currentSystemStats = systempStats;
 
-    if (cpuChanged)
-        emit totalCpuUsageChanged();
+    if (cpuPercentChanged)
+        emit totalCpuUsagePercentChanged();
 
-    if (ramChanged)
-        emit totalRamUsageChanged();
+    if (ramPercentChanged)
+        emit totalRamUsagePercentChanged();
 
     if (maxRamSystemChanged)
         emit maxRamChanged();
+
+    if (ramUsageMBChanged)
+        emit ramUsageChanged();
 
 
     // Nếu đang có sort (do người dùng đã sort trước đó) → sort lại

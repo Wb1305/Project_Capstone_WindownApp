@@ -6,7 +6,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 15,
-                        "durationMicroseconds": 528,
+                        "durationMicroseconds": 585,
                         "errorMessage": "",
                         "functionName": "flow",
                         "line": 17
@@ -14,7 +14,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 23,
-                        "durationMicroseconds": 210,
+                        "durationMicroseconds": 231,
                         "errorMessage": "",
                         "functionName": "fill",
                         "line": 15
@@ -22,7 +22,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 20,
-                        "durationMicroseconds": 868,
+                        "durationMicroseconds": 888,
                         "errorMessage": "Cannot generate efficient code for incomparable types (component in D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/CustomLegend.qml)::seriesList with type QVariant and std::nullptr_t",
                         "functionName": "model",
                         "line": 20
@@ -30,7 +30,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 24,
-                        "durationMicroseconds": 176,
+                        "durationMicroseconds": 218,
                         "errorMessage": "",
                         "functionName": "width",
                         "line": 23
@@ -38,7 +38,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 25,
-                        "durationMicroseconds": 1578,
+                        "durationMicroseconds": 972,
                         "errorMessage": "",
                         "functionName": "height",
                         "line": 24
@@ -46,7 +46,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 38,
-                        "durationMicroseconds": 477,
+                        "durationMicroseconds": 2112,
                         "errorMessage": "Cannot access value for name modelData",
                         "functionName": "sourceComponent",
                         "line": 29
@@ -54,7 +54,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 31,
-                        "durationMicroseconds": 618,
+                        "durationMicroseconds": 780,
                         "errorMessage": "Cannot access value for name modelData",
                         "functionName": "text",
                         "line": 36
@@ -62,7 +62,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 31,
-                        "durationMicroseconds": 9002,
+                        "durationMicroseconds": 801,
                         "errorMessage": "Cannot access value for name modelData",
                         "functionName": "text",
                         "line": 41
@@ -70,7 +70,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 35,
-                        "durationMicroseconds": 300,
+                        "durationMicroseconds": 293,
                         "errorMessage": "",
                         "functionName": "wrapMode",
                         "line": 44
@@ -78,7 +78,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 26,
-                        "durationMicroseconds": 6293,
+                        "durationMicroseconds": 7551,
                         "errorMessage": "Cannot generate efficient code for call to untyped JavaScript function",
                         "functionName": "onPaint",
                         "line": 58
@@ -86,7 +86,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 31,
-                        "durationMicroseconds": 206,
+                        "durationMicroseconds": 221,
                         "errorMessage": "",
                         "functionName": "fill",
                         "line": 57

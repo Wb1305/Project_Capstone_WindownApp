@@ -1,6 +1,9 @@
 #ifndef CPUCORE_H
 #define CPUCORE_H
 
+#include <QStringList>
+#include <QString>
+
 class CpuCore
 {
 public:
@@ -17,6 +20,8 @@ public:
     void setUtilization(double util);
     void setFrequency(double freq);
     void setTemperature(double temp);
+
+    QStringList toRow() const;
 
 private:
     int m_coreID = -1;

@@ -1,6 +1,8 @@
 #ifndef SYSTEMMEM_H
 #define SYSTEMMEM_H
 
+#include <QString>
+#include <QStringList>
 #include <QJsonObject>
 
 class SystemMEM
@@ -24,6 +26,8 @@ public:
     void setSwapPercent(double swapPercent);
 
     bool fromJson(const QJsonObject& memObj);
+
+    QStringList toRow() const;
 
 private:
     double m_maxRamSystem = 0; //MB

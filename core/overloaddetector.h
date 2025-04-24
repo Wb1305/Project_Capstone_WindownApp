@@ -3,9 +3,14 @@
 
 // #include "model/systemstats.h"
 // #include "model/processinfo.h"
+#include "model/OverloadSnapshot.h"
 #include "model/systemstats.h"
 #include <QObject>
 #include <QVector>
+#include <QQueue>
+#include <qelapsedtimer.h>
+#include <QQueue>
+
 
 class OverloadDetector : public QObject
 {
@@ -19,23 +24,44 @@ public:
         STATE_OVERLOADED
     };
 
-    int detectState(SystemStats &systemStats);
+    int detectState(const SystemStats &systemStats);
+    void evaluateOverloadTrend(int currentState);
 
 private:
-    bool checkOverload(double currentCpu, double currentRam) const;
     bool isCriticalOverloading(double cpuUsage, double memUsage, double normTemp);
     double balancePenalty(const QVector<CpuCore> &cores);
     double calCoreImbalance(const QVector<CpuCore> &cores);
     void printValidateLoading(const SystemStats &systemStats, double normTemp, double score);
     int validLoading(double &score);
 
+    //=========
+    void updateStateHistory(int state);
+    void countStateOccurrences(int &overloadCount, int &warningCount);
+    void updateConsecutiveCounts(int currentState);
+    void checkAndEmitSignals(int overloadCount, int warningCount);
+
+    //=========
+    void printStateHistory() const;
+    void recordSnapshot(const SystemStats &systemStats, const QVector<ProcessInfo> &processes, int detectedState);
+
 signals:
     void overloadDetected();
-    // void overloadDetectedWithProcesses(const QVector<ProcessInfo>& processList);
+    void warningDetected();
+    void systemNormal();
+    void overloadDetectedWithBuffer(const QQueue<OverloadSnapshot> &buffer);
+
 public slots:
     // void updateUsage(double currentCpu, double currentRam);
-    void updateUsage(const SystemStats &systemStats);
+    void onSystemDataReceived(const SystemStats &systemStats, const QVector<ProcessInfo> &processes);
 
+private:
+    QQueue<int> m_stateHistory;
+    int m_consecutiveOverload = 0; // chuổi overload liên tục
+    int m_consecutiveWarning = 0; // chuổi warning liên tục
+    QElapsedTimer m_lastOverloadSignal;
+    QElapsedTimer m_lastWarningSignal;
+
+    QQueue<OverloadSnapshot> m_snapshotBuffer;
 };
 
 #endif // OVERLOADDETECTOR_H

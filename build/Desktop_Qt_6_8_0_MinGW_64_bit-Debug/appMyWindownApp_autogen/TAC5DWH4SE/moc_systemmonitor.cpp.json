@@ -24,13 +24,13 @@
                             "type": "int"
                         }
                     ],
-                    "index": 6,
+                    "index": 7,
                     "name": "startStressTest",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
-                    "index": 7,
+                    "index": 8,
                     "name": "stopStressTest",
                     "returnType": "void"
                 }
@@ -108,6 +108,18 @@
                     "access": "private",
                     "index": 5,
                     "name": "onOverloadDetected",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "procName",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 6,
+                    "name": "onCommandKillProcessReceived",
                     "returnType": "void"
                 }
             ],

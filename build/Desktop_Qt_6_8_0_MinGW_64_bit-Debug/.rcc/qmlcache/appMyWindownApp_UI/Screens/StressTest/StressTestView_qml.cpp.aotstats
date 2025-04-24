@@ -6,42 +6,50 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 18,
-                        "durationMicroseconds": 1105,
+                        "durationMicroseconds": 646,
                         "errorMessage": "",
                         "functionName": "visible",
                         "line": 22
                     },
                     {
                         "codegenSuccessfull": true,
+                        "column": 18,
+                        "durationMicroseconds": 513,
+                        "errorMessage": "",
+                        "functionName": "opacity",
+                        "line": 23
+                    },
+                    {
+                        "codegenSuccessfull": true,
                         "column": 22,
-                        "durationMicroseconds": 380,
+                        "durationMicroseconds": 392,
                         "errorMessage": "",
                         "functionName": "top",
-                        "line": 24
+                        "line": 29
                     },
                     {
                         "codegenSuccessfull": true,
                         "column": 23,
-                        "durationMicroseconds": 363,
+                        "durationMicroseconds": 339,
                         "errorMessage": "",
                         "functionName": "left",
-                        "line": 26
+                        "line": 31
                     },
                     {
                         "codegenSuccessfull": true,
                         "column": 36,
-                        "durationMicroseconds": 320,
+                        "durationMicroseconds": 280,
                         "errorMessage": "",
                         "functionName": "preferredWidth",
-                        "line": 32
+                        "line": 37
                     },
                     {
                         "codegenSuccessfull": true,
                         "column": 35,
-                        "durationMicroseconds": 1042,
+                        "durationMicroseconds": 243,
                         "errorMessage": "",
                         "functionName": "alignment",
-                        "line": 36
+                        "line": 41
                     },
                     {
                         "codegenSuccessfull": false,
@@ -49,55 +57,55 @@
                         "durationMicroseconds": 0,
                         "errorMessage": "Cannot resolve property type  for binding on onValueChanged.",
                         "functionName": "onValueChanged",
-                        "line": 46
+                        "line": 51
                     },
                     {
                         "codegenSuccessfull": true,
                         "column": 36,
-                        "durationMicroseconds": 314,
+                        "durationMicroseconds": 285,
                         "errorMessage": "",
                         "functionName": "preferredWidth",
-                        "line": 58
+                        "line": 63
                     },
                     {
                         "codegenSuccessfull": true,
                         "column": 35,
-                        "durationMicroseconds": 246,
+                        "durationMicroseconds": 226,
                         "errorMessage": "",
                         "functionName": "alignment",
-                        "line": 62
+                        "line": 67
                     },
                     {
                         "codegenSuccessfull": false,
                         "column": 27,
-                        "durationMicroseconds": 117,
+                        "durationMicroseconds": 129,
                         "errorMessage": "Cannot retrieve a non-object type by ID: memUsageSlider",
                         "functionName": "text",
-                        "line": 76
+                        "line": 81
                     },
                     {
                         "codegenSuccessfull": true,
                         "column": 39,
-                        "durationMicroseconds": 266,
+                        "durationMicroseconds": 237,
                         "errorMessage": "",
                         "functionName": "alignment",
-                        "line": 78
+                        "line": 83
                     },
                     {
                         "codegenSuccessfull": true,
                         "column": 36,
-                        "durationMicroseconds": 276,
+                        "durationMicroseconds": 260,
                         "errorMessage": "",
                         "functionName": "preferredWidth",
-                        "line": 86
+                        "line": 91
                     },
                     {
                         "codegenSuccessfull": true,
                         "column": 35,
-                        "durationMicroseconds": 237,
+                        "durationMicroseconds": 224,
                         "errorMessage": "",
                         "functionName": "alignment",
-                        "line": 90
+                        "line": 95
                     },
                     {
                         "codegenSuccessfull": false,
@@ -105,111 +113,111 @@
                         "durationMicroseconds": 0,
                         "errorMessage": "Cannot resolve property type  for binding on onValueChanged.",
                         "functionName": "onValueChanged",
-                        "line": 100
+                        "line": 105
                     },
                     {
                         "codegenSuccessfull": true,
                         "column": 36,
-                        "durationMicroseconds": 310,
+                        "durationMicroseconds": 258,
                         "errorMessage": "",
                         "functionName": "preferredWidth",
-                        "line": 112
+                        "line": 117
                     },
                     {
                         "codegenSuccessfull": true,
                         "column": 35,
-                        "durationMicroseconds": 257,
+                        "durationMicroseconds": 224,
                         "errorMessage": "",
                         "functionName": "alignment",
-                        "line": 116
+                        "line": 121
                     },
                     {
                         "codegenSuccessfull": true,
                         "column": 39,
-                        "durationMicroseconds": 282,
+                        "durationMicroseconds": 250,
                         "errorMessage": "",
                         "functionName": "inputMethodHints",
-                        "line": 137
+                        "line": 142
                     },
                     {
                         "codegenSuccessfull": true,
                         "column": 40,
-                        "durationMicroseconds": 252,
+                        "durationMicroseconds": 401,
                         "errorMessage": "",
                         "functionName": "verticalAlignment",
-                        "line": 138
+                        "line": 143
                     },
                     {
                         "codegenSuccessfull": true,
                         "column": 42,
-                        "durationMicroseconds": 242,
+                        "durationMicroseconds": 241,
                         "errorMessage": "",
                         "functionName": "horizontalAlignment",
-                        "line": 139
+                        "line": 144
                     },
                     {
                         "codegenSuccessfull": true,
                         "column": 35,
-                        "durationMicroseconds": 184,
+                        "durationMicroseconds": 182,
                         "errorMessage": "",
                         "functionName": "fill",
-                        "line": 133
+                        "line": 138
                     },
                     {
                         "codegenSuccessfull": true,
                         "column": 38,
-                        "durationMicroseconds": 369,
+                        "durationMicroseconds": 248,
                         "errorMessage": "",
                         "functionName": "cursorShape",
-                        "line": 141
+                        "line": 146
                     },
                     {
                         "codegenSuccessfull": true,
                         "column": 36,
-                        "durationMicroseconds": 353,
+                        "durationMicroseconds": 279,
                         "errorMessage": "",
                         "functionName": "preferredWidth",
-                        "line": 150
+                        "line": 155
                     },
                     {
                         "codegenSuccessfull": true,
                         "column": 31,
-                        "durationMicroseconds": 261,
+                        "durationMicroseconds": 226,
                         "errorMessage": "",
                         "functionName": "alignment",
-                        "line": 151
-                    },
-                    {
-                        "codegenSuccessfull": false,
-                        "column": 32,
-                        "durationMicroseconds": 339,
-                        "errorMessage": "Cannot retrieve a non-object type by ID: numberOfTaskSpin",
-                        "functionName": "onClicked",
-                        "line": 157
-                    },
-                    {
-                        "codegenSuccessfull": true,
-                        "column": 35,
-                        "durationMicroseconds": 201,
-                        "errorMessage": "",
-                        "functionName": "fill",
                         "line": 156
                     },
                     {
                         "codegenSuccessfull": false,
                         "column": 32,
-                        "durationMicroseconds": 764,
-                        "errorMessage": "Cannot access value for name SystemMonitor",
+                        "durationMicroseconds": 373,
+                        "errorMessage": "Cannot retrieve a non-object type by ID: numberOfTaskSpin",
                         "functionName": "onClicked",
-                        "line": 180
+                        "line": 162
                     },
                     {
                         "codegenSuccessfull": true,
                         "column": 35,
-                        "durationMicroseconds": 213,
+                        "durationMicroseconds": 210,
                         "errorMessage": "",
                         "functionName": "fill",
-                        "line": 179
+                        "line": 161
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 32,
+                        "durationMicroseconds": 627,
+                        "errorMessage": "Cannot access value for name SystemMonitor",
+                        "functionName": "onClicked",
+                        "line": 185
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 35,
+                        "durationMicroseconds": 212,
+                        "errorMessage": "",
+                        "functionName": "fill",
+                        "line": 184
                     }
                 ],
                 "filepath": "D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/StressTestView.qml"

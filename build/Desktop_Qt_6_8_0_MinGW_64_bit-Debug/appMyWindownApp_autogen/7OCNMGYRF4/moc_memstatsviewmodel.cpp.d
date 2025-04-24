@@ -15,6 +15,8 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/appMy
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCharts/qxyseries.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QJsonObject \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QObject \
+  D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QString \
+  D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QStringList \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QVariant \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/q20functional.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/q20iterator.h \

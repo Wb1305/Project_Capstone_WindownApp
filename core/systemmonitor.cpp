@@ -12,7 +12,6 @@ SystemMonitor::SystemMonitor(QObject *parent)
     /*m_detector(new OverloadDetector(this)),*/
     /*m_processManager(new ProcessManager(this))*/
 {
-    // connect(m_iviServer, &IviSocketServer::dataReceived, this, &SystemMonitor::onDataReceived);
     bindToDataProcessor(m_dataProcessor); // dùng để test với data fake
 }
 
@@ -50,65 +49,132 @@ QVector<ProcessInfo> SystemMonitor::getCurrentProcesses() const
 }
 
 //generate fake data
+
 QByteArray SystemMonitor::generateFakeData()
 {
     QJsonObject root;
-
-    // Timestamp
     root["timestamp"] = QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss");
 
-    // === SystemStats ===
     QJsonObject systemStats;
 
-    // GeneralCPU
-    QJsonObject generalCpu;
-    generalCpu["CPUUtilization"] = QRandomGenerator::global()->bounded(10, 80);
-    generalCpu["CPUTemperature"] = QRandomGenerator::global()->bounded(45, 75);
-    generalCpu["CPUFrequency"] = 2200.0;
-    generalCpu["CPUFrequencyPercent"] = 65.0;
-    systemStats["GeneralCPU"] = generalCpu;
+    // --- Tổng giá trị CPU & RAM ---
+    int cpuUtil = QRandomGenerator::global()->bounded(60, 85); // CPU tổng (%)
+    double temp = 40.0 + (cpuUtil * 0.5);
+    double freqPercent = 30.0 + (cpuUtil * 0.7);
+    double freq = 1200.0 + (freqPercent / 100.0 * 1800.0); // 1.2GHz đến 3.0GHz
 
-    // coresCPU
+    double maxRam = 16384.0; // MB
+    double maxSwap = 2048.0;
+    int ramUsageMB = QRandomGenerator::global()->bounded(4000, 8000); // RAM đang dùng
+    int ramPercent = static_cast<int>((ramUsageMB / maxRam) * 100);
+    int swapPercent = QRandomGenerator::global()->bounded(5, 50);
+    int swapUsage = (swapPercent / 100.0) * maxSwap;
+
+    // --- General CPU ---
+    QJsonObject generalCpu;
+    generalCpu["CPUUtilization"] = cpuUtil;
+    generalCpu["CPUTemperature"] = temp;
+    generalCpu["CPUFrequency"] = freq;
+    generalCpu["CPUFrequencyPercent"] = freqPercent;
+
+    // --- Cores CPU ---
     QJsonObject coresCpu;
     for (int i = 0; i < 8; ++i) {
+        int coreUtil = QRandomGenerator::global()->bounded(qMax(5, cpuUtil - 10), qMin(100, cpuUtil + 10));
+        int offset = QRandomGenerator::global()->bounded(0, 201) - 100; // [-100, 100]
+        double coreFreq = qMax(1000.0, freq + offset);
+        double coreTemp = 40.0 + (coreUtil * 0.6);
+
         QJsonObject core;
-        core["CPUUtilization"] = QRandomGenerator::global()->bounded(5, 70);
-        core["CPUFrequency"] = 2200.0 + QRandomGenerator::global()->bounded(100);
-        core["CPUTemperature"] = QRandomGenerator::global()->bounded(40, 75);
+        core["CPUUtilization"] = coreUtil;
+        core["CPUFrequency"] = coreFreq;
+        core["CPUTemperature"] = coreTemp;
         coresCpu[QString::number(i)] = core;
     }
-    systemStats["coresCPU"] = coresCpu;
 
-    // MEM
+    // --- Memory ---
     QJsonObject mem;
-    mem["MaxRAM"] = 16384,0;
-    mem["MaxSWAP"] = 2048.0;
-    mem["RAMPercent"] = QRandomGenerator::global()->bounded(30, 90);
-    mem["SWAPPercent"] = QRandomGenerator::global()->bounded(5, 40);
-    mem["RAMUsage"] = QRandomGenerator::global()->bounded(500, 2000);
-    mem["SWAPUsage"] = QRandomGenerator::global()->bounded(100, 1000);
-    systemStats["MEM"] = mem;
+    mem["MaxRAM"] = maxRam;
+    mem["MaxSWAP"] = maxSwap;
+    mem["RAMPercent"] = ramPercent;
+    mem["SWAPPercent"] = swapPercent;
+    mem["RAMUsage"] = ramUsageMB;
+    mem["SWAPUsage"] = swapUsage;
 
+    systemStats["GeneralCPU"] = generalCpu;
+    systemStats["coresCPU"] = coresCpu;
+    systemStats["MEM"] = mem;
     root["SystemStats"] = systemStats;
 
-    // === ProcessesStats ===
+    // --- Processes ---
+    // Bước 1: Định nghĩa số process quá tải và tài nguyên tối thiểu của chúng
+    int overloadCount = 3;
+    int overloadCpuPerProcess = 10;      // mỗi tiến trình dùng 15%
+    int overloadRamPerProcess = 400;     // mỗi tiến trình dùng 600MB
+
+    int reservedCpu = overloadCount * overloadCpuPerProcess;    // 125%
+    int reservedRam = overloadCount * overloadRamPerProcess;    // 3000MB
+
+    // Giới hạn phần còn lại để chia đều cho process bình thường
+    int remainingCpu = qMax(0, cpuUtil - reservedCpu);
+    int remainingRam = qMax(0, ramUsageMB - reservedRam);
+
+    // Chuẩn bị trọng số
+    QVector<double> cpuWeights, ramWeights;
+    double cpuSum = 0, ramSum = 0;
+    for (int i = 0; i < 50 - overloadCount; ++i) {
+        double wCpu = QRandomGenerator::global()->bounded(1, 100);
+        double wRam = QRandomGenerator::global()->bounded(1, 100);
+        cpuWeights.append(wCpu); cpuSum += wCpu;
+        ramWeights.append(wRam); ramSum += wRam;
+    }
+
     QJsonObject processes;
-    for (int i = 0; i < 100; ++i) {
+    double totalCpuProcess = 0;
+    double totalRamProcess = 0.0;
+
+    for (int i = 0; i < 50; ++i) {
+        int cpuP = 0;
+        int memMB = 0;
+
+        if (i < overloadCount) {
+            // Gán trực tiếp process quá tải
+            cpuP = overloadCpuPerProcess + QRandomGenerator::global()->bounded(5, 10);  // 25~34%
+            memMB = overloadRamPerProcess + QRandomGenerator::global()->bounded(100, 300);  // 600~900MB
+        } else {
+            int index = i - overloadCount;
+            cpuP = std::round(remainingCpu * (cpuWeights[index] / cpuSum));
+            memMB = std::round(remainingRam * (ramWeights[index] / ramSum));
+        }
+
+        int memPercent = static_cast<int>((memMB / maxRam) * 100);
+        totalCpuProcess += cpuP;
+        totalRamProcess += memMB;
+
         QJsonObject proc;
         proc["PID"] = 1000 + i;
         proc["User"] = "user-name";
-        proc["PName"] = QString("App_%1").arg(i+1);
-        proc["PCPUUsagePercent"] = QRandomGenerator::global()->bounded(0, 30);
-        proc["PMEMUsageMB"] = QRandomGenerator::global()->bounded(50, 500);
-        proc["PMEMUsagePercent"] = QRandomGenerator::global()->bounded(1, 25);
+        proc["PName"] = QString("App_%1").arg(i + 1);
+        proc["PCPUUsagePercent"] = cpuP;
+        proc["PMEMUsageMB"] = memMB;
+        proc["PMEMUsagePercent"] = memPercent;
 
         processes[QString::number(1000 + i)] = proc;
     }
-    root["ProcessesStats"] = processes;
 
-    // Convert to QByteArray
-    QJsonDocument doc(root);
-    return doc.toJson(QJsonDocument::Compact);
+    int finalCpuUtil = qMin(100, static_cast<int>(totalCpuProcess));
+    int finalRamUsage = qMin(static_cast<int>(maxRam), static_cast<int>(totalRamProcess));
+    int finalRamPercent = static_cast<int>((finalRamUsage / maxRam) * 100);
+
+    generalCpu["CPUUtilization"] = finalCpuUtil;
+    mem["RAMUsage"] = finalRamUsage;
+    mem["RAMPercent"] = finalRamPercent;
+    systemStats["GeneralCPU"] = generalCpu;
+    systemStats["MEM"] = mem;
+
+    root["SystemStats"] = systemStats;
+    root["ProcessesStats"] = processes;
+    return QJsonDocument(root).toJson(QJsonDocument::Compact);
 }
 
 void SystemMonitor::printParsedData(const SystemStats &systemStats, const QVector<ProcessInfo> &processes)
@@ -205,6 +271,19 @@ QByteArray SystemMonitor::createCommandStopStressJson()
     return commandJson;
 }
 
+QByteArray SystemMonitor::createCommandKillProcessJson(const QString &procName)
+{
+    qDebug()<<"=== Kill proesses ===";
+    QJsonObject obj;
+    obj["type"] = "killProcess";
+    obj["PNames"] = procName;
+
+    QJsonDocument doc(obj);
+    QByteArray commandJson = doc.toJson(QJsonDocument::Compact);
+
+    return commandJson;
+}
+
 void SystemMonitor::bindToDataProcessor(DataProcessor* processor)
 {
     m_dataProcessor = processor;
@@ -214,13 +293,8 @@ void SystemMonitor::bindToDataProcessor(DataProcessor* processor)
         m_processList = m_dataProcessor->processList();
 
         qDebug() << "[SystemMonitor] emit systemUpdated";
+
         emit systemUpdated(m_systemStats, m_processList);
-        // emit systemUpdated(m_dataProcessor->systemStats(), m_dataProcessor->processList());
-
-        // double cpuCurrent = m_systemStats.cpuStats().general().utilization();
-        // double ramCurrent = m_systemStats.memStats().ramUtilization();
-        // emit systemUsageChanged(cpuCurrent , ramCurrent);
-
         emit systemUsageChanged(m_systemStats);
     });
 }
@@ -228,14 +302,14 @@ void SystemMonitor::bindToDataProcessor(DataProcessor* processor)
 void SystemMonitor::setOverloadDetector(OverloadDetector *detector)
 {
     m_detector = detector;
-    // connect(this, &SystemMonitor::systemUsageChanged, m_detector, &OverloadDetector::updateUsage);
-    connect(m_detector, &OverloadDetector::overloadDetected, this, &SystemMonitor::onOverloadDetected);
+    connect(m_detector, &OverloadDetector::overloadDetected, this, &SystemMonitor::onOverloadDetected, Qt::QueuedConnection);
 }
 
 void SystemMonitor::setProcessManager(ProcessManager *procManager)
 {
     m_processManager = procManager;
     // connect(this, &SystemMonitor::processListReady, m_processManager, &ProcessManager::handleOverload);
+    connect(m_processManager, &ProcessManager::killProcessRequested, this, &SystemMonitor::onCommandKillProcessReceived, Qt::QueuedConnection);
 }
 
 void SystemMonitor::onDataReceived(const QByteArray &rawData)
@@ -251,4 +325,11 @@ void SystemMonitor::onDataReceived(const QByteArray &rawData)
 void SystemMonitor::onOverloadDetected()
 {
     emit processListReady(m_processList);
+}
+
+void SystemMonitor::onCommandKillProcessReceived(const QString &procName)
+{
+    QByteArray command = createCommandKillProcessJson(procName);
+    qDebug()<<"=== Command kill process ==="<<command;
+    emit commandReceived(command);
 }

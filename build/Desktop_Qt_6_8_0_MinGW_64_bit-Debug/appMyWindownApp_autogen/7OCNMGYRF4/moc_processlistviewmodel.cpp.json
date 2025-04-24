@@ -42,7 +42,7 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 5,
+                    "index": 6,
                     "name": "getData",
                     "returnType": "QVariant"
                 },
@@ -54,7 +54,7 @@
                             "type": "int"
                         }
                     ],
-                    "index": 6,
+                    "index": 7,
                     "name": "getHeader",
                     "returnType": "QString"
                 },
@@ -66,7 +66,7 @@
                             "type": "int"
                         }
                     ],
-                    "index": 7,
+                    "index": 8,
                     "name": "roleNameAt",
                     "returnType": "QString"
                 },
@@ -78,7 +78,7 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 8,
+                    "index": 9,
                     "name": "sortBy",
                     "returnType": "void"
                 }
@@ -104,7 +104,7 @@
                     "final": false,
                     "index": 1,
                     "name": "totalCpuUsagePercent",
-                    "notify": "totalCpuUsageChanged",
+                    "notify": "totalCpuUsagePercentChanged",
                     "read": "totalCpuUsagePercent",
                     "required": false,
                     "scriptable": true,
@@ -118,7 +118,7 @@
                     "final": false,
                     "index": 2,
                     "name": "totalRamUsagePercent",
-                    "notify": "totalRamUsageChanged",
+                    "notify": "totalRamUsagePercentChanged",
                     "read": "totalRamUsagePercent",
                     "required": false,
                     "scriptable": true,
@@ -145,6 +145,20 @@
                     "designable": true,
                     "final": false,
                     "index": 4,
+                    "name": "totalRamUsaged",
+                    "notify": "ramUsageChanged",
+                    "read": "totalRamUsaged",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "double",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 5,
                     "name": "currentSortRole",
                     "notify": "sortChanged",
                     "read": "currentSortRole",
@@ -158,7 +172,7 @@
                     "constant": false,
                     "designable": true,
                     "final": false,
-                    "index": 5,
+                    "index": 6,
                     "name": "sortAscendingStatus",
                     "notify": "sortChanged",
                     "read": "sortAscendingStatus",
@@ -174,13 +188,13 @@
                 {
                     "access": "public",
                     "index": 0,
-                    "name": "totalCpuUsageChanged",
+                    "name": "totalCpuUsagePercentChanged",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 1,
-                    "name": "totalRamUsageChanged",
+                    "name": "totalRamUsagePercentChanged",
                     "returnType": "void"
                 },
                 {
@@ -192,6 +206,12 @@
                 {
                     "access": "public",
                     "index": 3,
+                    "name": "ramUsageChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 4,
                     "name": "sortChanged",
                     "returnType": "void"
                 }
@@ -209,7 +229,7 @@
                             "type": "QList<ProcessInfo>"
                         }
                     ],
-                    "index": 4,
+                    "index": 5,
                     "name": "updateList",
                     "returnType": "void"
                 }

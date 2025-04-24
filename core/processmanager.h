@@ -6,6 +6,9 @@
 
 #include <QObject>
 #include <QVector>
+#include <QSet>
+#include <QString>
+#include <QHash>
 
 class ProcessManager : public QObject, public IProcessManager
 {
@@ -13,14 +16,24 @@ class ProcessManager : public QObject, public IProcessManager
 public:
     explicit ProcessManager(QObject *parent = nullptr);
 
-signals:
+    QString findProcessToKill(const QVector<ProcessInfo> &processesStats);
 
+private:
+    void filterNonRootProcesses(const QVector<ProcessInfo> &processesStats);
+    void applyWhitelistFilter();
+    QHash<QString, int> loadPriorityConfig();
+    QVector<QPair<QString, float>> rankProcessesByScore(QHash<QString, int> &priorityMap);
+
+signals:
+    void killProcessRequested(const QString &processName);
 public slots:
     void handleOverload(const QVector<ProcessInfo> &procList);
 
 private slots:
 private:
     QVector<ProcessInfo> m_processStats;
+    QVector<ProcessInfo> m_nonRootProcesses;
+    QSet<QString> m_validProcessNames;
 };
 
 #endif // PROCESSMANAGER_H

@@ -12,14 +12,19 @@ Rectangle{
     topRightRadius: 10
     bottomRightRadius: 10
 
-
     ColumnLayout {
         id: inputLayoutStress
         Layout.fillWidth: true
         Layout.fillHeight: true
         spacing: 15
 
-        visible: stresstest.isToggleChanged ? true : false
+        // visible: stresstest.isToggleChanged ? true : false
+        visible: opacity > 0
+        opacity: stresstest.isToggleChanged ? 1 : 0
+
+        Behavior on opacity {
+            NumberAnimation { duration: 500 }
+        }
 
         anchors.top: parent.top
         anchors.topMargin: 20
@@ -93,7 +98,7 @@ Rectangle{
                 id: numberOfCoreSpin
                 from: 1
                 to: 8
-                value: 1
+                value: 8
                 Layout.preferredWidth: 50
                 font.pixelSize: 14
                 editable: true

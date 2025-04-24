@@ -47,15 +47,15 @@ int main(int argc, char *argv[])
         Qt::QueuedConnection);
     engine.loadFromModule("MyWindownApp", "Main");
 
-    systemMonitor->startMonitoring();
+    // systemMonitor->startMonitoring();
 
     // Dùng QTimer để truyền fake data mỗi 1 giây
-    // QTimer* timer = new QTimer;
-    // QObject::connect(timer, &QTimer::timeout, systemMonitor, [systemMonitor](){
-    //     QByteArray fakeData = systemMonitor->generateFakeData();
-    //     systemMonitor->feedFakeData(fakeData);
-    // });
-    // timer->start(1000);
+    QTimer* timer = new QTimer;
+    QObject::connect(timer, &QTimer::timeout, systemMonitor, [systemMonitor](){
+        QByteArray fakeData = systemMonitor->generateFakeData();
+        systemMonitor->feedFakeData(fakeData);
+    });
+    timer->start(1000);
 
 
     return app.exec();

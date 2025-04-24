@@ -59,6 +59,16 @@ void CpuGeneral::setFrequencypercent(double freq_percent)
     m_frequencyPercent = freq_percent;
 }
 
+QStringList CpuGeneral::toRow() const
+{
+    return{
+        QString::number(m_utilization, 'f', 2),
+        QString::number(m_temperature, 'f', 2),
+        QString::number(m_frequencyCurrent, 'f', 2),
+        QString::number(m_frequencyPercent, 'f', 2)
+    };
+}
+
 // void CpuGeneral::setFrequencyMax(double freq_max)
 // {
 //     m_frequencyMax = freq_max;

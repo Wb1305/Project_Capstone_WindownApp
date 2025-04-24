@@ -6,7 +6,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 19,
-                        "durationMicroseconds": 6,
+                        "durationMicroseconds": 3,
                         "errorMessage": "Cannot resolve property type  for binding on text.",
                         "functionName": "text",
                         "line": 23
@@ -22,7 +22,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 31,
-                        "durationMicroseconds": 532,
+                        "durationMicroseconds": 542,
                         "errorMessage": "",
                         "functionName": "alignment",
                         "line": 29
@@ -30,7 +30,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 30,
-                        "durationMicroseconds": 235,
+                        "durationMicroseconds": 194,
                         "errorMessage": "",
                         "functionName": "isToggleChanged",
                         "line": 39
@@ -38,7 +38,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 20,
-                        "durationMicroseconds": 902,
+                        "durationMicroseconds": 892,
                         "errorMessage": "",
                         "functionName": "color",
                         "line": 45
@@ -46,7 +46,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 36,
-                        "durationMicroseconds": 124,
+                        "durationMicroseconds": 110,
                         "errorMessage": "Cannot retrieve a non-object type by ID: btnStess",
                         "functionName": "preferredWidth",
                         "line": 41
@@ -54,7 +54,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 63,
-                        "durationMicroseconds": 253,
+                        "durationMicroseconds": 226,
                         "errorMessage": "",
                         "functionName": "type",
                         "line": 49
@@ -62,7 +62,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 34,
-                        "durationMicroseconds": 232,
+                        "durationMicroseconds": 224,
                         "errorMessage": "",
                         "functionName": "type",
                         "line": 55
@@ -70,7 +70,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 23,
-                        "durationMicroseconds": 341,
+                        "durationMicroseconds": 309,
                         "errorMessage": "",
                         "functionName": "performModel",
                         "line": 68
@@ -78,7 +78,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 23,
-                        "durationMicroseconds": 523,
+                        "durationMicroseconds": 267,
                         "errorMessage": "",
                         "functionName": "preferHeight",
                         "line": 69
@@ -86,7 +86,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 22,
-                        "durationMicroseconds": 245,
+                        "durationMicroseconds": 167,
                         "errorMessage": "Cannot retrieve a non-object type by ID: btnStess",
                         "functionName": "preferWidth",
                         "line": 70
@@ -94,7 +94,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 32,
-                        "durationMicroseconds": 286,
+                        "durationMicroseconds": 149,
                         "errorMessage": "Cannot retrieve a non-object type by ID: btnStess",
                         "functionName": "preferredWidth",
                         "line": 65
@@ -102,7 +102,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 33,
-                        "durationMicroseconds": 608,
+                        "durationMicroseconds": 272,
                         "errorMessage": "",
                         "functionName": "preferredHeight",
                         "line": 66

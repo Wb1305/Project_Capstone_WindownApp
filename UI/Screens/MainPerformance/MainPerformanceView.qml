@@ -20,7 +20,7 @@ RowLayout {
 
         Button {
             id: btnStess
-            text: stressTest.isToggle ? "CLOSE" : "OPEN STRESS"
+            text: stressTest.isToggle ? "CLOSE STRESS" : "OPEN STRESS"
             font.pixelSize: 14
             font.bold: true
 

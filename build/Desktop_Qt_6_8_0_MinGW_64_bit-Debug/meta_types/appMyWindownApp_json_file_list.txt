@@ -1,3 +1,4 @@
+D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/appMyWindownApp_autogen/include/../5XLNPBDXWK/moc_datastorageworker.cpp.json
 D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/appMyWindownApp_autogen/include/../7OCNMGYRF4/moc_cpustatsviewmodel.cpp.json
 D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/appMyWindownApp_autogen/include/../7OCNMGYRF4/moc_memstatsviewmodel.cpp.json
 D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/appMyWindownApp_autogen/include/../7OCNMGYRF4/moc_processlistviewmodel.cpp.json
