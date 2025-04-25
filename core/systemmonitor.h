@@ -28,11 +28,10 @@ public:
     void setOverloadDetector(OverloadDetector* detector);
     void setProcessManager(ProcessManager* procManager);
 
-    //tạo data giả lập
+    // --- tạo data giả lập ---
     QByteArray generateFakeData();
-    //in data nhận được khi đã xử lý
     void printParsedData(const SystemStats& systemStats, const QVector<ProcessInfo>& processes);
-    // cung cấp data giả
+    // --- cung cấp data giả ---
     void feedFakeData(const QByteArray& fakeData);
 
     Q_INVOKABLE void startStressTest(int numberOfTasks, int memUsagePercent, int numberOfCores, int timeout);

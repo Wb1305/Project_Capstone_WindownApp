@@ -4,8 +4,9 @@ import QtQuick.Layouts
 // import QtCharts
 import "./UI/Screens/ProcessesListView"
 import "./UI/Screens/Performance"
-import "./UI/Components"
 import "./UI/Screens/MainPerformance"
+import "./UI/Screens/SettingConfig"
+import "./UI/Components"
 
 pragma ComponentBehavior: Bound
 
@@ -46,14 +47,32 @@ Window {
             setWidth: mainWindow.width
         }
 
-        // PerformanceView {
-        //     id: performanceView
-        //     Layout.fillWidth: true
-        //     Layout.fillHeight: true
-        //     performModel: SystemStatsVM
-        //     preferHeight: parent.height * 0.45
-        //     preferWidth: parent.width
-        // }
+        MainPerformanceView{
+            // id: mainPerform
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            performModel: SystemStatsVM
+            preferHeight: mainWindow.height * 0.45
+            preferWidth: mainWindow.width
+            parentHeight: mainWindow.height
+        }
+
+        PerformanceView {
+            id: performanceView
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            performModel: SystemStatsVM
+            preferHeight: mainWindow.height * 0.45
+            preferWidth: mainWindow.width
+        }
+
+        SettingView{
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            preferWidth: mainWindow.width
+            preferHeight: mainWindow.height
+            configManager: ConfigManager
+        }
 
         // TestCpuLineChart{
         //     id: testCpuChart
@@ -61,14 +80,5 @@ Window {
         //     Layout.fillHeight: true
         // }
 
-        MainPerformanceView{
-            // id: mainPerform
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            performModel: SystemStatsVM
-            preferHeight: parent.height * 0.45
-            preferWidth: parent.width
-            parentHeight: parent.height
-        }
     }
 }

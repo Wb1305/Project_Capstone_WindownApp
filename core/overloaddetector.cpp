@@ -76,7 +76,7 @@ int OverloadDetector::detectState(const SystemStats &systemStats)
 
 void OverloadDetector::evaluateOverloadTrend(int currentState)
 {
-    qDebug()<<"===== Evaluate Overload Trend =====";
+    qDebug()<<"[OverloadDetector] ===== Evaluate Overload Trend =====";
     updateStateHistory(currentState);
 
     int overloadCount = 0;
@@ -87,7 +87,7 @@ void OverloadDetector::evaluateOverloadTrend(int currentState)
 
     checkAndEmitSignals(overloadCount, warningCount);
 
-    // printStateHistory();
+    printStateHistory();
 }
 
 bool OverloadDetector::isCriticalOverloading(double cpuUsage, double memUsage, double normTemp)
@@ -174,8 +174,11 @@ void OverloadDetector::checkAndEmitSignals(int overloadCount, int warningCount)
         m_consecutiveOverload >= OVERLOAD_CONSECUTIVE_THRESHOLD &&
         m_lastOverloadSignal.elapsed() > OVERLOAD_DEBOUNCE_MS)
     {
+        qDebug()<<"[OverloadDetector] ==== OVERLOADING ===";
         emit overloadDetected();
+        emit overloadDetectedWithBuffer(m_snapshotBuffer);
         m_lastOverloadSignal.restart();
+        m_snapshotBuffer.clear();
         return;
     }
 
@@ -183,6 +186,7 @@ void OverloadDetector::checkAndEmitSignals(int overloadCount, int warningCount)
         m_consecutiveWarning >= WARNING_CONSECUTIVE_THRESHOLD &&
         m_lastWarningSignal.elapsed() > OVERLOAD_DEBOUNCE_MS)
     {
+        qDebug()<<"[OverloadDetector] ==== WARNING ===";
         emit warningDetected();
         m_lastWarningSignal.restart();
         return;
@@ -197,6 +201,7 @@ void OverloadDetector::checkAndEmitSignals(int overloadCount, int warningCount)
     }
 
     if (m_consecutiveOverload == 0 && m_consecutiveWarning == 0) {
+        qDebug()<<"[OverloadDetector] ==== NORMAL ===";
         emit systemNormal();
     }
 }

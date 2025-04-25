@@ -779,6 +779,7 @@
 		"D:/NMPhuong/Qt/6.8.0/mingw_64/lib/cmake/Qt6Qml/Qt6qmldirTemplate.cmake.in",
 		"D:/NMPhuong/Qt/6.8.0/mingw_64/lib/cmake/Qt6Qml/Qt6qmldirTemplate.cmake.in",
 		"D:/NMPhuong/Qt/6.8.0/mingw_64/lib/cmake/Qt6Qml/Qt6qmldirTemplate.cmake.in",
+		"D:/NMPhuong/Qt/6.8.0/mingw_64/lib/cmake/Qt6Qml/Qt6qmldirTemplate.cmake.in",
 		"D:/NMPhuong/Qt/6.8.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfigureFileTemplate.in",
 		"D:/NMPhuong/Qt/Tools/CMake_64/share/cmake-3.29/Modules/GNUInstallDirs.cmake",
 		"D:/NMPhuong/Qt/6.8.0/mingw_64/lib/cmake/Qt6Qml/Qt6qmldirTemplate.cmake.in",
@@ -878,6 +879,12 @@
 			"D:/NMPhuong/PROJ_Qt/MyWindownApp/model/systemstats.h",
 			"MU",
 			"NLOY5YBGEN/moc_systemstats.cpp",
+			null
+		],
+		[
+			"D:/NMPhuong/PROJ_Qt/MyWindownApp/setting/configkeys.h",
+			"MU",
+			"OI5ODUADWO/moc_configkeys.cpp",
 			null
 		],
 		[
@@ -1038,6 +1045,8 @@
 		"D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/.rcc/qmlcache/appMyWindownApp_UI/Screens/ProcessesListView/ComponentTable_qml.cpp",
 		"D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/.rcc/qmlcache/appMyWindownApp_UI/Screens/ProcessesListView/HeaderView_qml.cpp",
 		"D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/.rcc/qmlcache/appMyWindownApp_UI/Screens/ProcessesListView/ProcessesListView_qml.cpp",
+		"D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/.rcc/qmlcache/appMyWindownApp_UI/Screens/SettingConfig/ConfigField_qml.cpp",
+		"D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/.rcc/qmlcache/appMyWindownApp_UI/Screens/SettingConfig/SettingView_qml.cpp",
 		"D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/.rcc/qmlcache/appMyWindownApp_UI/Screens/StressTest/CustomLabel_qml.cpp",
 		"D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/.rcc/qmlcache/appMyWindownApp_UI/Screens/StressTest/StressTestView_qml.cpp",
 		"D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/.rcc/qmlcache/appMyWindownApp_qmlcache_loader.cpp",
@@ -1143,6 +1152,8 @@
 		"D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/.rcc/qmlcache/appMyWindownApp_UI/Screens/ProcessesListView/ComponentTable_qml.cpp",
 		"D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/.rcc/qmlcache/appMyWindownApp_UI/Screens/ProcessesListView/HeaderView_qml.cpp",
 		"D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/.rcc/qmlcache/appMyWindownApp_UI/Screens/ProcessesListView/ProcessesListView_qml.cpp",
+		"D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/.rcc/qmlcache/appMyWindownApp_UI/Screens/SettingConfig/ConfigField_qml.cpp",
+		"D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/.rcc/qmlcache/appMyWindownApp_UI/Screens/SettingConfig/SettingView_qml.cpp",
 		"D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/.rcc/qmlcache/appMyWindownApp_UI/Screens/StressTest/CustomLabel_qml.cpp",
 		"D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/.rcc/qmlcache/appMyWindownApp_UI/Screens/StressTest/StressTestView_qml.cpp",
 		"D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/.rcc/qmlcache/appMyWindownApp_qmlcache_loader.cpp",

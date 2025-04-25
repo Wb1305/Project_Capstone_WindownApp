@@ -20,9 +20,10 @@ int main(int argc, char *argv[])
 
     // Tạo các thành phần backend
     SystemMonitor* systemMonitor = new SystemMonitor;
+    ConfigManager* configManager = new ConfigManager;
 
-    ThreadManager* threadMgr = new ThreadManager();
-    threadMgr->setup(systemMonitor);
+    // ThreadManager* threadMgr = new ThreadManager();
+    // threadMgr->setup(systemMonitor);
 
     SystemStatsViewModel* systemStatsViewModel = new SystemStatsViewModel;
     ProcessListViewModel* processListViewModel = new ProcessListViewModel;
@@ -38,6 +39,7 @@ int main(int argc, char *argv[])
 
     //=========================
     engine.rootContext()->setContextProperty("SystemMonitor", systemMonitor);
+    engine.rootContext()->setContextProperty("ConfigManager", configManager);
 
     QObject::connect(
         &engine,
@@ -50,13 +52,12 @@ int main(int argc, char *argv[])
     // systemMonitor->startMonitoring();
 
     // Dùng QTimer để truyền fake data mỗi 1 giây
-    QTimer* timer = new QTimer;
-    QObject::connect(timer, &QTimer::timeout, systemMonitor, [systemMonitor](){
-        QByteArray fakeData = systemMonitor->generateFakeData();
-        systemMonitor->feedFakeData(fakeData);
-    });
-    timer->start(1000);
-
+    // QTimer* timer = new QTimer;
+    // QObject::connect(timer, &QTimer::timeout, systemMonitor, [systemMonitor](){
+    //     QByteArray fakeData = systemMonitor->generateFakeData();
+    //     systemMonitor->feedFakeData(fakeData);
+    // });
+    // timer->start(1000);
 
     return app.exec();
 }

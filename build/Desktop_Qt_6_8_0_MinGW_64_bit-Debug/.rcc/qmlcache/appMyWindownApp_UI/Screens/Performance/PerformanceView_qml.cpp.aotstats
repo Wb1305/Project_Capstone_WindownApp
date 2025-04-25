@@ -6,7 +6,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 34,
-                        "durationMicroseconds": 3,
+                        "durationMicroseconds": 2,
                         "errorMessage": "Cannot resolve property type  for binding on policy.",
                         "functionName": "policy",
                         "line": 12
@@ -22,7 +22,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 36,
-                        "durationMicroseconds": 331,
+                        "durationMicroseconds": 155,
                         "errorMessage": "Cannot retrieve a non-object type by ID: scrollItem",
                         "functionName": "performModel",
                         "line": 30
@@ -30,7 +30,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 36,
-                        "durationMicroseconds": 57,
+                        "durationMicroseconds": 56,
                         "errorMessage": "Cannot retrieve a non-object type by ID: scrollItem",
                         "functionName": "preferHeight",
                         "line": 31
@@ -38,7 +38,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 35,
-                        "durationMicroseconds": 50,
+                        "durationMicroseconds": 83,
                         "errorMessage": "Cannot retrieve a non-object type by ID: scrollItem",
                         "functionName": "preferWidth",
                         "line": 32
@@ -46,7 +46,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 29,
-                        "durationMicroseconds": 532,
+                        "durationMicroseconds": 604,
                         "errorMessage": "",
                         "functionName": "seriesCpuModel",
                         "line": 43
@@ -54,7 +54,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 37,
-                        "durationMicroseconds": 293,
+                        "durationMicroseconds": 284,
                         "errorMessage": "",
                         "functionName": "preferredHeight",
                         "line": 41
@@ -62,7 +62,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 36,
-                        "durationMicroseconds": 434,
+                        "durationMicroseconds": 253,
                         "errorMessage": "",
                         "functionName": "preferredWidth",
                         "line": 42
@@ -70,7 +70,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 29,
-                        "durationMicroseconds": 298,
+                        "durationMicroseconds": 266,
                         "errorMessage": "",
                         "functionName": "seriesMemModel",
                         "line": 61
@@ -78,7 +78,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 37,
-                        "durationMicroseconds": 302,
+                        "durationMicroseconds": 265,
                         "errorMessage": "",
                         "functionName": "preferredHeight",
                         "line": 59
@@ -86,7 +86,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 36,
-                        "durationMicroseconds": 300,
+                        "durationMicroseconds": 258,
                         "errorMessage": "",
                         "functionName": "preferredWidth",
                         "line": 60

@@ -22,7 +22,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 31,
-                        "durationMicroseconds": 542,
+                        "durationMicroseconds": 864,
                         "errorMessage": "",
                         "functionName": "alignment",
                         "line": 29
@@ -30,7 +30,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 30,
-                        "durationMicroseconds": 194,
+                        "durationMicroseconds": 271,
                         "errorMessage": "",
                         "functionName": "isToggleChanged",
                         "line": 39
@@ -38,7 +38,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 20,
-                        "durationMicroseconds": 892,
+                        "durationMicroseconds": 906,
                         "errorMessage": "",
                         "functionName": "color",
                         "line": 45
@@ -46,7 +46,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 36,
-                        "durationMicroseconds": 110,
+                        "durationMicroseconds": 132,
                         "errorMessage": "Cannot retrieve a non-object type by ID: btnStess",
                         "functionName": "preferredWidth",
                         "line": 41
@@ -54,7 +54,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 63,
-                        "durationMicroseconds": 226,
+                        "durationMicroseconds": 257,
                         "errorMessage": "",
                         "functionName": "type",
                         "line": 49
@@ -62,7 +62,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 34,
-                        "durationMicroseconds": 224,
+                        "durationMicroseconds": 232,
                         "errorMessage": "",
                         "functionName": "type",
                         "line": 55
@@ -70,7 +70,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 23,
-                        "durationMicroseconds": 309,
+                        "durationMicroseconds": 327,
                         "errorMessage": "",
                         "functionName": "performModel",
                         "line": 68
@@ -78,7 +78,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 23,
-                        "durationMicroseconds": 267,
+                        "durationMicroseconds": 1845,
                         "errorMessage": "",
                         "functionName": "preferHeight",
                         "line": 69
@@ -86,7 +86,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 22,
-                        "durationMicroseconds": 167,
+                        "durationMicroseconds": 225,
                         "errorMessage": "Cannot retrieve a non-object type by ID: btnStess",
                         "functionName": "preferWidth",
                         "line": 70
@@ -94,7 +94,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 32,
-                        "durationMicroseconds": 149,
+                        "durationMicroseconds": 369,
                         "errorMessage": "Cannot retrieve a non-object type by ID: btnStess",
                         "functionName": "preferredWidth",
                         "line": 65
@@ -102,7 +102,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 33,
-                        "durationMicroseconds": 272,
+                        "durationMicroseconds": 320,
                         "errorMessage": "",
                         "functionName": "preferredHeight",
                         "line": 66

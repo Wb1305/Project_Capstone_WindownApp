@@ -2,6 +2,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/appMy
   D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/appMyWindownApp_autogen/moc_predefs.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QObject \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QSettings \
+  D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QString \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QVariant \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/q20functional.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/q20memory.h \

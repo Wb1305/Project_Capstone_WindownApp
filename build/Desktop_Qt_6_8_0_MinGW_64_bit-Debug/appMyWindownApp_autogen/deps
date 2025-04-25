@@ -34,6 +34,7 @@ appMyWindownApp_autogen/timestamp: \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/model/systemmem.h \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/model/systemstats.cpp \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/model/systemstats.h \
+	D:/NMPhuong/PROJ_Qt/MyWindownApp/setting/configkeys.h \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/storage/csvwriter.cpp \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/storage/csvwriter.h \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/storage/csvwritermanager.cpp \

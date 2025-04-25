@@ -92,6 +92,11 @@ qt_add_qml_module(appMyWindownApp
         SOURCES storage/csvwritermanager.h storage/csvwritermanager.cpp
         SOURCES storage/datastorageworker.h storage/datastorageworker.cpp
         SOURCES model/OverloadSnapshot.h
+        SOURCES setting/configkeys.h
+        RESOURCES config/my_ivi_settings.ini
+        QML_FILES UI/Screens/SettingConfig/SettingView.qml
+        QML_FILES UI/Screens/SettingConfig/ConfigField.qml
+
         # QML_FILES UI/Screens/Processes/ProcessView.qml
         # QML_FILES UI/Screens/ResourcesView.qml
         # QML_FILES UI/Screens/HistoryView.qml

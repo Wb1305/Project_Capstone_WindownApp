@@ -22,10 +22,10 @@ void SystemMonitor::startMonitoring()
     // 1. Connect signal-slot tại đây
     connect(m_iviServer, &IviSocketServer::dataReceived, this, &SystemMonitor::onDataReceived);
     connect(this, &SystemMonitor::commandReceived, m_iviServer, &IviSocketServer::onCommandReceived);
-    // bindToDataProcessor(m_dataProcessor);
 
     // 2. Bắt đầu lắng nghe
-    quint16 port = m_config->getValue("server/port").toUInt();
+    quint16 port = m_config->serverPort();
+    // quint16 port = 8000;
     m_iviServer->startListening(port);
 
 }
@@ -58,6 +58,7 @@ QByteArray SystemMonitor::generateFakeData()
     QJsonObject systemStats;
 
     // --- Tổng giá trị CPU & RAM ---
+    // int cpuUtil = QRandomGenerator::global()->bounded(85, 100); // CPU tổng (%)
     int cpuUtil = QRandomGenerator::global()->bounded(60, 85); // CPU tổng (%)
     double temp = 40.0 + (cpuUtil * 0.5);
     double freqPercent = 30.0 + (cpuUtil * 0.7);
@@ -108,8 +109,9 @@ QByteArray SystemMonitor::generateFakeData()
 
     // --- Processes ---
     // Bước 1: Định nghĩa số process quá tải và tài nguyên tối thiểu của chúng
-    int overloadCount = 3;
+    int overloadCount = 5;
     int overloadCpuPerProcess = 10;      // mỗi tiến trình dùng 15%
+    // int overloadCpuPerProcess = 15;
     int overloadRamPerProcess = 400;     // mỗi tiến trình dùng 600MB
 
     int reservedCpu = overloadCount * overloadCpuPerProcess;    // 125%

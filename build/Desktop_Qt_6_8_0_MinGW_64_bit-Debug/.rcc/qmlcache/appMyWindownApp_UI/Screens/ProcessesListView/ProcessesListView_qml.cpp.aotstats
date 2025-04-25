@@ -6,7 +6,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 19,
-                        "durationMicroseconds": 478,
+                        "durationMicroseconds": 816,
                         "errorMessage": "",
                         "functionName": "fill",
                         "line": 11
@@ -14,7 +14,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 22,
-                        "durationMicroseconds": 83,
+                        "durationMicroseconds": 103,
                         "errorMessage": "Cannot load property columnCount from (component in D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/ProcessesListView.qml)::procModel with type QVariant.",
                         "functionName": "columnCount",
                         "line": 23
@@ -22,7 +22,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 19,
-                        "durationMicroseconds": 297,
+                        "durationMicroseconds": 304,
                         "errorMessage": "",
                         "functionName": "maxWidth",
                         "line": 24
@@ -30,7 +30,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 20,
-                        "durationMicroseconds": 275,
+                        "durationMicroseconds": 269,
                         "errorMessage": "",
                         "functionName": "model",
                         "line": 37
@@ -38,7 +38,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 26,
-                        "durationMicroseconds": 215,
+                        "durationMicroseconds": 202,
                         "errorMessage": "",
                         "functionName": "columnUtils",
                         "line": 38
@@ -46,7 +46,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 37,
-                        "durationMicroseconds": 267,
+                        "durationMicroseconds": 280,
                         "errorMessage": "",
                         "functionName": "preferredHeight",
                         "line": 44
@@ -70,7 +70,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 24,
-                        "durationMicroseconds": 510,
+                        "durationMicroseconds": 394,
                         "errorMessage": "",
                         "functionName": "width",
                         "line": 54
@@ -78,7 +78,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 33,
-                        "durationMicroseconds": 533,
+                        "durationMicroseconds": 535,
                         "errorMessage": "",
                         "functionName": "implicitHeight",
                         "line": 55
@@ -86,7 +86,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 24,
-                        "durationMicroseconds": 310,
+                        "durationMicroseconds": 482,
                         "errorMessage": "",
                         "functionName": "model",
                         "line": 56
@@ -102,7 +102,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 38,
-                        "durationMicroseconds": 218,
+                        "durationMicroseconds": 755,
                         "errorMessage": "Cannot generate efficient code for LoadClosure",
                         "functionName": "columnWidthProvider",
                         "line": 59
@@ -110,7 +110,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 28,
-                        "durationMicroseconds": 297,
+                        "durationMicroseconds": 337,
                         "errorMessage": "",
                         "functionName": "model",
                         "line": 64
