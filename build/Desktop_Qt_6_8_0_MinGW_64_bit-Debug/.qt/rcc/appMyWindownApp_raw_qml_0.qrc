@@ -30,6 +30,8 @@
     <file alias="assets/icon/performance.svg">D:/NMPhuong/PROJ_Qt/MyWindownApp/assets/icon/performance.svg</file>
     <file alias="assets/icon/setting.svg">D:/NMPhuong/PROJ_Qt/MyWindownApp/assets/icon/setting.svg</file>
     <file alias="config/my_ivi_settings.ini">D:/NMPhuong/PROJ_Qt/MyWindownApp/config/my_ivi_settings.ini</file>
+    <file alias="config/Priority.txt">D:/NMPhuong/PROJ_Qt/MyWindownApp/config/Priority.txt</file>
+    <file alias="config/WhileList.txt">D:/NMPhuong/PROJ_Qt/MyWindownApp/config/WhileList.txt</file>
   </qresource>
 </RCC>
 

@@ -6,7 +6,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 16,
-                        "durationMicroseconds": 588,
+                        "durationMicroseconds": 705,
                         "errorMessage": "",
                         "functionName": "width",
                         "line": 26
@@ -14,7 +14,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 23,
-                        "durationMicroseconds": 94,
+                        "durationMicroseconds": 106,
                         "errorMessage": "Cannot load property currentIndex from  stored as QQuickRectangle.",
                         "functionName": "currentIndex",
                         "line": 39
@@ -22,7 +22,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 22,
-                        "durationMicroseconds": 479,
+                        "durationMicroseconds": 445,
                         "errorMessage": "",
                         "functionName": "top",
                         "line": 34
@@ -30,7 +30,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 23,
-                        "durationMicroseconds": 413,
+                        "durationMicroseconds": 354,
                         "errorMessage": "",
                         "functionName": "left",
                         "line": 35
@@ -38,7 +38,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 24,
-                        "durationMicroseconds": 365,
+                        "durationMicroseconds": 425,
                         "errorMessage": "",
                         "functionName": "right",
                         "line": 36
@@ -46,7 +46,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 25,
-                        "durationMicroseconds": 391,
+                        "durationMicroseconds": 336,
                         "errorMessage": "",
                         "functionName": "bottom",
                         "line": 37
@@ -54,7 +54,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 24,
-                        "durationMicroseconds": 983,
+                        "durationMicroseconds": 623,
                         "errorMessage": "Cannot access value for name ProcessListVM",
                         "functionName": "procModel",
                         "line": 45
@@ -62,7 +62,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 24,
-                        "durationMicroseconds": 370,
+                        "durationMicroseconds": 321,
                         "errorMessage": "",
                         "functionName": "setHeight",
                         "line": 46
@@ -70,7 +70,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 23,
-                        "durationMicroseconds": 276,
+                        "durationMicroseconds": 814,
                         "errorMessage": "",
                         "functionName": "setWidth",
                         "line": 47
@@ -78,7 +78,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 27,
-                        "durationMicroseconds": 551,
+                        "durationMicroseconds": 522,
                         "errorMessage": "Cannot access value for name SystemStatsVM",
                         "functionName": "performModel",
                         "line": 54
@@ -86,7 +86,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 27,
-                        "durationMicroseconds": 710,
+                        "durationMicroseconds": 589,
                         "errorMessage": "",
                         "functionName": "preferHeight",
                         "line": 55
@@ -94,7 +94,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 26,
-                        "durationMicroseconds": 336,
+                        "durationMicroseconds": 305,
                         "errorMessage": "",
                         "functionName": "preferWidth",
                         "line": 56
@@ -102,7 +102,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 27,
-                        "durationMicroseconds": 291,
+                        "durationMicroseconds": 294,
                         "errorMessage": "",
                         "functionName": "parentHeight",
                         "line": 57
@@ -110,7 +110,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 27,
-                        "durationMicroseconds": 104,
+                        "durationMicroseconds": 135,
                         "errorMessage": "Cannot access value for name SystemStatsVM",
                         "functionName": "performModel",
                         "line": 64
@@ -118,7 +118,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 27,
-                        "durationMicroseconds": 486,
+                        "durationMicroseconds": 515,
                         "errorMessage": "",
                         "functionName": "preferHeight",
                         "line": 65
@@ -126,7 +126,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 26,
-                        "durationMicroseconds": 869,
+                        "durationMicroseconds": 296,
                         "errorMessage": "",
                         "functionName": "preferWidth",
                         "line": 66
@@ -134,7 +134,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 26,
-                        "durationMicroseconds": 334,
+                        "durationMicroseconds": 311,
                         "errorMessage": "",
                         "functionName": "preferWidth",
                         "line": 72
@@ -142,7 +142,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 27,
-                        "durationMicroseconds": 291,
+                        "durationMicroseconds": 289,
                         "errorMessage": "",
                         "functionName": "preferHeight",
                         "line": 73
@@ -150,7 +150,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 28,
-                        "durationMicroseconds": 743,
+                        "durationMicroseconds": 583,
                         "errorMessage": "Cannot access value for name ConfigManager",
                         "functionName": "configManager",
                         "line": 74

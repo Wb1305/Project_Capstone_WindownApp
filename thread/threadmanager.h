@@ -13,10 +13,10 @@ public:
     explicit ThreadManager(QObject *parent = nullptr);
     ~ThreadManager();
 
-    void setup(SystemMonitor* monitor);
+    void setup(SystemMonitor* monitor, ConfigManager* configManager);
 
 private:
-    void setupOverloadDetector(SystemMonitor* monitor);
+    void setupOverloadDetector(SystemMonitor* monitor, ConfigManager* configManager);
     void setupProcessManager(SystemMonitor* monitor);
     void setupStorageWorkers(SystemMonitor* monitor);
     DataStorageWorker* createStorageWorkerThread(const QString& dir, QThread*& thread);
@@ -37,6 +37,7 @@ private:
     ProcessManager* m_processManager = nullptr;
     DataStorageWorker* m_normalStorageWorker = nullptr;
     DataStorageWorker* m_overloadStorageWorker = nullptr;
+    ConfigManager* m_configManager = nullptr;
 };
 
 #endif // THREADMANAGER_H

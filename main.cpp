@@ -21,14 +21,11 @@ int main(int argc, char *argv[])
     // Tạo các thành phần backend
     SystemMonitor* systemMonitor = new SystemMonitor;
     ConfigManager* configManager = new ConfigManager;
-
-    // ThreadManager* threadMgr = new ThreadManager();
-    // threadMgr->setup(systemMonitor);
-
+    ThreadManager* threadMgr = new ThreadManager();
     SystemStatsViewModel* systemStatsViewModel = new SystemStatsViewModel;
     ProcessListViewModel* processListViewModel = new ProcessListViewModel;
 
-
+    threadMgr->setup(systemMonitor, configManager);
     // Kết nối: khi Monitor có dữ liệu mới → ViewModel cập nhật
     systemStatsViewModel->bindToMonitor(systemMonitor);
     processListViewModel->bindToMonitor(systemMonitor);

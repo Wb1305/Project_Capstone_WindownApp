@@ -116,6 +116,9 @@ signals:
     void warningDebounceSecondsChanged();
     void potentialOverloadCountChanged();
 
+    // --- test ---
+    void configChanged();
+
 private:
     QSettings* m_settings = nullptr;
     QString m_iniPath;

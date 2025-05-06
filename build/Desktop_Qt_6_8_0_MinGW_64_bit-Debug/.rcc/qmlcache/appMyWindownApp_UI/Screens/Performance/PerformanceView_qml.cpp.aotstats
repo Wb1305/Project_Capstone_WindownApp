@@ -22,7 +22,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 36,
-                        "durationMicroseconds": 155,
+                        "durationMicroseconds": 156,
                         "errorMessage": "Cannot retrieve a non-object type by ID: scrollItem",
                         "functionName": "performModel",
                         "line": 30
@@ -30,7 +30,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 36,
-                        "durationMicroseconds": 56,
+                        "durationMicroseconds": 61,
                         "errorMessage": "Cannot retrieve a non-object type by ID: scrollItem",
                         "functionName": "preferHeight",
                         "line": 31
@@ -38,7 +38,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 35,
-                        "durationMicroseconds": 83,
+                        "durationMicroseconds": 53,
                         "errorMessage": "Cannot retrieve a non-object type by ID: scrollItem",
                         "functionName": "preferWidth",
                         "line": 32
@@ -46,7 +46,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 29,
-                        "durationMicroseconds": 604,
+                        "durationMicroseconds": 548,
                         "errorMessage": "",
                         "functionName": "seriesCpuModel",
                         "line": 43
@@ -54,7 +54,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 37,
-                        "durationMicroseconds": 284,
+                        "durationMicroseconds": 299,
                         "errorMessage": "",
                         "functionName": "preferredHeight",
                         "line": 41
@@ -62,7 +62,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 36,
-                        "durationMicroseconds": 253,
+                        "durationMicroseconds": 271,
                         "errorMessage": "",
                         "functionName": "preferredWidth",
                         "line": 42
@@ -70,7 +70,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 29,
-                        "durationMicroseconds": 266,
+                        "durationMicroseconds": 304,
                         "errorMessage": "",
                         "functionName": "seriesMemModel",
                         "line": 61
@@ -78,7 +78,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 37,
-                        "durationMicroseconds": 265,
+                        "durationMicroseconds": 308,
                         "errorMessage": "",
                         "functionName": "preferredHeight",
                         "line": 59
@@ -86,7 +86,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 36,
-                        "durationMicroseconds": 258,
+                        "durationMicroseconds": 905,
                         "errorMessage": "",
                         "functionName": "preferredWidth",
                         "line": 60

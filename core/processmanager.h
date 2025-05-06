@@ -31,7 +31,7 @@ public slots:
 
 private slots:
 private:
-    QVector<ProcessInfo> m_processStats;
+    // QVector<ProcessInfo> m_processStats;
     QVector<ProcessInfo> m_nonRootProcesses;
     QSet<QString> m_validProcessNames;
 };

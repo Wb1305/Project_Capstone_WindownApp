@@ -40,10 +40,8 @@ private slots:
 private:
     QTcpServer* m_server = nullptr;
     QTcpSocket* m_clientSocket = nullptr;
-    // QList<QTcpSocket*> m_clientSockets;
     quint16 m_port = 0;
     QHostAddress m_hostAddress;
-    // QByteArray m_buffer;
 };
 
 #endif // IVISOCKETSERVER_H

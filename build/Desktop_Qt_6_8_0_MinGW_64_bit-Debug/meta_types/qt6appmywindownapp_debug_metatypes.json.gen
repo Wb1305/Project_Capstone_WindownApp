@@ -598,7 +598,7 @@
                 "methods": [
                     {
                         "access": "public",
-                        "index": 22,
+                        "index": 23,
                         "name": "save",
                         "returnType": "void"
                     },
@@ -610,7 +610,7 @@
                                 "type": "QString"
                             }
                         ],
-                        "index": 23,
+                        "index": 24,
                         "name": "setServerIp",
                         "returnType": "void"
                     },
@@ -622,7 +622,7 @@
                                 "type": "quint16"
                             }
                         ],
-                        "index": 24,
+                        "index": 25,
                         "name": "setServerPort",
                         "returnType": "void"
                     },
@@ -634,7 +634,7 @@
                                 "type": "int"
                             }
                         ],
-                        "index": 25,
+                        "index": 26,
                         "name": "setOverloadingValue",
                         "returnType": "void"
                     },
@@ -646,7 +646,7 @@
                                 "type": "int"
                             }
                         ],
-                        "index": 26,
+                        "index": 27,
                         "name": "setWarningValue",
                         "returnType": "void"
                     },
@@ -658,7 +658,7 @@
                                 "type": "double"
                             }
                         ],
-                        "index": 27,
+                        "index": 28,
                         "name": "setWeightRam",
                         "returnType": "void"
                     },
@@ -670,7 +670,7 @@
                                 "type": "double"
                             }
                         ],
-                        "index": 28,
+                        "index": 29,
                         "name": "setWeightSwap",
                         "returnType": "void"
                     },
@@ -682,7 +682,7 @@
                                 "type": "double"
                             }
                         ],
-                        "index": 29,
+                        "index": 30,
                         "name": "setWeightCpu",
                         "returnType": "void"
                     },
@@ -694,7 +694,7 @@
                                 "type": "double"
                             }
                         ],
-                        "index": 30,
+                        "index": 31,
                         "name": "setWeightTemp",
                         "returnType": "void"
                     },
@@ -706,7 +706,7 @@
                                 "type": "double"
                             }
                         ],
-                        "index": 31,
+                        "index": 32,
                         "name": "setWeightFreq",
                         "returnType": "void"
                     },
@@ -718,7 +718,7 @@
                                 "type": "int"
                             }
                         ],
-                        "index": 32,
+                        "index": 33,
                         "name": "setTempMin",
                         "returnType": "void"
                     },
@@ -730,7 +730,7 @@
                                 "type": "int"
                             }
                         ],
-                        "index": 33,
+                        "index": 34,
                         "name": "setTempMax",
                         "returnType": "void"
                     },
@@ -742,7 +742,7 @@
                                 "type": "int"
                             }
                         ],
-                        "index": 34,
+                        "index": 35,
                         "name": "setCriticalCpuThreshold",
                         "returnType": "void"
                     },
@@ -754,7 +754,7 @@
                                 "type": "int"
                             }
                         ],
-                        "index": 35,
+                        "index": 36,
                         "name": "setCriticalMemThreshold",
                         "returnType": "void"
                     },
@@ -766,7 +766,7 @@
                                 "type": "int"
                             }
                         ],
-                        "index": 36,
+                        "index": 37,
                         "name": "setCriticalTempThreshold",
                         "returnType": "void"
                     },
@@ -778,7 +778,7 @@
                                 "type": "int"
                             }
                         ],
-                        "index": 37,
+                        "index": 38,
                         "name": "setCriticalDurationSecondsThreshold",
                         "returnType": "void"
                     },
@@ -790,7 +790,7 @@
                                 "type": "int"
                             }
                         ],
-                        "index": 38,
+                        "index": 39,
                         "name": "setOverloadCountThreshold",
                         "returnType": "void"
                     },
@@ -802,7 +802,7 @@
                                 "type": "int"
                             }
                         ],
-                        "index": 39,
+                        "index": 40,
                         "name": "setOverloadConsecutiveThreshold",
                         "returnType": "void"
                     },
@@ -814,7 +814,7 @@
                                 "type": "int"
                             }
                         ],
-                        "index": 40,
+                        "index": 41,
                         "name": "setOverloadDebounceSeconds",
                         "returnType": "void"
                     },
@@ -826,7 +826,7 @@
                                 "type": "int"
                             }
                         ],
-                        "index": 41,
+                        "index": 42,
                         "name": "setWarningCountThreshold",
                         "returnType": "void"
                     },
@@ -838,7 +838,7 @@
                                 "type": "int"
                             }
                         ],
-                        "index": 42,
+                        "index": 43,
                         "name": "setWarningConsecutiveThreshold",
                         "returnType": "void"
                     },
@@ -850,7 +850,7 @@
                                 "type": "int"
                             }
                         ],
-                        "index": 43,
+                        "index": 44,
                         "name": "setWarningDebounceSeconds",
                         "returnType": "void"
                     },
@@ -862,7 +862,7 @@
                                 "type": "int"
                             }
                         ],
-                        "index": 44,
+                        "index": 45,
                         "name": "setPotentialOverloadCount",
                         "returnType": "void"
                     }
@@ -1333,6 +1333,12 @@
                         "index": 21,
                         "name": "potentialOverloadCountChanged",
                         "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "index": 22,
+                        "name": "configChanged",
+                        "returnType": "void"
                     }
                 ],
                 "superClasses": [
@@ -1464,7 +1470,7 @@
         "classes": [
             {
                 "className": "OverloadDetector",
-                "lineNumber": 15,
+                "lineNumber": 17,
                 "object": true,
                 "qualifiedClassName": "OverloadDetector",
                 "signals": [

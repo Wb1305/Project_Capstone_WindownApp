@@ -2,7 +2,7 @@
     "classes": [
         {
             "className": "OverloadDetector",
-            "lineNumber": 15,
+            "lineNumber": 17,
             "object": true,
             "qualifiedClassName": "OverloadDetector",
             "signals": [

@@ -1,0 +1,96 @@
+# === General temp & system files ===
+*~
+*.autosave
+*.orig
+*.rej
+.DS_Store
+.directory
+Thumbs.db
+tags
+.#*
+*.*#
+
+# === Qt build artifacts ===
+*.o
+*.obj
+*.so
+*.a
+*.lib
+*.dll
+*.exe
+*.pdb
+*.idb
+*.ilk
+*.res
+*.rc
+*.debug
+*.core
+
+# === Qt generated ===
+moc_*.cpp
+ui_*.h
+qrc_*.cpp
+*_resource.rc
+*_pch.h.cpp
+
+# === Qt Creator ===
+*.pro.user*
+*.pro.user
+CMakeLists.txt.user*
+.qmake.cache
+.qmake.stash
+
+# === CMake generated ===
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+compile_commands.json
+
+# === IDE ===
+*.sln
+*.vcxproj
+*.vcxproj.*
+*.suo
+*.ncb
+*.sdf
+*.opensdf
+
+# === Build folders ===
+build*/
+build-*/
+out/
+output/
+*.build/
+
+# === QML ===
+*.qmlc
+*.jsc
+*.qmlcache
+.rcc/
+.rcc/*
+*.qmlproject.user
+
+# === Linguist ===
+*.qm
+*.ts
+
+# === Python ===
+*.pyc
+__pycache__/
+
+# === Logs ===
+*.log
+
+# === Custom ===
+*.autosave
+*.bak
+*.swp
+*.tmp
+
+# === Ignore config INI outside source ===
+*.ini
+
+# === Safe folder exclusion ===
+/MyWindownApp/config/*.ini
+!/MyWindownApp/config/README.md  # if you want to track docs only

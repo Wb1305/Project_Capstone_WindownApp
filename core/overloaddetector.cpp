@@ -1,37 +1,40 @@
 #include "overloaddetector.h"
 #include <QDebug>
 #include <QTimer>
+#include <qthread.h>
 
-#define OVERLOADING 50
-#define WARNING 45
+// #define OVERLOADING 50
+// #define WARNING 45
 
-// weights
-#define WEIGHT_RAM 0.35
-#define WEIGHT_SWAP 0.25
-#define WEIGHT_CPU 0.25
-#define WEIGHT_TEMP 0.10
-#define WEIGHT_FREQ 0.05
+// // weights
+// #define WEIGHT_RAM 0.35
+// #define WEIGHT_SWAP 0.25
+// #define WEIGHT_CPU 0.25
+// #define WEIGHT_TEMP 0.10
+// #define WEIGHT_FREQ 0.05
 
-#define TEMP_MIN 40
-#define TEMP_MAX 90
+// #define TEMP_MIN 40
+// #define TEMP_MAX 90
 
-// Critical thresholds
-#define CRITICAL_CPU_THRESHOULD 85
-#define CRITICAL_MEM_THRESHOULD 180
-#define CRITICAL_TEMP_THRESHOULD 90
+// // Critical thresholds
+// #define CRITICAL_CPU_THRESHOULD 85
+// #define CRITICAL_MEM_THRESHOULD 180
+// #define CRITICAL_TEMP_THRESHOULD 90
 
-// --- Overload config ---
-#define OVERLOAD_COUNT_THRESHOLD      40
-#define OVERLOAD_CONSECUTIVE_THRESHOLD 30
-#define OVERLOAD_DEBOUNCE_MS         10000
+// // --- Overload config ---
+// #define OVERLOAD_COUNT_THRESHOLD     40
+// #define OVERLOAD_CONSECUTIVE_THRESHOLD 30
+// #define OVERLOAD_DEBOUNCE_MS         10000
 
-// --- Warning config ---
-#define WARNING_COUNT_THRESHOLD       20
-#define WARNING_CONSECUTIVE_THRESHOLD 15
-#define WARNING_DEBOUNCE_MS          10000
+// // --- Warning config ---
+// #define WARNING_COUNT_THRESHOLD       20
+// #define WARNING_CONSECUTIVE_THRESHOLD 15
+// #define WARNING_DEBOUNCE_MS          10000
 
-// --- Potential Overload ---
-#define POTENTIAL_OVERLOAD_COUNT      45
+// // --- Potential Overload ---
+// #define POTENTIAL_OVERLOAD_COUNT      45
+
+
 
 
 OverloadDetector::OverloadDetector(QObject *parent)
@@ -39,6 +42,7 @@ OverloadDetector::OverloadDetector(QObject *parent)
 {
     m_lastOverloadSignal.start();
     m_lastWarningSignal.start();
+    // qDebug() << "[OverloadDetector] Created in thread:" << QThread::currentThread();
 }
 
 int OverloadDetector::detectState(const SystemStats &systemStats)
@@ -50,7 +54,7 @@ int OverloadDetector::detectState(const SystemStats &systemStats)
     double swapUsagePercent = systemStats.memStats().swapPercent();
     double cpuFreqPercent = systemStats.cpuStats().general().frequencyPercent();
 
-    double normTemp = std::clamp((cpuTemp - TEMP_MIN) / (TEMP_MAX - TEMP_MIN)*100, 0.0, 100.0);
+    double normTemp = std::clamp((cpuTemp - m_overloadConfig.tempMin) / (m_overloadConfig.tempMax - m_overloadConfig.tempMin)*100, 0.0, 100.0);
 
     if(isCriticalOverloading(cpuUsage, ramUsagePercent + swapUsagePercent, normTemp)) {
         qDebug() << "[OverloadDetector] Critical condition detected!";
@@ -62,11 +66,11 @@ int OverloadDetector::detectState(const SystemStats &systemStats)
     }
 
     double score =
-        WEIGHT_RAM * ramUsagePercent +
-        WEIGHT_SWAP * swapUsagePercent +
-        WEIGHT_CPU * cpuUsage +
-        WEIGHT_TEMP * normTemp +
-        WEIGHT_FREQ * cpuFreqPercent;
+        m_overloadConfig.weightRam * ramUsagePercent +
+        m_overloadConfig.weightSwap * swapUsagePercent +
+        m_overloadConfig.weightCpu * cpuUsage +
+        m_overloadConfig.weightTemp * normTemp +
+        m_overloadConfig.weightFreq * cpuFreqPercent;
     score += balancePenalty(systemStats.cpuStats().cores());
 
     // printValidateLoading(systemStats, normTemp, score);
@@ -90,9 +94,151 @@ void OverloadDetector::evaluateOverloadTrend(int currentState)
     printStateHistory();
 }
 
+void OverloadDetector::setConfigManager(ConfigManager *configManager)
+{
+    qDebug() << "[OverloadDetector] setConfigManager in thread:" << QThread::currentThread();
+
+    if(!configManager) return;
+    m_configManager = configManager;
+
+    // Lần đầu tiên, load toàn bộ
+    reloadConfigFromManager();
+
+    printOverloadConfig();
+
+    connect(configManager, &ConfigManager::configChanged, this, [this]() {
+        printOverloadConfig();
+    }, Qt::QueuedConnection);
+
+    // connect(configManager, &ConfigManager::configChanged, this, &OverloadDetector::printOverloadConfig, Qt::QueuedConnection);
+
+    connect(configManager, &ConfigManager::overloadingValueChanged, this, [this]() {
+        m_overloadConfig.overloadingValue = m_configManager->overloadingValue();
+    }, Qt::QueuedConnection);
+
+    connect(configManager, &ConfigManager::warningValueChanged, this, [this]() {
+        m_overloadConfig.warningValue = m_configManager->warningValue();
+    }, Qt::QueuedConnection);
+
+    connect(configManager, &ConfigManager::weightRamChanged, this, [this]() {
+        m_overloadConfig.weightRam = m_configManager->weightRam();
+    }, Qt::QueuedConnection);
+
+    connect(configManager, &ConfigManager::weightSwapChanged, this, [this]() {
+        m_overloadConfig.weightSwap = m_configManager->weightSwap();
+    }, Qt::QueuedConnection);
+
+    connect(configManager, &ConfigManager::weightCpuChanged, this, [this]() {
+        m_overloadConfig.weightCpu = m_configManager->weightCpu();
+    }, Qt::QueuedConnection);
+
+    connect(configManager, &ConfigManager::weightTempChanged, this, [this]() {
+        m_overloadConfig.weightTemp = m_configManager->weightTemp();
+    }, Qt::QueuedConnection);
+
+    connect(configManager, &ConfigManager::weightFreqChanged, this, [this]() {
+        m_overloadConfig.weightFreq = m_configManager->weightFreq();
+    }, Qt::QueuedConnection);
+
+    connect(configManager, &ConfigManager::tempMinChanged, this, [this]() {
+        m_overloadConfig.tempMin = m_configManager->tempMin();
+    }, Qt::QueuedConnection);
+
+    connect(configManager, &ConfigManager::tempMaxChanged, this, [this]() {
+        m_overloadConfig.tempMax = m_configManager->tempMax();
+    }, Qt::QueuedConnection);
+
+    connect(configManager, &ConfigManager::criticalCpuThresholdChanged, this, [this]() {
+        m_overloadConfig.criticalCpuThreshold = m_configManager->criticalCpuThreshold();
+    }, Qt::QueuedConnection);
+
+    connect(configManager, &ConfigManager::criticalMemThresholdChanged, this, [this]() {
+        m_overloadConfig.criticalMemThreshold = m_configManager->criticalMemThreshold();
+    }, Qt::QueuedConnection);
+
+    connect(configManager, &ConfigManager::criticalTempThresholdChanged, this, [this]() {
+        m_overloadConfig.criticalTempThreshold = m_configManager->criticalTempThreshold();
+    }, Qt::QueuedConnection);
+
+    connect(configManager, &ConfigManager::criticalDurationSecondsThresholdChanged, this, [this]() {
+        m_overloadConfig.criticalDurationSecondsThreshold = m_configManager->criticalDurationSecondsThreshold();
+    }, Qt::QueuedConnection);
+
+    connect(configManager, &ConfigManager::overloadCountThresholdChanged, this, [this]() {
+        m_overloadConfig.overloadCountThreshold = m_configManager->overloadCountThreshold();
+    }, Qt::QueuedConnection);
+
+    connect(configManager, &ConfigManager::overloadConsecutiveThresholdChanged, this, [this]() {
+        m_overloadConfig.overloadConsecutiveThreshold = m_configManager->overloadConsecutiveThreshold();
+    }, Qt::QueuedConnection);
+
+    connect(configManager, &ConfigManager::overloadDebounceSecondsChanged, this, [this]() {
+        m_overloadConfig.overloadDebounceSeconds = m_configManager->overloadDebounceSeconds();
+    }, Qt::QueuedConnection);
+
+    connect(configManager, &ConfigManager::warningCountThresholdChanged, this, [this]() {
+        m_overloadConfig.warningCountThreshold = m_configManager->warningCountThreshold();
+    }, Qt::QueuedConnection);
+
+    connect(configManager, &ConfigManager::warningConsecutiveThresholdChanged, this, [this]() {
+        m_overloadConfig.warningConsecutiveThreshold = m_configManager->warningConsecutiveThreshold();
+    }, Qt::QueuedConnection);
+
+    connect(configManager, &ConfigManager::warningDebounceSecondsChanged, this, [this]() {
+        m_overloadConfig.warningDebounceSeconds = m_configManager->warningDebounceSeconds();
+    }, Qt::QueuedConnection);
+
+    connect(configManager, &ConfigManager::potentialOverloadCountChanged, this, [this]() {
+        // qDebug() << "potentialOverloadCountChanged Received configChanged in thread:" << QThread::currentThread();
+        m_overloadConfig.potentialOverloadCount = m_configManager->potentialOverloadCount();
+    }, Qt::QueuedConnection);
+}
+
+void OverloadDetector::printOverloadConfig() const
+{
+    qDebug() << "========== [OverloadDetector] Current OverloadConfig ==========";
+
+    qDebug() << "Score thresholds:";
+    qDebug() << "  Overloading Value:" << m_overloadConfig.overloadingValue;
+    qDebug() << "  Warning Value    :" << m_overloadConfig.warningValue;
+
+    qDebug() << "Weights (%):";
+    qDebug() << "  RAM   :" << m_overloadConfig.weightRam;
+    qDebug() << "  Swap  :" << m_overloadConfig.weightSwap;
+    qDebug() << "  CPU   :" << m_overloadConfig.weightCpu;
+    qDebug() << "  Temp  :" << m_overloadConfig.weightTemp;
+    qDebug() << "  Freq  :" << m_overloadConfig.weightFreq;
+
+    qDebug() << "Temperature Bounds:";
+    qDebug() << "  Temp Min:" << m_overloadConfig.tempMin;
+    qDebug() << "  Temp Max:" << m_overloadConfig.tempMax;
+
+    qDebug() << "Critical thresholds:";
+    qDebug() << "  CPU Usage (%):" << m_overloadConfig.criticalCpuThreshold;
+    qDebug() << "  Mem Usage (MB):" << m_overloadConfig.criticalMemThreshold;
+    qDebug() << "  Temp (°C)    :" << m_overloadConfig.criticalTempThreshold;
+    qDebug() << "  Duration (s) :" << m_overloadConfig.criticalDurationSecondsThreshold;
+
+    qDebug() << "Overload detection:";
+    qDebug() << "  Count Threshold:" << m_overloadConfig.overloadCountThreshold;
+    qDebug() << "  Consecutive Threshold:" << m_overloadConfig.overloadConsecutiveThreshold;
+    qDebug() << "  Debounce (seconds):" << m_overloadConfig.overloadDebounceSeconds;
+
+    qDebug() << "Warning detection:";
+    qDebug() << "  Count Threshold:" << m_overloadConfig.warningCountThreshold;
+    qDebug() << "  Consecutive Threshold:" << m_overloadConfig.warningConsecutiveThreshold;
+    qDebug() << "  Debounce (seconds):" << m_overloadConfig.warningDebounceSeconds;
+
+    qDebug() << "Potential Overload Detection:";
+    qDebug() << "  Potential Overload Count:" << m_overloadConfig.potentialOverloadCount;
+
+    qDebug() << "===============================================================";
+}
+
 bool OverloadDetector::isCriticalOverloading(double cpuUsage, double memUsage, double normTemp)
 {
-    return cpuUsage >= CRITICAL_CPU_THRESHOULD || memUsage >= CRITICAL_MEM_THRESHOULD || normTemp >= CRITICAL_TEMP_THRESHOULD;
+    // return cpuUsage >= CRITICAL_CPU_THRESHOULD || memUsage >= CRITICAL_MEM_THRESHOULD || normTemp >= CRITICAL_TEMP_THRESHOULD;
+    return cpuUsage >= m_overloadConfig.criticalCpuThreshold || memUsage >= m_overloadConfig.criticalMemThreshold || normTemp >= m_overloadConfig.criticalTempThreshold;
 }
 
 double OverloadDetector::balancePenalty(const QVector<CpuCore> &cores)
@@ -131,8 +277,8 @@ void OverloadDetector::printValidateLoading(const SystemStats &systemStats, doub
 
 int OverloadDetector::validLoading(double &score)
 {
-    if(score >= OVERLOADING) return (int)LoadLevel::STATE_OVERLOADED;
-    else if (score >= WARNING) return (int)LoadLevel::STATE_WARNING;
+    if(score >= m_overloadConfig.overloadingValue) return (int)LoadLevel::STATE_OVERLOADED; // OVERLOADING
+    else if (score >= m_overloadConfig.warningValue) return (int)LoadLevel::STATE_WARNING; // WARNING
     return (int)LoadLevel::STATE_NORMAL;
 }
 
@@ -170,21 +316,26 @@ void OverloadDetector::updateConsecutiveCounts(int currentState)
 
 void OverloadDetector::checkAndEmitSignals(int overloadCount, int warningCount)
 {
-    if (overloadCount >= OVERLOAD_COUNT_THRESHOLD &&
-        m_consecutiveOverload >= OVERLOAD_CONSECUTIVE_THRESHOLD &&
-        m_lastOverloadSignal.elapsed() > OVERLOAD_DEBOUNCE_MS)
+    if (overloadCount >= m_overloadConfig.overloadCountThreshold &&
+        m_consecutiveOverload >= m_overloadConfig.overloadConsecutiveThreshold &&
+        m_lastOverloadSignal.elapsed() > m_overloadConfig.overloadDebounceSeconds * 1000) //ms
     {
         qDebug()<<"[OverloadDetector] ==== OVERLOADING ===";
         emit overloadDetected();
         emit overloadDetectedWithBuffer(m_snapshotBuffer);
-        m_lastOverloadSignal.restart();
+
+        qDebug()<<"[OverloadDetector] Clear SnapShot Buffer - State history";
         m_snapshotBuffer.clear();
+        m_stateHistory.clear();
+        m_consecutiveOverload = 0;
+        m_consecutiveWarning = 0;
+        m_lastOverloadSignal.restart();
         return;
     }
 
-    if (warningCount >= WARNING_COUNT_THRESHOLD &&
-        m_consecutiveWarning >= WARNING_CONSECUTIVE_THRESHOLD &&
-        m_lastWarningSignal.elapsed() > OVERLOAD_DEBOUNCE_MS)
+    if (warningCount >= m_overloadConfig.warningCountThreshold &&
+        m_consecutiveWarning >= m_overloadConfig.warningConsecutiveThreshold &&
+        m_lastWarningSignal.elapsed() > m_overloadConfig.warningDebounceSeconds * 1000) // ms
     {
         qDebug()<<"[OverloadDetector] ==== WARNING ===";
         emit warningDetected();
@@ -192,8 +343,8 @@ void OverloadDetector::checkAndEmitSignals(int overloadCount, int warningCount)
         return;
     }
 
-    if (overloadCount >= POTENTIAL_OVERLOAD_COUNT &&
-        m_consecutiveOverload < OVERLOAD_CONSECUTIVE_THRESHOLD)
+    if (overloadCount >= m_overloadConfig.potentialOverloadCount &&
+        m_consecutiveOverload < m_overloadConfig.overloadConsecutiveThreshold)
     {
         qDebug() << "[Warning] Potential Overload: High frequency but not continuous.";
         // emit potentialOverload(); // nếu cần thiết
@@ -230,6 +381,43 @@ void OverloadDetector::recordSnapshot(const SystemStats &systemStats, const QVec
     }
 }
 
+void OverloadDetector::reloadConfigFromManager()
+{
+    if(!m_configManager) return;
+
+    qDebug() << "[OverloadDetector] Reloading config in thread:" << QThread::currentThread();
+
+    m_overloadConfig.overloadingValue = m_configManager->overloadingValue();
+    m_overloadConfig.warningValue = m_configManager->warningValue();
+
+    m_overloadConfig.weightRam = m_configManager->weightRam();
+    m_overloadConfig.weightSwap = m_configManager->weightSwap();
+    m_overloadConfig.weightCpu = m_configManager->weightCpu();
+    m_overloadConfig.weightTemp = m_configManager->weightTemp();
+    m_overloadConfig.weightFreq = m_configManager->weightFreq();
+
+    m_overloadConfig.tempMin = m_configManager->tempMin();
+    m_overloadConfig.tempMax = m_configManager->tempMax();
+
+    m_overloadConfig.criticalCpuThreshold = m_configManager->criticalCpuThreshold();
+    m_overloadConfig.criticalMemThreshold = m_configManager->criticalMemThreshold();
+    m_overloadConfig.criticalTempThreshold = m_configManager->criticalTempThreshold();
+    m_overloadConfig.criticalDurationSecondsThreshold = m_configManager->criticalDurationSecondsThreshold();
+
+    m_overloadConfig.overloadCountThreshold = m_configManager->overloadCountThreshold();
+    m_overloadConfig.overloadConsecutiveThreshold = m_configManager->overloadConsecutiveThreshold();
+    m_overloadConfig.overloadDebounceSeconds = m_configManager->overloadDebounceSeconds();
+
+    m_overloadConfig.warningCountThreshold = m_configManager->warningCountThreshold();
+    m_overloadConfig.warningConsecutiveThreshold = m_configManager->warningConsecutiveThreshold();
+    m_overloadConfig.warningDebounceSeconds = m_configManager->warningDebounceSeconds();
+
+    m_overloadConfig.potentialOverloadCount = m_configManager->potentialOverloadCount();
+
+    qDebug() << "[OverloadDetector] Reloaded config from ConfigManager.";
+    qDebug() << "[OverloadDetector] Done reloading config.";
+}
+
 void OverloadDetector::onSystemDataReceived(const SystemStats &systemStats, const QVector<ProcessInfo> &processes)
 {
     qDebug()<< "[Thread - OverloadDetector]: Overload received data from System Monitor";
@@ -240,20 +428,5 @@ void OverloadDetector::onSystemDataReceived(const SystemStats &systemStats, cons
     recordSnapshot(systemStats, processes, currState);
 
     // printValidateLoading(systemStats, 60, 8);
-
-
-    // test timer
-    // static bool overloadTimerStarted = false;
-
-    // if (!overloadTimerStarted) {
-    //     overloadTimerStarted = true;
-
-    //     qDebug() << "[Thread - OverloadDetector]: Starting 20s overload timer...";
-
-    //     QTimer::singleShot(20000, this, [this]() {
-    //         qDebug() << "[Thread - OverloadDetector]: emit signal overload after 20s";
-    //         emit overloadDetected();
-    //     });
-    // }
 }
 

@@ -6,7 +6,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 30,
-                        "durationMicroseconds": 184,
+                        "durationMicroseconds": 199,
                         "errorMessage": "Cannot load property hoveredRow from (component in D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/ComponentTable.qml)::tableViewData with type QVariant.",
                         "functionName": "isHovered",
                         "line": 12
@@ -14,7 +14,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 25,
-                        "durationMicroseconds": 1477,
+                        "durationMicroseconds": 1509,
                         "errorMessage": "Cannot generate efficient code for call to untyped JavaScript function",
                         "functionName": "value",
                         "line": 13
@@ -22,7 +22,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 31,
-                        "durationMicroseconds": 593,
+                        "durationMicroseconds": 590,
                         "errorMessage": "Cannot generate efficient code for call to untyped JavaScript function",
                         "functionName": "roleName",
                         "line": 14
@@ -38,7 +38,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 12,
-                        "durationMicroseconds": 10361,
+                        "durationMicroseconds": 15078,
                         "errorMessage": "Cannot generate efficient code for call to untyped JavaScript function",
                         "functionName": "color",
                         "line": 21
@@ -46,7 +46,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 15,
-                        "durationMicroseconds": 6919,
+                        "durationMicroseconds": 3495,
                         "errorMessage": "Cannot generate efficient code for call to untyped JavaScript function",
                         "functionName": "text",
                         "line": 39
@@ -54,7 +54,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 16,
-                        "durationMicroseconds": 303,
+                        "durationMicroseconds": 302,
                         "errorMessage": "",
                         "functionName": "elide",
                         "line": 58
@@ -62,7 +62,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 30,
-                        "durationMicroseconds": 1998,
+                        "durationMicroseconds": 1958,
                         "errorMessage": "",
                         "functionName": "horizontalAlignment",
                         "line": 66
@@ -70,7 +70,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 33,
-                        "durationMicroseconds": 375,
+                        "durationMicroseconds": 405,
                         "errorMessage": "",
                         "functionName": "verticalCenter",
                         "line": 59
@@ -78,7 +78,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 23,
-                        "durationMicroseconds": 937,
+                        "durationMicroseconds": 1173,
                         "errorMessage": "Cannot generate efficient code for internal conversion with incompatible or ambiguous types: conversion to QVariant -> QQuickAnchorLine stored as QVariant",
                         "functionName": "left",
                         "line": 62
@@ -86,7 +86,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 24,
-                        "durationMicroseconds": 1872,
+                        "durationMicroseconds": 2087,
                         "errorMessage": "Cannot generate efficient code for internal conversion with incompatible or ambiguous types: conversion to QVariant -> QQuickAnchorLine stored as QVariant",
                         "functionName": "right",
                         "line": 63
@@ -94,7 +94,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 27,
-                        "durationMicroseconds": 2256,
+                        "durationMicroseconds": 1391,
                         "errorMessage": "",
                         "functionName": "centerIn",
                         "line": 64
@@ -102,7 +102,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 20,
-                        "durationMicroseconds": 128,
+                        "durationMicroseconds": 140,
                         "errorMessage": "Type (component in D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/ComponentTable.qml)::tableViewData with type QVariant does not have a property hoveredRow for writing",
                         "functionName": "onEntered",
                         "line": 78
@@ -110,7 +110,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 19,
-                        "durationMicroseconds": 78,
+                        "durationMicroseconds": 112,
                         "errorMessage": "Cannot load property hoveredRow from (component in D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/ComponentTable.qml)::tableViewData with type QVariant.",
                         "functionName": "onExited",
                         "line": 79
@@ -118,7 +118,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 23,
-                        "durationMicroseconds": 218,
+                        "durationMicroseconds": 210,
                         "errorMessage": "",
                         "functionName": "fill",
                         "line": 76
@@ -126,7 +126,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 18,
-                        "durationMicroseconds": 360,
+                        "durationMicroseconds": 379,
                         "errorMessage": "",
                         "functionName": "top",
                         "line": 90
@@ -134,7 +134,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 21,
-                        "durationMicroseconds": 493,
+                        "durationMicroseconds": 403,
                         "errorMessage": "",
                         "functionName": "bottom",
                         "line": 91
@@ -142,7 +142,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 20,
-                        "durationMicroseconds": 332,
+                        "durationMicroseconds": 326,
                         "errorMessage": "",
                         "functionName": "right",
                         "line": 92

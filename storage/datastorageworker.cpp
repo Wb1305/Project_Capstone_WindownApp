@@ -78,7 +78,7 @@ void DataStorageWorker::writeMemory(const SystemStats &systemStats)
     QStringList row = { dateStr };
     row += systemStats.memStats().toRow();
 
-    QStringList headers = {"Timestamp", "RAMUsage(%)", "RAMPercent", "SWAPUsage(%)", "SWAPPercent", "MaxRAM(MB)", "MaxSWAP(MB)"};
+    QStringList headers = {"Timestamp", "RAMUsage(MB)", "RAMPercent", "SWAPUsage(MB)", "SWAPPercent", "MaxRAM(MB)", "MaxSWAP(MB)"};
     CsvWriter* writer = m_writerManager.createCsvWriter("memory", m_currentDate);
 
     if(!writer->isFileExists()){

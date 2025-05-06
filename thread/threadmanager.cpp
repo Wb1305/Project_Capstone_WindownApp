@@ -7,7 +7,9 @@
 
 ThreadManager::ThreadManager(QObject *parent)
     : QObject{parent}
-{}
+{
+    m_configManager = new ConfigManager(this);
+}
 
 ThreadManager::~ThreadManager()
 {
@@ -22,15 +24,17 @@ ThreadManager::~ThreadManager()
     }
 }
 
-void ThreadManager::setup(SystemMonitor *monitor)
+void ThreadManager::setup(SystemMonitor *monitor, ConfigManager *configManager)
 {
     m_monitor = monitor;
-    setupOverloadDetector(monitor);
+    m_configManager = configManager;
+
+    setupOverloadDetector(monitor, configManager);
     setupProcessManager(monitor);
     setupStorageWorkers(monitor);
 }
 
-void ThreadManager::setupOverloadDetector(SystemMonitor *monitor)
+void ThreadManager::setupOverloadDetector(SystemMonitor *monitor, ConfigManager* configManager)
 {
     qDebug() << "[ThreadManager] setup OverloadDetector.";
 
@@ -46,8 +50,21 @@ void ThreadManager::setupOverloadDetector(SystemMonitor *monitor)
     connect(monitor, &SystemMonitor::systemUpdated, m_overloadDetector, &OverloadDetector::onSystemDataReceived, Qt::QueuedConnection);
     // connect(m_overloadDetector, &OverloadDetector::overloadDetected, this, &ThreadManager::handleOverloadDetected);
 
-    monitor->setOverloadDetector(m_overloadDetector);
     m_overloadThread->start();
+    monitor->setOverloadDetector(m_overloadDetector);
+    // Deferred setup: đợi event loop thread sẵn sàng
+    QMetaObject::invokeMethod(m_overloadDetector, [=]() {
+        qDebug() << "[ThreadManager] Setting config manager after thread ready.";
+
+        m_overloadDetector->setConfigManager(configManager);
+
+    }, Qt::QueuedConnection);
+
+    // monitor->setOverloadDetector(m_overloadDetector);
+    // m_overloadDetector->setConfigManager(monitor->configManager());
+
+    qDebug() << "ConfigManager thread:" << monitor->configManager()->thread();
+    qDebug() << "OverloadDetector thread:" << m_overloadDetector->thread();
 }
 
 void ThreadManager::setupProcessManager(SystemMonitor *monitor)
@@ -65,8 +82,9 @@ void ThreadManager::setupProcessManager(SystemMonitor *monitor)
     connect(monitor, &SystemMonitor::processListReady, m_processManager, &ProcessManager::handleOverload,
             Qt::QueuedConnection);
 
-    monitor->setProcessManager(m_processManager);
     m_processThread->start();
+
+    monitor->setProcessManager(m_processManager);
 }
 
 void ThreadManager::setupStorageWorkers(SystemMonitor *monitor)
@@ -96,7 +114,6 @@ void ThreadManager::setupStorageWorkers(SystemMonitor *monitor)
 DataStorageWorker *ThreadManager::createStorageWorkerThread(const QString &dir, QThread *&thread)
 {
     QDir().mkpath(dir);
-
     thread = new QThread(this);
     auto* worker = new DataStorageWorker(dir);
     worker->moveToThread(thread);

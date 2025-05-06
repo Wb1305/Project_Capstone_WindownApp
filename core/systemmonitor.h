@@ -27,6 +27,9 @@ public:
     void bindToDataProcessor(DataProcessor* processor);
     void setOverloadDetector(OverloadDetector* detector);
     void setProcessManager(ProcessManager* procManager);
+    void setConfigManager(ConfigManager* confManager);
+
+    ConfigManager* configManager() const;
 
     // --- tạo data giả lập ---
     QByteArray generateFakeData();

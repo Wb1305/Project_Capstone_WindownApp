@@ -4,8 +4,8 @@
 #include <QTextStream>
 #include <QDebug>
 
-#define DATA_PATH_WHILELIST "../../Datasheet/WhileList.txt"
-#define DATA_PATH_PRIORITY "../../Datasheet/PRIORITY.txt"
+#define DATA_PATH_WHILELIST "../../config/WhileList.txt"
+#define DATA_PATH_PRIORITY "../../config/PRIORITY.txt"
 
 ProcessManager::ProcessManager(QObject *parent)
     : QObject{parent}

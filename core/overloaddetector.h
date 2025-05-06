@@ -3,6 +3,8 @@
 
 // #include "model/systemstats.h"
 // #include "model/processinfo.h"
+#include "core/configmanager.h"
+#include "model/OverloadConfig.h"
 #include "model/OverloadSnapshot.h"
 #include "model/systemstats.h"
 #include <QObject>
@@ -26,6 +28,9 @@ public:
 
     int detectState(const SystemStats &systemStats);
     void evaluateOverloadTrend(int currentState);
+    void setConfigManager(ConfigManager* configManager);
+
+    void printOverloadConfig() const;
 
 private:
     bool isCriticalOverloading(double cpuUsage, double memUsage, double normTemp);
@@ -44,6 +49,10 @@ private:
     void printStateHistory() const;
     void recordSnapshot(const SystemStats &systemStats, const QVector<ProcessInfo> &processes, int detectedState);
 
+    //=========
+
+    void reloadConfigFromManager();
+
 signals:
     void overloadDetected();
     void warningDetected();
@@ -55,13 +64,17 @@ public slots:
     void onSystemDataReceived(const SystemStats &systemStats, const QVector<ProcessInfo> &processes);
 
 private:
-    QQueue<int> m_stateHistory;
     int m_consecutiveOverload = 0; // chuổi overload liên tục
     int m_consecutiveWarning = 0; // chuổi warning liên tục
+
     QElapsedTimer m_lastOverloadSignal;
     QElapsedTimer m_lastWarningSignal;
 
+    QQueue<int> m_stateHistory;
     QQueue<OverloadSnapshot> m_snapshotBuffer;
+
+    OverloadConfig m_overloadConfig; // chứa các tham số
+    ConfigManager* m_configManager = nullptr;
 };
 
 #endif // OVERLOADDETECTOR_H

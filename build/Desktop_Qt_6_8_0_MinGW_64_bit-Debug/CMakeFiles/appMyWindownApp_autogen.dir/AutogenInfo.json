@@ -840,6 +840,12 @@
 			null
 		],
 		[
+			"D:/NMPhuong/PROJ_Qt/MyWindownApp/model/OverloadConfig.h",
+			"MU",
+			"NLOY5YBGEN/moc_OverloadConfig.cpp",
+			null
+		],
+		[
 			"D:/NMPhuong/PROJ_Qt/MyWindownApp/model/OverloadSnapshot.h",
 			"MU",
 			"NLOY5YBGEN/moc_OverloadSnapshot.cpp",
@@ -1095,11 +1101,6 @@
 		],
 		[
 			"D:/NMPhuong/PROJ_Qt/MyWindownApp/storage/datastorageworker.cpp",
-			"MU",
-			null
-		],
-		[
-			"D:/NMPhuong/PROJ_Qt/MyWindownApp/tests/test_SystemMonitor.cpp",
 			"MU",
 			null
 		],

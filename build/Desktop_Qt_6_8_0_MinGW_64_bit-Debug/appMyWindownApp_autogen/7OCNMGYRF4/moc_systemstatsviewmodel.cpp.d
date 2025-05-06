@@ -8,6 +8,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/appMy
   D:/NMPhuong/PROJ_Qt/MyWindownApp/core/overloaddetector.h \
   D:/NMPhuong/PROJ_Qt/MyWindownApp/core/processmanager.h \
   D:/NMPhuong/PROJ_Qt/MyWindownApp/core/systemmonitor.h \
+  D:/NMPhuong/PROJ_Qt/MyWindownApp/model/OverloadConfig.h \
   D:/NMPhuong/PROJ_Qt/MyWindownApp/model/OverloadSnapshot.h \
   D:/NMPhuong/PROJ_Qt/MyWindownApp/model/cpucore.h \
   D:/NMPhuong/PROJ_Qt/MyWindownApp/model/cpugeneral.h \

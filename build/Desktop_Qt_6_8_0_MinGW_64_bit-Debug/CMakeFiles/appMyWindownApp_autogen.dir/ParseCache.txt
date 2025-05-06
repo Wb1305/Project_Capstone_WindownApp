@@ -1020,6 +1020,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/core/systemmonitor.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/core/overloaddetector.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/core/processmanager.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/core/systemmonitor.h
+ mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/OverloadConfig.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/OverloadSnapshot.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/cpucore.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/cpugeneral.h
@@ -1386,7 +1387,9 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/model/systemmem.h
 D:/NMPhuong/PROJ_Qt/MyWindownApp/core/overloaddetector.h
  mmc:Q_OBJECT
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/appMyWindownApp_autogen/moc_predefs.h
+ mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/core/configmanager.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/core/overloaddetector.h
+ mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/OverloadConfig.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/OverloadSnapshot.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/cpucore.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/cpugeneral.h
@@ -1398,8 +1401,10 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/core/overloaddetector.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QJsonObject
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QObject
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QQueue
+ mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QSettings
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QString
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QStringList
+ mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QVariant
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QVector
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/q20functional.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/q20memory.h
@@ -1480,6 +1485,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/core/overloaddetector.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qscopedpointer.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qscopeguard.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qset.h
+ mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qsettings.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qshareddata.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qshareddata_impl.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qsharedpointer.h
@@ -1745,6 +1751,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/viewmodel/systemstatsviewmodel.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/core/overloaddetector.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/core/processmanager.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/core/systemmonitor.h
+ mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/OverloadConfig.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/OverloadSnapshot.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/cpucore.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/cpugeneral.h
@@ -2173,6 +2180,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/thread/threadmanager.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/core/overloaddetector.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/core/processmanager.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/core/systemmonitor.h
+ mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/OverloadConfig.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/OverloadSnapshot.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/cpucore.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/cpugeneral.h
@@ -2598,6 +2606,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/viewmodel/processlistviewmodel.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/core/overloaddetector.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/core/processmanager.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/core/systemmonitor.h
+ mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/OverloadConfig.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/OverloadSnapshot.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/cpucore.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/cpugeneral.h
@@ -4789,3 +4798,4 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/storage/csvwritermanager.h
 D:/NMPhuong/PROJ_Qt/MyWindownApp/storage/csvwriter.cpp
 D:/NMPhuong/PROJ_Qt/MyWindownApp/storage/datastorageworker.cpp
 D:/NMPhuong/PROJ_Qt/MyWindownApp/setting/configkeys.h
+D:/NMPhuong/PROJ_Qt/MyWindownApp/model/OverloadConfig.h

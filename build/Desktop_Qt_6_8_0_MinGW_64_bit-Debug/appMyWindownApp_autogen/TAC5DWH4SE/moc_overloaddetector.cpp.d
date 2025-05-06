@@ -1,5 +1,7 @@
 D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/appMyWindownApp_autogen/TAC5DWH4SE/moc_overloaddetector.cpp: D:/NMPhuong/PROJ_Qt/MyWindownApp/core/overloaddetector.h \
   D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/appMyWindownApp_autogen/moc_predefs.h \
+  D:/NMPhuong/PROJ_Qt/MyWindownApp/core/configmanager.h \
+  D:/NMPhuong/PROJ_Qt/MyWindownApp/model/OverloadConfig.h \
   D:/NMPhuong/PROJ_Qt/MyWindownApp/model/OverloadSnapshot.h \
   D:/NMPhuong/PROJ_Qt/MyWindownApp/model/cpucore.h \
   D:/NMPhuong/PROJ_Qt/MyWindownApp/model/cpugeneral.h \
@@ -11,8 +13,10 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/appMy
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QJsonObject \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QObject \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QQueue \
+  D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QSettings \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QString \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QStringList \
+  D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QVariant \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QVector \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/q20functional.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/q20memory.h \
@@ -93,6 +97,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/appMy
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qscopedpointer.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qscopeguard.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qset.h \
+  D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qsettings.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qshareddata.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qshareddata_impl.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qsharedpointer.h \

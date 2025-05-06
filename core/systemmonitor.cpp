@@ -13,6 +13,9 @@ SystemMonitor::SystemMonitor(QObject *parent)
     /*m_processManager(new ProcessManager(this))*/
 {
     bindToDataProcessor(m_dataProcessor); // dùng để test với data fake
+    // connect(m_config, &ConfigManager::configChanged, this, [this](){
+    //     qDebug()<<"New Port: "<<m_config->serverPort();
+    // });
 }
 
 void SystemMonitor::startMonitoring()
@@ -109,7 +112,7 @@ QByteArray SystemMonitor::generateFakeData()
 
     // --- Processes ---
     // Bước 1: Định nghĩa số process quá tải và tài nguyên tối thiểu của chúng
-    int overloadCount = 5;
+    int overloadCount = 3;
     int overloadCpuPerProcess = 10;      // mỗi tiến trình dùng 15%
     // int overloadCpuPerProcess = 15;
     int overloadRamPerProcess = 400;     // mỗi tiến trình dùng 600MB
@@ -124,7 +127,8 @@ QByteArray SystemMonitor::generateFakeData()
     // Chuẩn bị trọng số
     QVector<double> cpuWeights, ramWeights;
     double cpuSum = 0, ramSum = 0;
-    for (int i = 0; i < 50 - overloadCount; ++i) {
+    int countProc = 20;
+    for (int i = 0; i < countProc - overloadCount; ++i) {
         double wCpu = QRandomGenerator::global()->bounded(1, 100);
         double wRam = QRandomGenerator::global()->bounded(1, 100);
         cpuWeights.append(wCpu); cpuSum += wCpu;
@@ -135,7 +139,7 @@ QByteArray SystemMonitor::generateFakeData()
     double totalCpuProcess = 0;
     double totalRamProcess = 0.0;
 
-    for (int i = 0; i < 50; ++i) {
+    for (int i = 0; i < countProc; ++i) {
         int cpuP = 0;
         int memMB = 0;
 
@@ -278,7 +282,7 @@ QByteArray SystemMonitor::createCommandKillProcessJson(const QString &procName)
     qDebug()<<"=== Kill proesses ===";
     QJsonObject obj;
     obj["type"] = "killProcess";
-    obj["PNames"] = procName;
+    obj["PName"] = procName;
 
     QJsonDocument doc(obj);
     QByteArray commandJson = doc.toJson(QJsonDocument::Compact);
@@ -312,6 +316,16 @@ void SystemMonitor::setProcessManager(ProcessManager *procManager)
     m_processManager = procManager;
     // connect(this, &SystemMonitor::processListReady, m_processManager, &ProcessManager::handleOverload);
     connect(m_processManager, &ProcessManager::killProcessRequested, this, &SystemMonitor::onCommandKillProcessReceived, Qt::QueuedConnection);
+}
+
+void SystemMonitor::setConfigManager(ConfigManager *confManager)
+{
+    m_config = confManager;
+}
+
+ConfigManager *SystemMonitor::configManager() const
+{
+    return m_config;
 }
 
 void SystemMonitor::onDataReceived(const QByteArray &rawData)

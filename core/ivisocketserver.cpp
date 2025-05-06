@@ -114,14 +114,11 @@ void IviSocketServer::onNewConnection()
     emit clientConnected();
 
     // Gửi lệnh "kill" sau 10 giây
-    // QTimer::singleShot(4000, this, [this](){
+    // QTimer::singleShot(5000, this, [this](){
     //     qDebug()<<"=== Kill proesses ===";
     //     QJsonObject obj;
     //     obj["type"] = "killProcess";
-
-    //     QJsonArray pnameList;
-    //     pnameList << "brave" <<"vlc";
-    //     obj["PNames"] = pnameList;
+    //     obj["PName"] = "vlc";
 
     //     QJsonDocument doc(obj);
     //     QByteArray command = doc.toJson(QJsonDocument::Compact);
@@ -147,20 +144,11 @@ void IviSocketServer::onReadyRead()
             qDebug() << "[IviSocketServer] JSON does not valid!";
         }
     }
-
-    // m_buffer.append(m_clientSocket->readAll());
-
-    // if (isValidJson(m_buffer)) {
-    //     emit dataReceived(m_buffer);
-    //     m_buffer.clear();
-    // } else {
-    //     qDebug() << "[IviSocketServer] JSON does not valid!";
-    // }
 }
 
 void IviSocketServer::onDisconnected()
 {
-    qDebug() << "Client disconnected.";
+    qDebug() << "Client disconnected. Waiting for new connection...";
     emit clientDisconnected();
 
     m_clientSocket->deleteLater();

@@ -225,7 +225,7 @@ Rectangle {
 
                     ConfigField{
                         id: criticalDurationField
-                        labelText: "Critical Duration (S):"
+                        labelText: "Critical Duration (s):"
                         // value: 60
                         value: settingConfig.configManager.criticalDurationSecondsThreshold
                         maxValue: 3600
@@ -313,7 +313,7 @@ Rectangle {
 
                     ConfigField{
                         id: overloadDebounceField
-                        labelText: "Overload Debounce (S):"
+                        labelText: "Overload Debounce (s):"
                         // value: 10
                         value: settingConfig.configManager.overloadDebounceSeconds
                         maxValue: 3600
@@ -349,7 +349,7 @@ Rectangle {
 
                     ConfigField{
                         id: warningDebounceField
-                        labelText: "Warning Debounce (S):"
+                        labelText: "Warning Debounce (s):"
                         // value: 10
                         value: settingConfig.configManager.warningDebounceSeconds
                         maxValue: 3600

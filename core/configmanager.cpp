@@ -4,6 +4,7 @@
 #include <QFile>
 #include <QDir>
 #include <QDebug>
+#include <qthread.h>
 
 
 ConfigManager::ConfigManager(QObject *parent)
@@ -11,11 +12,11 @@ ConfigManager::ConfigManager(QObject *parent)
 {
 
     m_iniPath  = QCoreApplication::applicationDirPath() + "/MyWindownApp/config/my_ivi_settings.ini";
-    QDir().mkpath(QFileInfo(m_iniPath).absolutePath());
 
     // Nếu file chưa tồn tại → tạo settings object trước, rồi gán mặc định và lưu
     if (!QFile::exists(m_iniPath)) {
         qDebug()<<"[ConfigManager] setup and load file config first time!";
+        QDir().mkpath(QFileInfo(m_iniPath).absolutePath());
         load(m_iniPath);
         setupDefaults();
     } else {
@@ -80,6 +81,8 @@ void ConfigManager::save()
 {
     if(!m_settings) return;
 
+    qDebug() << "Emit configChanged from thread:" << QThread::currentThread();
+
     // using namespace ConfigKeys;
     m_settings->setValue(MyConfigKeys::ServerIp, m_serverIp);
     m_settings->setValue(MyConfigKeys::ServerPort, m_serverPort);
@@ -103,9 +106,10 @@ void ConfigManager::save()
     m_settings->setValue(MyConfigKeys::WarningConsecutiveThreshold, m_warningConsecutiveThreshold);
     m_settings->setValue(MyConfigKeys::WarningDebounceSeconds, m_warningDebounceSeconds);
     m_settings->setValue(MyConfigKeys::PotentialOverloadCount, m_potentialOverloadCount);
-
     m_settings->sync();
 
+    qDebug() << "[ConfigManager] Emitting configChanged!";
+    emit configChanged();
 }
 
 void ConfigManager::setupDefaults()
@@ -127,7 +131,7 @@ void ConfigManager::setupDefaults()
     m_criticalCpuThreshold = 85;
     m_criticalMemThreshold = 180;
     m_criticalTempThreshold = 90;
-    m_criticalDurationSecondsThreshold = 120;
+    m_criticalDurationSecondsThreshold = 60;
 
     m_overloadCountThreshold = 40;
     m_overloadConsecutiveThreshold = 30;

@@ -6,7 +6,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 23,
-                        "durationMicroseconds": 514,
+                        "durationMicroseconds": 968,
                         "errorMessage": "",
                         "functionName": "alignment",
                         "line": 17
@@ -14,7 +14,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 14,
-                        "durationMicroseconds": 299,
+                        "durationMicroseconds": 321,
                         "errorMessage": "",
                         "functionName": "max",
                         "line": 23
@@ -22,7 +22,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 20,
-                        "durationMicroseconds": 208,
+                        "durationMicroseconds": 241,
                         "errorMessage": "",
                         "functionName": "chartView",
                         "line": 39
@@ -30,7 +30,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 20,
-                        "durationMicroseconds": 644,
+                        "durationMicroseconds": 147,
                         "errorMessage": "Cannot load property cpu from (component in D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/CpuChart.qml)::seriesCpuModel with type QVariant.",
                         "functionName": "viewModel",
                         "line": 40
@@ -38,7 +38,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 21,
-                        "durationMicroseconds": 261,
+                        "durationMicroseconds": 239,
                         "errorMessage": "",
                         "functionName": "maxSeconds",
                         "line": 41

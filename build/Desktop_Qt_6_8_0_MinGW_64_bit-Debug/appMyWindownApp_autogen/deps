@@ -21,6 +21,7 @@ appMyWindownApp_autogen/timestamp: \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/core/systemmonitor.cpp \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/core/systemmonitor.h \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/main.cpp \
+	D:/NMPhuong/PROJ_Qt/MyWindownApp/model/OverloadConfig.h \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/model/OverloadSnapshot.h \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/model/cpucore.cpp \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/model/cpucore.h \
@@ -41,7 +42,6 @@ appMyWindownApp_autogen/timestamp: \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/storage/csvwritermanager.h \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/storage/datastorageworker.cpp \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/storage/datastorageworker.h \
-	D:/NMPhuong/PROJ_Qt/MyWindownApp/tests/test_SystemMonitor.cpp \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/thread/threadmanager.cpp \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/thread/threadmanager.h \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/viewmodel/cpustatsviewmodel.cpp \
