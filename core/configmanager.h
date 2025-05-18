@@ -92,6 +92,9 @@ public:
     Q_INVOKABLE void setWarningDebounceSeconds(int value);
     Q_INVOKABLE void setPotentialOverloadCount(int value);
 
+private:
+    QString getLocalIPv4Address() const;
+
 signals:
     void serverIpChanged();
     void serverPortChanged();

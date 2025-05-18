@@ -34,6 +34,46 @@
                         "index": 1,
                         "name": "saveOverloadBuffer",
                         "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "systemStats",
+                                "type": "SystemStats"
+                            },
+                            {
+                                "name": "stateCurr",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 2,
+                        "name": "writeOverloadMetrics",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "procList",
+                                "type": "QList<ProcessInfo>"
+                            },
+                            {
+                                "name": "killedProc",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "scoreMap",
+                                "type": "QHash<QString,float>"
+                            },
+                            {
+                                "name": "priorityMap",
+                                "type": "QHash<QString,int>"
+                            }
+                        ],
+                        "index": 3,
+                        "name": "writeOverloadProcessLog",
+                        "returnType": "void"
                     }
                 ],
                 "superClasses": [
@@ -1382,7 +1422,7 @@
         "classes": [
             {
                 "className": "IviSocketServer",
-                "lineNumber": 9,
+                "lineNumber": 10,
                 "object": true,
                 "qualifiedClassName": "IviSocketServer",
                 "signals": [
@@ -1453,6 +1493,12 @@
                         "index": 7,
                         "name": "onDisconnected",
                         "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 8,
+                        "name": "onDiscoveryRequest",
+                        "returnType": "void"
                     }
                 ],
                 "superClasses": [
@@ -1503,6 +1549,22 @@
                         "index": 3,
                         "name": "overloadDetectedWithBuffer",
                         "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "systemStats",
+                                "type": "SystemStats"
+                            },
+                            {
+                                "name": "state",
+                                "type": "int"
+                            }
+                        ],
+                        "index": 4,
+                        "name": "overloadMetricsAvailable",
+                        "returnType": "void"
                     }
                 ],
                 "slots": [
@@ -1518,7 +1580,7 @@
                                 "type": "QList<ProcessInfo>"
                             }
                         ],
-                        "index": 4,
+                        "index": 5,
                         "name": "onSystemDataReceived",
                         "returnType": "void"
                     }
@@ -1538,7 +1600,7 @@
         "classes": [
             {
                 "className": "ProcessManager",
-                "lineNumber": 13,
+                "lineNumber": 14,
                 "object": true,
                 "qualifiedClassName": "ProcessManager",
                 "signals": [
@@ -1553,6 +1615,30 @@
                         "index": 0,
                         "name": "killProcessRequested",
                         "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "procList",
+                                "type": "QList<ProcessInfo>"
+                            },
+                            {
+                                "name": "killedProc",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "scoreMap",
+                                "type": "QHash<QString,float>"
+                            },
+                            {
+                                "name": "priorityMap",
+                                "type": "QHash<QString,int>"
+                            }
+                        ],
+                        "index": 1,
+                        "name": "processKillDecisionReady",
+                        "returnType": "void"
                     }
                 ],
                 "slots": [
@@ -1564,7 +1650,7 @@
                                 "type": "QList<ProcessInfo>"
                             }
                         ],
-                        "index": 1,
+                        "index": 2,
                         "name": "handleOverload",
                         "returnType": "void"
                     }
@@ -1610,13 +1696,13 @@
                                 "type": "int"
                             }
                         ],
-                        "index": 7,
+                        "index": 8,
                         "name": "startStressTest",
                         "returnType": "void"
                     },
                     {
                         "access": "public",
-                        "index": 8,
+                        "index": 9,
                         "name": "stopStressTest",
                         "returnType": "void"
                     }
@@ -1706,6 +1792,12 @@
                         ],
                         "index": 6,
                         "name": "onCommandKillProcessReceived",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "private",
+                        "index": 7,
+                        "name": "onWarningStateReceived",
                         "returnType": "void"
                     }
                 ],

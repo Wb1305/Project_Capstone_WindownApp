@@ -1,6 +1,7 @@
 D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/appMyWindownApp_autogen/TAC5DWH4SE/moc_ivisocketserver.cpp: D:/NMPhuong/PROJ_Qt/MyWindownApp/core/ivisocketserver.h \
   D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/appMyWindownApp_autogen/moc_predefs.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QObject \
+  D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QTimer \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/q20functional.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/q20memory.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/q20type_traits.h \
@@ -14,6 +15,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/appMy
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qatomic.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qatomic_cxx11.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbasicatomic.h \
+  D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbasictimer.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbindingstorage.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbytearray.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbytearrayalgorithms.h \
@@ -98,6 +100,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/appMy
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtdeprecationmarkers.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtenvironmentvariables.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtextstream.h \
+  D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtimer.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtmetamacros.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtnoop.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtpreprocessorsupport.h \
@@ -116,6 +119,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/appMy
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qyieldcpu.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/QTcpServer \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/QTcpSocket \
+  D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/QUdpSocket \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qabstractsocket.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qhostaddress.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qtcpserver.h \
@@ -123,6 +127,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/appMy
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qtnetwork-config.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qtnetworkexports.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qtnetworkglobal.h \
+  D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qudpsocket.h \
   D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/algorithm \
   D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/array \
   D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/atomic \

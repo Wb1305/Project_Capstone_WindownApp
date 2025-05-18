@@ -58,6 +58,7 @@ signals:
     void warningDetected();
     void systemNormal();
     void overloadDetectedWithBuffer(const QQueue<OverloadSnapshot> &buffer);
+    void overloadMetricsAvailable(const SystemStats &systemStats, int state);
 
 public slots:
     // void updateUsage(double currentCpu, double currentRam);

@@ -35,6 +35,22 @@
                     "index": 3,
                     "name": "overloadDetectedWithBuffer",
                     "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "systemStats",
+                            "type": "SystemStats"
+                        },
+                        {
+                            "name": "state",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 4,
+                    "name": "overloadMetricsAvailable",
+                    "returnType": "void"
                 }
             ],
             "slots": [
@@ -50,7 +66,7 @@
                             "type": "QList<ProcessInfo>"
                         }
                     ],
-                    "index": 4,
+                    "index": 5,
                     "name": "onSystemDataReceived",
                     "returnType": "void"
                 }

@@ -63,7 +63,7 @@ qt_add_qml_module(appMyWindownApp
         SOURCES viewmodel/cpustatsviewmodel.h viewmodel/cpustatsviewmodel.cpp
         SOURCES viewmodel/memstatsviewmodel.h viewmodel/memstatsviewmodel.cpp
         SOURCES core/dataprocessor.h core/dataprocessor.cpp
-        RESOURCES config/ivi_settings.ini
+        RESOURCES
         SOURCES core/configmanager.h core/configmanager.cpp
         SOURCES
         QML_FILES UI/Screens/Performance/CpuChart.qml
@@ -93,11 +93,12 @@ qt_add_qml_module(appMyWindownApp
         SOURCES storage/datastorageworker.h storage/datastorageworker.cpp
         SOURCES model/OverloadSnapshot.h
         SOURCES setting/configkeys.h
-        RESOURCES config/my_ivi_settings.ini
+        RESOURCES
         QML_FILES UI/Screens/SettingConfig/SettingView.qml
         QML_FILES UI/Screens/SettingConfig/ConfigField.qml
         SOURCES model/OverloadConfig.h
         RESOURCES config/Priority.txt config/WhileList.txt
+        SOURCES model/ProcessSelectionResult.h
 
         # QML_FILES UI/Screens/Processes/ProcessView.qml
         # QML_FILES UI/Screens/ResourcesView.qml

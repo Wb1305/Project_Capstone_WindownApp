@@ -2,7 +2,7 @@
     "classes": [
         {
             "className": "ProcessManager",
-            "lineNumber": 13,
+            "lineNumber": 14,
             "object": true,
             "qualifiedClassName": "ProcessManager",
             "signals": [
@@ -17,6 +17,30 @@
                     "index": 0,
                     "name": "killProcessRequested",
                     "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "procList",
+                            "type": "QList<ProcessInfo>"
+                        },
+                        {
+                            "name": "killedProc",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "scoreMap",
+                            "type": "QHash<QString,float>"
+                        },
+                        {
+                            "name": "priorityMap",
+                            "type": "QHash<QString,int>"
+                        }
+                    ],
+                    "index": 1,
+                    "name": "processKillDecisionReady",
+                    "returnType": "void"
                 }
             ],
             "slots": [
@@ -28,7 +52,7 @@
                             "type": "QList<ProcessInfo>"
                         }
                     ],
-                    "index": 1,
+                    "index": 2,
                     "name": "handleOverload",
                     "returnType": "void"
                 }

@@ -2,6 +2,7 @@
 #define PROCESSMANAGER_H
 
 #include "IProcessManager.h"
+#include "model/ProcessSelectionResult.h"
 #include "model/processinfo.h"
 
 #include <QObject>
@@ -16,7 +17,8 @@ class ProcessManager : public QObject, public IProcessManager
 public:
     explicit ProcessManager(QObject *parent = nullptr);
 
-    QString findProcessToKill(const QVector<ProcessInfo> &processesStats);
+    // QString findProcessToKill(const QVector<ProcessInfo> &processesStats);
+    ProcessSelectionResult findProcessToKill(const QVector<ProcessInfo> &processesStats);
 
 private:
     void filterNonRootProcesses(const QVector<ProcessInfo> &processesStats);
@@ -26,6 +28,10 @@ private:
 
 signals:
     void killProcessRequested(const QString &processName);
+    void processKillDecisionReady(const QVector<ProcessInfo> &procList, const QString &killedProc,
+                                  const QHash<QString, float> &scoreMap,
+                                  const QHash<QString, int> &priorityMap);
+
 public slots:
     void handleOverload(const QVector<ProcessInfo> &procList);
 

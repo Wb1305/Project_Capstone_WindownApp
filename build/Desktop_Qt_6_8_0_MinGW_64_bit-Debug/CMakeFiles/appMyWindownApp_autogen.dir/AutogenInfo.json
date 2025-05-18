@@ -852,6 +852,12 @@
 			null
 		],
 		[
+			"D:/NMPhuong/PROJ_Qt/MyWindownApp/model/ProcessSelectionResult.h",
+			"MU",
+			"NLOY5YBGEN/moc_ProcessSelectionResult.cpp",
+			null
+		],
+		[
 			"D:/NMPhuong/PROJ_Qt/MyWindownApp/model/cpucore.h",
 			"MU",
 			"NLOY5YBGEN/moc_cpucore.cpp",

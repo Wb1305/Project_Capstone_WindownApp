@@ -31,12 +31,14 @@ private:
     QThread* m_processThread = nullptr;
     QThread* m_normalStorageThread = nullptr;
     QThread* m_overloadStorageThread = nullptr;
+    QThread* m_overloadMomentStorageThread = nullptr;
 
     SystemMonitor* m_monitor = nullptr;
     OverloadDetector* m_overloadDetector = nullptr;
     ProcessManager* m_processManager = nullptr;
     DataStorageWorker* m_normalStorageWorker = nullptr;
     DataStorageWorker* m_overloadStorageWorker = nullptr;
+    DataStorageWorker* m_overloadMomentStorageWorker = nullptr;
     ConfigManager* m_configManager = nullptr;
 };
 

@@ -5,7 +5,7 @@
 #include <QDir>
 #include <QDebug>
 #include <qthread.h>
-
+#include <QNetworkInterface>
 
 ConfigManager::ConfigManager(QObject *parent)
     : QObject{parent}
@@ -22,6 +22,16 @@ ConfigManager::ConfigManager(QObject *parent)
     } else {
         qDebug()<<"[ConfigManager] Load file config!: "<<m_iniPath;
         load(m_iniPath);
+    }
+
+    // Cập nhật lại IP máy hiện tại vào setting
+    QString currentIP = getLocalIPv4Address();
+    if (!currentIP.isEmpty() && currentIP != m_serverIp) {
+        setServerIp(currentIP);
+        save();  // Lưu lại vào file
+        qDebug() << "[ConfigManager] Updated server IP to current machine IP:" << currentIP;
+    } else {
+        // qDebug() << "[ConfigManager] Current server IP is already set:" << currentIP;
     }
 }
 
@@ -81,7 +91,7 @@ void ConfigManager::save()
 {
     if(!m_settings) return;
 
-    qDebug() << "Emit configChanged from thread:" << QThread::currentThread();
+    // qDebug() << "Emit configChanged from thread:" << QThread::currentThread();
 
     // using namespace ConfigKeys;
     m_settings->setValue(MyConfigKeys::ServerIp, m_serverIp);
@@ -108,7 +118,7 @@ void ConfigManager::save()
     m_settings->setValue(MyConfigKeys::PotentialOverloadCount, m_potentialOverloadCount);
     m_settings->sync();
 
-    qDebug() << "[ConfigManager] Emitting configChanged!";
+    // qDebug() << "[ConfigManager] Emitting configChanged!";
     emit configChanged();
 }
 
@@ -351,6 +361,25 @@ void ConfigManager::setPotentialOverloadCount(int value) {
         m_potentialOverloadCount = value;
         emit potentialOverloadCountChanged();
     }
+}
+
+QString ConfigManager::getLocalIPv4Address() const
+{
+    const auto interfaces = QNetworkInterface::allInterfaces();
+
+    for (const QNetworkInterface &interface : interfaces) {
+        if (!(interface.flags() & QNetworkInterface::IsUp) ||
+            !(interface.flags() & QNetworkInterface::IsRunning) ||
+            (interface.flags() & QNetworkInterface::IsLoopBack))
+            continue;
+
+        for (const QNetworkAddressEntry &entry : interface.addressEntries()) {
+            QHostAddress ip = entry.ip();
+            if (ip.protocol() == QAbstractSocket::IPv4Protocol)
+                return ip.toString();
+        }
+    }
+    return QString();
 }
 
 

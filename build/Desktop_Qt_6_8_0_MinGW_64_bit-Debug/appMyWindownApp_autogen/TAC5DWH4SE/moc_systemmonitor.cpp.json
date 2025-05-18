@@ -24,13 +24,13 @@
                             "type": "int"
                         }
                     ],
-                    "index": 7,
+                    "index": 8,
                     "name": "startStressTest",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
-                    "index": 8,
+                    "index": 9,
                     "name": "stopStressTest",
                     "returnType": "void"
                 }
@@ -120,6 +120,12 @@
                     ],
                     "index": 6,
                     "name": "onCommandKillProcessReceived",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 7,
+                    "name": "onWarningStateReceived",
                     "returnType": "void"
                 }
             ],

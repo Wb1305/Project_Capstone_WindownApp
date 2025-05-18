@@ -33,6 +33,46 @@
                     "index": 1,
                     "name": "saveOverloadBuffer",
                     "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "systemStats",
+                            "type": "SystemStats"
+                        },
+                        {
+                            "name": "stateCurr",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 2,
+                    "name": "writeOverloadMetrics",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "procList",
+                            "type": "QList<ProcessInfo>"
+                        },
+                        {
+                            "name": "killedProc",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "scoreMap",
+                            "type": "QHash<QString,float>"
+                        },
+                        {
+                            "name": "priorityMap",
+                            "type": "QHash<QString,int>"
+                        }
+                    ],
+                    "index": 3,
+                    "name": "writeOverloadProcessLog",
+                    "returnType": "void"
                 }
             ],
             "superClasses": [

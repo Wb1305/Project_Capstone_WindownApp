@@ -2,7 +2,7 @@
     "classes": [
         {
             "className": "IviSocketServer",
-            "lineNumber": 9,
+            "lineNumber": 10,
             "object": true,
             "qualifiedClassName": "IviSocketServer",
             "signals": [
@@ -72,6 +72,12 @@
                     "access": "private",
                     "index": 7,
                     "name": "onDisconnected",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 8,
+                    "name": "onDiscoveryRequest",
                     "returnType": "void"
                 }
             ],

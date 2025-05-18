@@ -1,6 +1,7 @@
 D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/appMyWindownApp_autogen/TAC5DWH4SE/moc_processmanager.cpp: D:/NMPhuong/PROJ_Qt/MyWindownApp/core/processmanager.h \
   D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/appMyWindownApp_autogen/moc_predefs.h \
   D:/NMPhuong/PROJ_Qt/MyWindownApp/core/IProcessManager.h \
+  D:/NMPhuong/PROJ_Qt/MyWindownApp/model/ProcessSelectionResult.h \
   D:/NMPhuong/PROJ_Qt/MyWindownApp/model/processinfo.h \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QDateTime \
   D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QHash \

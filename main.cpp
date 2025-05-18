@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
         Qt::QueuedConnection);
     engine.loadFromModule("MyWindownApp", "Main");
 
-    // systemMonitor->startMonitoring();
+    systemMonitor->startMonitoring();
 
     // Dùng QTimer để truyền fake data mỗi 1 giây
     // QTimer* timer = new QTimer;

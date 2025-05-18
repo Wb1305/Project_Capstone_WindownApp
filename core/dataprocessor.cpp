@@ -56,24 +56,6 @@ bool DataProcessor::parseJsonData(const QByteArray &jsonData)
                 qWarning() << "[DataProcessor] Skipped process" << key << "due to invalid fields";
             }
             m_processes.append(procOpt.value());
-
-            // if (!proc.contains("PID") ||
-            //     !proc.contains("PName") ||
-            //     !proc.contains("PCPUUsagePercent") ||
-            //     !proc.contains("PMEMUsageMB") ||
-            //     !proc.contains("PMEMUsagePercent"))
-            // {
-            //     qWarning() << "[DataProcessor] Skipped process" << key << "due to missing fields";
-            //     continue;
-            // }
-            // ProcessInfo procInfo;
-            // procInfo.setTimestamp(ts);
-            // procInfo.setPID(proc["PID"].toInt());
-            // procInfo.setName(proc["PName"].toString());
-            // procInfo.setCpuPercent(proc["PCPUUsagePercent"].toDouble());
-            // procInfo.setMemMB(proc["PMEMUsageMB"].toInt());
-            // procInfo.setMemPercent(proc["PMEMUsagePercent"].toDouble());
-            // m_processes.append(procInfo);
         }
     } else {
         qWarning() << "[DataProcessor] Missing ProcessesStats field";

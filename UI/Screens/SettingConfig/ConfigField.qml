@@ -47,6 +47,11 @@ Rectangle {
             font.pixelSize: 14
             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
             editable: true
+
+            textFromValue: function(value, locale) {
+                return value.toString();  // Không hiển thị "8,000" mà là "8000"
+            }
+
             onValueChanged: {
                 if (spin.value < spin.from) {
                     spin.value = spin.from;

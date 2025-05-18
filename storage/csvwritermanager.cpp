@@ -24,7 +24,7 @@ CsvWriter *CsvWriterManager::createCsvWriter(const QString &baseName, const QDat
         QString fullPath = m_baseDir + "/" + filename;
         m_writers[filename] = new CsvWriter(fullPath);
 
-        qDebug()<<"[CsvWriterManager] fullpath: "<< fullPath;
+        // qDebug()<<"[CsvWriterManager] fullpath: "<< fullPath;
     }
 
     return m_writers[filename];

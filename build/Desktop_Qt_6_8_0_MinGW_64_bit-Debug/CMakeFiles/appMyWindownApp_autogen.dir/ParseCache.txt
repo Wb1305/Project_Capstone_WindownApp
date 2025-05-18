@@ -676,6 +676,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/core/ivisocketserver.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/appMyWindownApp_autogen/moc_predefs.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/core/ivisocketserver.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QObject
+ mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QTimer
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/q20functional.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/q20memory.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/q20type_traits.h
@@ -689,6 +690,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/core/ivisocketserver.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qatomic.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qatomic_cxx11.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbasicatomic.h
+ mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbasictimer.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbindingstorage.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbytearray.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbytearrayalgorithms.h
@@ -773,6 +775,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/core/ivisocketserver.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtdeprecationmarkers.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtenvironmentvariables.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtextstream.h
+ mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtimer.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtmetamacros.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtnoop.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtpreprocessorsupport.h
@@ -791,6 +794,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/core/ivisocketserver.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qyieldcpu.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/QTcpServer
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/QTcpSocket
+ mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/QUdpSocket
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qabstractsocket.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qhostaddress.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qtcpserver.h
@@ -798,6 +802,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/core/ivisocketserver.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qtnetwork-config.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qtnetworkexports.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qtnetworkglobal.h
+ mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qudpsocket.h
  mdp:D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/algorithm
  mdp:D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/array
  mdp:D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/atomic
@@ -1022,6 +1027,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/core/systemmonitor.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/core/systemmonitor.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/OverloadConfig.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/OverloadSnapshot.h
+ mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/ProcessSelectionResult.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/cpucore.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/cpugeneral.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/processinfo.h
@@ -1037,6 +1043,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/core/systemmonitor.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QSettings
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QString
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QStringList
+ mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QTimer
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QVariant
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QVector
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/q20functional.h
@@ -1052,6 +1059,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/core/systemmonitor.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qatomic.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qatomic_cxx11.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbasicatomic.h
+ mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbasictimer.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbindingstorage.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbytearray.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbytearrayalgorithms.h
@@ -1148,6 +1156,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/core/systemmonitor.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtdeprecationmarkers.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtenvironmentvariables.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtextstream.h
+ mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtimer.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtmetamacros.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtnoop.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtpreprocessorsupport.h
@@ -1169,6 +1178,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/core/systemmonitor.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qyieldcpu.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/QTcpServer
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/QTcpSocket
+ mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/QUdpSocket
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qabstractsocket.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qhostaddress.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qtcpserver.h
@@ -1176,6 +1186,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/core/systemmonitor.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qtnetwork-config.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qtnetworkexports.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qtnetworkglobal.h
+ mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qudpsocket.h
  mdp:D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/algorithm
  mdp:D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/array
  mdp:D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/atomic
@@ -1753,6 +1764,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/viewmodel/systemstatsviewmodel.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/core/systemmonitor.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/OverloadConfig.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/OverloadSnapshot.h
+ mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/ProcessSelectionResult.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/cpucore.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/cpugeneral.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/processinfo.h
@@ -1783,6 +1795,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/viewmodel/systemstatsviewmodel.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QSettings
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QString
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QStringList
+ mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QTimer
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QVariant
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QVector
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/q20functional.h
@@ -1799,6 +1812,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/viewmodel/systemstatsviewmodel.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qatomic.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qatomic_cxx11.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbasicatomic.h
+ mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbasictimer.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbindingstorage.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbytearray.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbytearrayalgorithms.h
@@ -1901,6 +1915,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/viewmodel/systemstatsviewmodel.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtdeprecationmarkers.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtenvironmentvariables.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtextstream.h
+ mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtimer.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtmetamacros.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtnoop.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtpreprocessorsupport.h
@@ -1944,6 +1959,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/viewmodel/systemstatsviewmodel.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtGui/qwindowdefs_win.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/QTcpServer
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/QTcpSocket
+ mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/QUdpSocket
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qabstractsocket.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qhostaddress.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qtcpserver.h
@@ -1951,6 +1967,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/viewmodel/systemstatsviewmodel.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qtnetwork-config.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qtnetworkexports.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qtnetworkglobal.h
+ mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qudpsocket.h
  mdp:D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/algorithm
  mdp:D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/array
  mdp:D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/atomic
@@ -2182,6 +2199,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/thread/threadmanager.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/core/systemmonitor.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/OverloadConfig.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/OverloadSnapshot.h
+ mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/ProcessSelectionResult.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/cpucore.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/cpugeneral.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/processinfo.h
@@ -2207,6 +2225,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/thread/threadmanager.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QStringList
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QTextStream
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QThread
+ mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QTimer
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QVariant
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QVector
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/q20functional.h
@@ -2222,6 +2241,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/thread/threadmanager.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qatomic.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qatomic_cxx11.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbasicatomic.h
+ mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbasictimer.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbindingstorage.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbytearray.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbytearrayalgorithms.h
@@ -2323,6 +2343,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/thread/threadmanager.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtenvironmentvariables.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtextstream.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qthread.h
+ mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtimer.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtmetamacros.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtnoop.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtpreprocessorsupport.h
@@ -2345,6 +2366,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/thread/threadmanager.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qyieldcpu.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/QTcpServer
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/QTcpSocket
+ mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/QUdpSocket
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qabstractsocket.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qhostaddress.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qtcpserver.h
@@ -2352,6 +2374,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/thread/threadmanager.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qtnetwork-config.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qtnetworkexports.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qtnetworkglobal.h
+ mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qudpsocket.h
  mdp:D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/algorithm
  mdp:D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/array
  mdp:D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/atomic
@@ -2608,6 +2631,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/viewmodel/processlistviewmodel.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/core/systemmonitor.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/OverloadConfig.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/OverloadSnapshot.h
+ mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/ProcessSelectionResult.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/cpucore.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/cpugeneral.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/processinfo.h
@@ -2626,6 +2650,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/viewmodel/processlistviewmodel.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QSettings
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QString
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QStringList
+ mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QTimer
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QVariant
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QVector
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/q20functional.h
@@ -2642,6 +2667,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/viewmodel/processlistviewmodel.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qatomic.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qatomic_cxx11.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbasicatomic.h
+ mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbasictimer.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbindingstorage.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbytearray.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbytearrayalgorithms.h
@@ -2738,6 +2764,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/viewmodel/processlistviewmodel.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtdeprecationmarkers.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtenvironmentvariables.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtextstream.h
+ mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtimer.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtmetamacros.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtnoop.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtpreprocessorsupport.h
@@ -2759,6 +2786,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/viewmodel/processlistviewmodel.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qyieldcpu.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/QTcpServer
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/QTcpSocket
+ mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/QUdpSocket
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qabstractsocket.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qhostaddress.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qtcpserver.h
@@ -2766,6 +2794,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/viewmodel/processlistviewmodel.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qtnetwork-config.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qtnetworkexports.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qtnetworkglobal.h
+ mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qudpsocket.h
  mdp:D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/algorithm
  mdp:D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/array
  mdp:D:/NMPhuong/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/atomic
@@ -4455,6 +4484,7 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/core/processmanager.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/appMyWindownApp_autogen/moc_predefs.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/core/IProcessManager.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/core/processmanager.h
+ mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/ProcessSelectionResult.h
  mdp:D:/NMPhuong/PROJ_Qt/MyWindownApp/model/processinfo.h
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QDateTime
  mdp:D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QHash
@@ -4798,4 +4828,5 @@ D:/NMPhuong/PROJ_Qt/MyWindownApp/storage/csvwritermanager.h
 D:/NMPhuong/PROJ_Qt/MyWindownApp/storage/csvwriter.cpp
 D:/NMPhuong/PROJ_Qt/MyWindownApp/storage/datastorageworker.cpp
 D:/NMPhuong/PROJ_Qt/MyWindownApp/setting/configkeys.h
+D:/NMPhuong/PROJ_Qt/MyWindownApp/model/ProcessSelectionResult.h
 D:/NMPhuong/PROJ_Qt/MyWindownApp/model/OverloadConfig.h

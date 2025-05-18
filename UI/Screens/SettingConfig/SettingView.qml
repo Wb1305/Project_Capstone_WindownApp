@@ -59,22 +59,32 @@ Rectangle {
                     Label { text: "Server IP:"; font.pixelSize: 14; font.bold: true }
                     TextField {
                         id: ipField
-                        // text: "172.20.0.128"
                         text: settingConfig.configManager.serverIp
                         font.pixelSize: 14
                         onTextChanged:{
                             settingConfig.configManager.setServerIp(ipField.text)
                         }
+                        readOnly: true
                     }
 
-                    Label { text: "Server Port:"; font.pixelSize: 14; font.bold: true }
-                    TextField {
+                    // Label { text: "Server Port:"; font.pixelSize: 14; font.bold: true }
+                    // TextField {
+                    //     id: portField
+                    //     text: settingConfig.configManager.serverPort
+                    //     font.pixelSize: 14
+                    //     onTextChanged:{
+                    //         settingConfig.configManager.setServerPort(parseInt(portField.text))
+                    //     }
+                    // }
+
+                    ConfigField{
                         id: portField
-                        // text: "8000"
-                        text: settingConfig.configManager.serverPort
-                        font.pixelSize: 14
-                        onTextChanged:{
-                            settingConfig.configManager.setServerPort(parseInt(portField.text))
+                        labelText: "Server Port:"
+                        value: settingConfig.configManager.serverPort
+                        maxValue: 9999
+                        preferredWidth: settingConfig.fieldWidth
+                        onValueChanged:{
+                            settingConfig.configManager.setServerPort(parseInt(portField.value))
                         }
                     }
                 }

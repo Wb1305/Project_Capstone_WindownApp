@@ -1,4 +1,5 @@
 #include "processmanager.h"
+#include "model/ProcessSelectionResult.h"
 #include <QDebug>
 #include <QFile>
 #include <QTextStream>
@@ -11,32 +12,58 @@ ProcessManager::ProcessManager(QObject *parent)
     : QObject{parent}
 {}
 
-QString ProcessManager::findProcessToKill(const QVector<ProcessInfo> &processesStats)
+// QString ProcessManager::findProcessToKill(const QVector<ProcessInfo> &processesStats)
+// {
+//     filterNonRootProcesses(processesStats);
+//     applyWhitelistFilter();
+
+//     QHash<QString, int> priorityMap = loadPriorityConfig();
+//     QVector<QPair<QString, float>> ranked = rankProcessesByScore(priorityMap);
+
+//     auto maxScoreProcessIt = std::max_element(ranked.begin(), ranked.end(),
+//               [](const auto &a, const auto &b) {
+//                   return a.second < b.second;
+//               });
+
+//     if(maxScoreProcessIt == ranked.end()) return QString();
+//     QString procNeedKill = maxScoreProcessIt->first;
+
+//     qDebug() << "[ProcessManager] Process selected to terminate:" << procNeedKill;
+
+//     return procNeedKill;
+// }
+
+ProcessSelectionResult ProcessManager::findProcessToKill(const QVector<ProcessInfo> &processesStats)
 {
+    ProcessSelectionResult result;
+
+    m_nonRootProcesses.clear();
+    m_validProcessNames.clear();
+
     filterNonRootProcesses(processesStats);
     applyWhitelistFilter();
 
     QHash<QString, int> priorityMap = loadPriorityConfig();
     QVector<QPair<QString, float>> ranked = rankProcessesByScore(priorityMap);
 
-    // std::sort(ranked.begin(), ranked.end(),
-    //           [](const auto &a, const auto &b) {
-    //               return a.second > b.second;
-    //           });
-    // if(ranked.isEmpty()) return QString();
-    // QString procNeedKill = ranked[0].first;
-
     auto maxScoreProcessIt = std::max_element(ranked.begin(), ranked.end(),
-              [](const auto &a, const auto &b) {
-                  return a.second < b.second;
-              });
+                                              [](const auto &a, const auto &b) {
+                                                  return a.second < b.second;
+                                              });
 
-    if(maxScoreProcessIt == ranked.end()) return QString();
-    QString procNeedKill = maxScoreProcessIt->first;
+    if (maxScoreProcessIt != ranked.end()) {
+        result.procToKill = maxScoreProcessIt->first;
+    }
 
-    qDebug() << "[ProcessManager] Process selected to terminate:" << procNeedKill;
+    QHash<QString, float> scoreMap;
+    for (const auto &pair : ranked) {
+        scoreMap[pair.first] = pair.second;
+    }
+    result.scoreMap = scoreMap;
+    result.priorityMap = priorityMap;
+    result.usedProcessList = m_nonRootProcesses;
 
-    return procNeedKill;
+    return result;
 }
 
 void ProcessManager::filterNonRootProcesses(const QVector<ProcessInfo> &processesStats)
@@ -111,12 +138,14 @@ QVector<QPair<QString, float> > ProcessManager::rankProcessesByScore(QHash<QStri
 
 void ProcessManager::handleOverload(const QVector<ProcessInfo> &procList)
 {
-    qDebug()<<"[Thread - ProcessManger] Handle Overload";
-    QString procToKill = findProcessToKill(procList);
+    qDebug()<<"[ProcessManger] Handle Overload";
+    ProcessSelectionResult result = findProcessToKill(procList);
 
-    if (!procToKill.isEmpty()) {
-        emit killProcessRequested(procToKill);
+    if (!result.procToKill.isEmpty()) {
+        emit killProcessRequested(result.procToKill);
     } else {
         qDebug() << "[ProcessManager] No suitable process found to kill.";
     }
+
+    emit processKillDecisionReady(result.usedProcessList, result.procToKill, result.scoreMap, result.priorityMap);
 }

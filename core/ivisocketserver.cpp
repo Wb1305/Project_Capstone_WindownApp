@@ -4,13 +4,15 @@
 #include <QJsonObject>
 #include <QJsonArray>
 #include <QTimer>
+#include <QNetworkInterface>
+#include <QNetworkDatagram>
 
 
 IviSocketServer::IviSocketServer(QObject *parent)
-    : QObject{parent}, m_server(new QTcpServer(this))
+    : QObject{parent},
+    m_server(new QTcpServer(this))
 {
     connect(m_server, &QTcpServer::newConnection, this, &IviSocketServer::onNewConnection);
-    // connect(this, &IviSocketServer::dataReceived, this, &IviSocketServer::printRawData);
 }
 
 IviSocketServer::~IviSocketServer()
@@ -18,35 +20,32 @@ IviSocketServer::~IviSocketServer()
     stopListening();
 }
 
-void IviSocketServer::startListening(quint16 port)
+void IviSocketServer::startListening(QString hostAddress, quint16 port)
 {
-    m_port = port;
+    if(port != m_port)
+        m_port = port;
+    if(hostAddress != m_hostAddress)
+        m_hostAddress = hostAddress;
+
     if(!m_server->listen(QHostAddress::Any, port)){
         qWarning()<<"Failed to listen on port:" << port << m_server->errorString();
         return;
     }
-    qDebug() << "TCP Server listening on port:" << port;
+    qDebug() << "TCP Server listening on Host: " << hostAddress << " and Port: "<<port;
+
+    // Khởi động UDP socket để lắng nghe DISCOVER_SERVER
+    if (!m_discoverySocket) {
+        m_discoverySocket = new QUdpSocket(this);
+        bool success = m_discoverySocket->bind(QHostAddress::AnyIPv4, 45000, QUdpSocket::ShareAddress);
+        if (!success) {
+            qWarning() << "[UDP] Failed to bind to port 45000 -" << m_discoverySocket->errorString();
+            return;
+        }
+
+        connect(m_discoverySocket, &QUdpSocket::readyRead, this, &IviSocketServer::onDiscoveryRequest);
+        qDebug() << "[UDP] Listening for DISCOVER_SERVER requests on port 45000";
+    }
 }
-
-// void IviSocketServer::startListeningAt(const QHostAddress &address, quint16 port)
-// {
-//     if (m_server->isListening()) {
-//         m_server->close(); // Dừng lắng nghe nếu đang mở cổng cũ
-//     }
-
-//     if (!m_server->listen(address, port)) {
-//         emit sendFailed(QString("Cannot listen at %1:%2 - %3")
-//                             .arg(address.toString())
-//                             .arg(port)
-//                             .arg(m_server->errorString()));
-//         return;
-//     }
-
-//     m_port = port;
-//     connect(m_server, &QTcpServer::newConnection, this, &IviSocketServer::onNewConnection);
-
-//     qDebug() << "[TCPServer] Listening now: " << address.toString() << ":" << port;
-// }
 
 void IviSocketServer::stopListening()
 {
@@ -55,7 +54,17 @@ void IviSocketServer::stopListening()
         m_clientSocket->deleteLater();
         m_clientSocket = nullptr;
     }
-    m_server->close();
+    // m_server->close();
+    if (m_server->isListening()) {
+        m_server->close();
+    }
+
+    if (m_discoverySocket) {
+        m_discoverySocket->close();
+        m_discoverySocket->deleteLater();
+        m_discoverySocket = nullptr;
+    }
+
     qDebug() << "TCP Server stopped";
 }
 
@@ -112,20 +121,6 @@ void IviSocketServer::onNewConnection()
     connect(m_clientSocket, &QTcpSocket::disconnected, this, &IviSocketServer::onDisconnected);
     qDebug() << "Client connected from" << m_clientSocket->peerAddress().toString();
     emit clientConnected();
-
-    // Gửi lệnh "kill" sau 10 giây
-    // QTimer::singleShot(5000, this, [this](){
-    //     qDebug()<<"=== Kill proesses ===";
-    //     QJsonObject obj;
-    //     obj["type"] = "killProcess";
-    //     obj["PName"] = "vlc";
-
-    //     QJsonDocument doc(obj);
-    //     QByteArray command = doc.toJson(QJsonDocument::Compact);
-
-    //     sendCommandToLinux(command);
-    // });
-
 }
 
 void IviSocketServer::onReadyRead()
@@ -154,3 +149,23 @@ void IviSocketServer::onDisconnected()
     m_clientSocket->deleteLater();
     m_clientSocket = nullptr;
 }
+
+void IviSocketServer::onDiscoveryRequest()
+{
+    while (m_discoverySocket->hasPendingDatagrams()) {
+        QNetworkDatagram datagram = m_discoverySocket->receiveDatagram();
+        QString message = QString::fromUtf8(datagram.data()).trimmed();
+
+        if (message == "DISCOVER_SERVER") {
+            // QByteArray response = QString("%1:%2").arg(m_hostAddress).arg(m_port).toUtf8();
+            QByteArray response = QString("SERVER:%1").arg(m_port).toUtf8();
+            m_discoverySocket->writeDatagram(response, datagram.senderAddress(), datagram.senderPort());
+
+            qDebug() << "[DISCOVERY] Responded to" << datagram.senderAddress() << ":" << datagram.senderPort()
+                     << "→" << response;
+        } else {
+            qDebug() << "[DISCOVERY] Unknown message:" << message;
+        }
+    }
+}
+

@@ -162,10 +162,10 @@ Rectangle{
                     onClicked: {
                         console.log("Start stress test");
 
-                        console.log("Number of Tasks:", numberOfTaskSpin.value);
-                        console.log("MEM Usage Percent:", Math.round(memUsageSlider.value));
-                        console.log("Number of Cores:", numberOfCoreSpin.value);
-                        console.log("Timeout:", timeoutInput.text);
+                        // console.log("Number of Tasks:", numberOfTaskSpin.value);
+                        // console.log("MEM Usage Percent:", Math.round(memUsageSlider.value));
+                        // console.log("Number of Cores:", numberOfCoreSpin.value);
+                        // console.log("Timeout:", timeoutInput.text);
 
                         let numTasks = parseInt(numberOfTaskSpin.value);
                         let memUsage = Math.round(memUsageSlider.value);

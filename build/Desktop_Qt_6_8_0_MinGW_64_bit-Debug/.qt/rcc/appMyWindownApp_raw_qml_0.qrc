@@ -20,7 +20,6 @@
     <file alias="UI/Components/CustomButton.qml">D:/NMPhuong/PROJ_Qt/MyWindownApp/UI/Components/CustomButton.qml</file>
     <file alias="UI/Screens/SettingConfig/SettingView.qml">D:/NMPhuong/PROJ_Qt/MyWindownApp/UI/Screens/SettingConfig/SettingView.qml</file>
     <file alias="UI/Screens/SettingConfig/ConfigField.qml">D:/NMPhuong/PROJ_Qt/MyWindownApp/UI/Screens/SettingConfig/ConfigField.qml</file>
-    <file alias="config/ivi_settings.ini">D:/NMPhuong/PROJ_Qt/MyWindownApp/config/ivi_settings.ini</file>
     <file alias="assets/icon/file.png">D:/NMPhuong/PROJ_Qt/MyWindownApp/assets/icon/file.png</file>
     <file alias="assets/icon/list.png">D:/NMPhuong/PROJ_Qt/MyWindownApp/assets/icon/list.png</file>
     <file alias="assets/icon/settings.png">D:/NMPhuong/PROJ_Qt/MyWindownApp/assets/icon/settings.png</file>
@@ -29,7 +28,6 @@
     <file alias="assets/icon/list.svg">D:/NMPhuong/PROJ_Qt/MyWindownApp/assets/icon/list.svg</file>
     <file alias="assets/icon/performance.svg">D:/NMPhuong/PROJ_Qt/MyWindownApp/assets/icon/performance.svg</file>
     <file alias="assets/icon/setting.svg">D:/NMPhuong/PROJ_Qt/MyWindownApp/assets/icon/setting.svg</file>
-    <file alias="config/my_ivi_settings.ini">D:/NMPhuong/PROJ_Qt/MyWindownApp/config/my_ivi_settings.ini</file>
     <file alias="config/Priority.txt">D:/NMPhuong/PROJ_Qt/MyWindownApp/config/Priority.txt</file>
     <file alias="config/WhileList.txt">D:/NMPhuong/PROJ_Qt/MyWindownApp/config/WhileList.txt</file>
   </qresource>

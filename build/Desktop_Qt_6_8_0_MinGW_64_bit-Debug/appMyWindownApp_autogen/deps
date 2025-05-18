@@ -23,6 +23,7 @@ appMyWindownApp_autogen/timestamp: \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/main.cpp \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/model/OverloadConfig.h \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/model/OverloadSnapshot.h \
+	D:/NMPhuong/PROJ_Qt/MyWindownApp/model/ProcessSelectionResult.h \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/model/cpucore.cpp \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/model/cpucore.h \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/model/cpugeneral.cpp \
@@ -81,6 +82,7 @@ appMyWindownApp_autogen/timestamp: \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QStringList \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QTextStream \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QThread \
+	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QTimer \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QVariant \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/QVector \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/q20functional.h \
@@ -98,6 +100,7 @@ appMyWindownApp_autogen/timestamp: \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qatomic.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qatomic_cxx11.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbasicatomic.h \
+	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbasictimer.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbindingstorage.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbytearray.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qbytearrayalgorithms.h \
@@ -205,6 +208,7 @@ appMyWindownApp_autogen/timestamp: \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtenvironmentvariables.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtextstream.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qthread.h \
+	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtimer.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtmetamacros.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtnoop.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtCore/qtpreprocessorsupport.h \
@@ -249,6 +253,7 @@ appMyWindownApp_autogen/timestamp: \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtGui/qwindowdefs_win.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/QTcpServer \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/QTcpSocket \
+	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/QUdpSocket \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qabstractsocket.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qhostaddress.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qtcpserver.h \
@@ -256,6 +261,7 @@ appMyWindownApp_autogen/timestamp: \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qtnetwork-config.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qtnetworkexports.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qtnetworkglobal.h \
+	D:/NMPhuong/Qt/6.8.0/mingw_64/include/QtNetwork/qudpsocket.h \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/lib/cmake/Qt6/FindWrapAtomic.cmake \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/lib/cmake/Qt6/FindWrapVulkanHeaders.cmake \
 	D:/NMPhuong/Qt/6.8.0/mingw_64/lib/cmake/Qt6/Qt6Config.cmake \

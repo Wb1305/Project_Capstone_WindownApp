@@ -9,13 +9,8 @@ SystemMonitor::SystemMonitor(QObject *parent)
     m_iviServer(new IviSocketServer(this)),
     m_dataProcessor(new DataProcessor(this)),
     m_config(new ConfigManager(this))
-    /*m_detector(new OverloadDetector(this)),*/
-    /*m_processManager(new ProcessManager(this))*/
 {
     bindToDataProcessor(m_dataProcessor); // dùng để test với data fake
-    // connect(m_config, &ConfigManager::configChanged, this, [this](){
-    //     qDebug()<<"New Port: "<<m_config->serverPort();
-    // });
 }
 
 void SystemMonitor::startMonitoring()
@@ -28,8 +23,8 @@ void SystemMonitor::startMonitoring()
 
     // 2. Bắt đầu lắng nghe
     quint16 port = m_config->serverPort();
-    // quint16 port = 8000;
-    m_iviServer->startListening(port);
+    QString hostAddress = m_config->serverIp();
+    m_iviServer->startListening(hostAddress,port);
 
 }
 
@@ -41,13 +36,11 @@ void SystemMonitor::stopMonitoring()
 
 SystemStats SystemMonitor::getCurrentSystemStats() const
 {
-    // return m_dataProcessor ? m_dataProcessor->systemStats() : SystemStats{};
     return m_systemStats;
 }
 
 QVector<ProcessInfo> SystemMonitor::getCurrentProcesses() const
 {
-    // return m_dataProcessor ? m_dataProcessor->processList() : QList<ProcessInfo>{};
     return m_processList;
 }
 
@@ -62,7 +55,7 @@ QByteArray SystemMonitor::generateFakeData()
 
     // --- Tổng giá trị CPU & RAM ---
     // int cpuUtil = QRandomGenerator::global()->bounded(85, 100); // CPU tổng (%)
-    int cpuUtil = QRandomGenerator::global()->bounded(60, 85); // CPU tổng (%)
+    int cpuUtil = QRandomGenerator::global()->bounded(60, 80); // CPU tổng (%)
     double temp = 40.0 + (cpuUtil * 0.5);
     double freqPercent = 30.0 + (cpuUtil * 0.7);
     double freq = 1200.0 + (freqPercent / 100.0 * 1800.0); // 1.2GHz đến 3.0GHz
@@ -113,7 +106,7 @@ QByteArray SystemMonitor::generateFakeData()
     // --- Processes ---
     // Bước 1: Định nghĩa số process quá tải và tài nguyên tối thiểu của chúng
     int overloadCount = 3;
-    int overloadCpuPerProcess = 10;      // mỗi tiến trình dùng 15%
+    int overloadCpuPerProcess = 5;      // mỗi tiến trình dùng 15%
     // int overloadCpuPerProcess = 15;
     int overloadRamPerProcess = 400;     // mỗi tiến trình dùng 600MB
 
@@ -279,11 +272,21 @@ QByteArray SystemMonitor::createCommandStopStressJson()
 
 QByteArray SystemMonitor::createCommandKillProcessJson(const QString &procName)
 {
-    qDebug()<<"=== Kill proesses ===";
+    qDebug()<<"=== Kill process ===";
     QJsonObject obj;
     obj["type"] = "killProcess";
     obj["PName"] = procName;
 
+    QJsonDocument doc(obj);
+    QByteArray commandJson = doc.toJson(QJsonDocument::Compact);
+
+    return commandJson;
+}
+
+QByteArray SystemMonitor::createCommandHandleWarningState()
+{
+    QJsonObject obj;
+    obj["type"] = "warningState";
     QJsonDocument doc(obj);
     QByteArray commandJson = doc.toJson(QJsonDocument::Compact);
 
@@ -298,7 +301,7 @@ void SystemMonitor::bindToDataProcessor(DataProcessor* processor)
         m_systemStats = m_dataProcessor->systemStats();
         m_processList = m_dataProcessor->processList();
 
-        qDebug() << "[SystemMonitor] emit systemUpdated";
+        // qDebug() << "[SystemMonitor] emit systemUpdated";
 
         emit systemUpdated(m_systemStats, m_processList);
         emit systemUsageChanged(m_systemStats);
@@ -309,12 +312,12 @@ void SystemMonitor::setOverloadDetector(OverloadDetector *detector)
 {
     m_detector = detector;
     connect(m_detector, &OverloadDetector::overloadDetected, this, &SystemMonitor::onOverloadDetected, Qt::QueuedConnection);
+    connect(m_detector, &OverloadDetector::warningDetected, this, &SystemMonitor::onWarningStateReceived, Qt::QueuedConnection);
 }
 
 void SystemMonitor::setProcessManager(ProcessManager *procManager)
 {
     m_processManager = procManager;
-    // connect(this, &SystemMonitor::processListReady, m_processManager, &ProcessManager::handleOverload);
     connect(m_processManager, &ProcessManager::killProcessRequested, this, &SystemMonitor::onCommandKillProcessReceived, Qt::QueuedConnection);
 }
 
@@ -334,8 +337,6 @@ void SystemMonitor::onDataReceived(const QByteArray &rawData)
     if(!m_dataProcessor->parseJsonData(rawData)){
         qWarning() << "[SystemMonitor] Failed to parse data";
     }
-    // qDebug()<<"raw--data:"<< rawData;
-    // printParsedData(m_dataProcessor->systemStats(), m_dataProcessor->processList());
 }
 
 void SystemMonitor::onOverloadDetected()
@@ -346,6 +347,13 @@ void SystemMonitor::onOverloadDetected()
 void SystemMonitor::onCommandKillProcessReceived(const QString &procName)
 {
     QByteArray command = createCommandKillProcessJson(procName);
-    qDebug()<<"=== Command kill process ==="<<command;
+    qDebug()<<"[SystemMonitor]=== Command kill process ==="<<command;
+    emit commandReceived(command);
+}
+
+void SystemMonitor::onWarningStateReceived()
+{
+    QByteArray command = createCommandHandleWarningState();
+    qDebug()<<"[SystemMonitor]=== Command Handle Warning State ==="<<command;
     emit commandReceived(command);
 }
