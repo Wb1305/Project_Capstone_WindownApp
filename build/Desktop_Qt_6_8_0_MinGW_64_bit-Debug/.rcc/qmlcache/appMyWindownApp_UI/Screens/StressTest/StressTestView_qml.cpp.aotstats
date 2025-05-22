@@ -6,7 +6,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 18,
-                        "durationMicroseconds": 774,
+                        "durationMicroseconds": 677,
                         "errorMessage": "",
                         "functionName": "visible",
                         "line": 22
@@ -14,7 +14,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 18,
-                        "durationMicroseconds": 812,
+                        "durationMicroseconds": 527,
                         "errorMessage": "",
                         "functionName": "opacity",
                         "line": 23
@@ -22,7 +22,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 22,
-                        "durationMicroseconds": 3134,
+                        "durationMicroseconds": 380,
                         "errorMessage": "",
                         "functionName": "top",
                         "line": 29
@@ -30,7 +30,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 23,
-                        "durationMicroseconds": 645,
+                        "durationMicroseconds": 370,
                         "errorMessage": "",
                         "functionName": "left",
                         "line": 31
@@ -38,7 +38,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 36,
-                        "durationMicroseconds": 340,
+                        "durationMicroseconds": 290,
                         "errorMessage": "",
                         "functionName": "preferredWidth",
                         "line": 37
@@ -46,7 +46,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 35,
-                        "durationMicroseconds": 274,
+                        "durationMicroseconds": 769,
                         "errorMessage": "",
                         "functionName": "alignment",
                         "line": 41
@@ -62,7 +62,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 36,
-                        "durationMicroseconds": 289,
+                        "durationMicroseconds": 327,
                         "errorMessage": "",
                         "functionName": "preferredWidth",
                         "line": 63
@@ -70,7 +70,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 35,
-                        "durationMicroseconds": 308,
+                        "durationMicroseconds": 251,
                         "errorMessage": "",
                         "functionName": "alignment",
                         "line": 67
@@ -78,7 +78,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 27,
-                        "durationMicroseconds": 126,
+                        "durationMicroseconds": 128,
                         "errorMessage": "Cannot retrieve a non-object type by ID: memUsageSlider",
                         "functionName": "text",
                         "line": 81
@@ -86,7 +86,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 39,
-                        "durationMicroseconds": 260,
+                        "durationMicroseconds": 240,
                         "errorMessage": "",
                         "functionName": "alignment",
                         "line": 83
@@ -94,7 +94,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 36,
-                        "durationMicroseconds": 309,
+                        "durationMicroseconds": 290,
                         "errorMessage": "",
                         "functionName": "preferredWidth",
                         "line": 91
@@ -102,7 +102,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 35,
-                        "durationMicroseconds": 279,
+                        "durationMicroseconds": 239,
                         "errorMessage": "",
                         "functionName": "alignment",
                         "line": 95
@@ -118,7 +118,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 36,
-                        "durationMicroseconds": 316,
+                        "durationMicroseconds": 276,
                         "errorMessage": "",
                         "functionName": "preferredWidth",
                         "line": 117
@@ -126,7 +126,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 35,
-                        "durationMicroseconds": 243,
+                        "durationMicroseconds": 239,
                         "errorMessage": "",
                         "functionName": "alignment",
                         "line": 121
@@ -134,7 +134,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 39,
-                        "durationMicroseconds": 310,
+                        "durationMicroseconds": 282,
                         "errorMessage": "",
                         "functionName": "inputMethodHints",
                         "line": 142
@@ -142,7 +142,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 40,
-                        "durationMicroseconds": 241,
+                        "durationMicroseconds": 214,
                         "errorMessage": "",
                         "functionName": "verticalAlignment",
                         "line": 143
@@ -150,7 +150,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 42,
-                        "durationMicroseconds": 240,
+                        "durationMicroseconds": 254,
                         "errorMessage": "",
                         "functionName": "horizontalAlignment",
                         "line": 144
@@ -166,7 +166,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 38,
-                        "durationMicroseconds": 313,
+                        "durationMicroseconds": 253,
                         "errorMessage": "",
                         "functionName": "cursorShape",
                         "line": 146
@@ -174,7 +174,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 36,
-                        "durationMicroseconds": 285,
+                        "durationMicroseconds": 308,
                         "errorMessage": "",
                         "functionName": "preferredWidth",
                         "line": 155
@@ -182,7 +182,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 31,
-                        "durationMicroseconds": 267,
+                        "durationMicroseconds": 270,
                         "errorMessage": "",
                         "functionName": "alignment",
                         "line": 156
@@ -190,7 +190,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 32,
-                        "durationMicroseconds": 407,
+                        "durationMicroseconds": 299,
                         "errorMessage": "Cannot retrieve a non-object type by ID: numberOfTaskSpin",
                         "functionName": "onClicked",
                         "line": 162
@@ -198,7 +198,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 35,
-                        "durationMicroseconds": 210,
+                        "durationMicroseconds": 226,
                         "errorMessage": "",
                         "functionName": "fill",
                         "line": 161
@@ -206,7 +206,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 32,
-                        "durationMicroseconds": 1021,
+                        "durationMicroseconds": 935,
                         "errorMessage": "Cannot access value for name SystemMonitor",
                         "functionName": "onClicked",
                         "line": 185
@@ -214,7 +214,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 35,
-                        "durationMicroseconds": 220,
+                        "durationMicroseconds": 217,
                         "errorMessage": "",
                         "functionName": "fill",
                         "line": 184

@@ -15,10 +15,7 @@ DataStorageWorker::DataStorageWorker(const QString &baseDir, QObject *parent)
 void DataStorageWorker::save(const SystemStats &systemStats, const QVector<ProcessInfo> &processes)
 {
     // qDebug()<<"[DataStorageWorker] === Saving data ===";
-    // writeCpuGeneral(systemStats);
     writeCpuCores(systemStats);
-    // writeMemory(systemStats);
-    // writeOverloadMetrics(systemStats);
     writeProcesses(processes);
 }
 

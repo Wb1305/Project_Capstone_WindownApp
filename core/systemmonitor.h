@@ -51,12 +51,14 @@ signals:
     void systemUsageChanged(const SystemStats& systemStats);
     void processListReady(const QVector<ProcessInfo>& procList);
     void commandReceived(const QByteArray &commandJson);
+    void informOverloadInfoForUI(const QVariantMap &info);
 
 private slots:
     void onDataReceived(const QByteArray& rawData);
     void onOverloadDetected();
     void onCommandKillProcessReceived(const QString &procName);
     void onWarningStateReceived();
+    void onInformOverloadInfoForUI(const QVariantMap &info);
 
 private:
     IviSocketServer* m_iviServer = nullptr;

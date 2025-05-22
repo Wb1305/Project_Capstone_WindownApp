@@ -319,6 +319,7 @@ void SystemMonitor::setProcessManager(ProcessManager *procManager)
 {
     m_processManager = procManager;
     connect(m_processManager, &ProcessManager::killProcessRequested, this, &SystemMonitor::onCommandKillProcessReceived, Qt::QueuedConnection);
+    connect(m_processManager, &ProcessManager::killedProcessInfo, this, &SystemMonitor::onInformOverloadInfoForUI, Qt::QueuedConnection);
 }
 
 void SystemMonitor::setConfigManager(ConfigManager *confManager)
@@ -356,4 +357,9 @@ void SystemMonitor::onWarningStateReceived()
     QByteArray command = createCommandHandleWarningState();
     qDebug()<<"[SystemMonitor]=== Command Handle Warning State ==="<<command;
     emit commandReceived(command);
+}
+
+void SystemMonitor::onInformOverloadInfoForUI(const QVariantMap &info)
+{
+    emit informOverloadInfoForUI(info);
 }

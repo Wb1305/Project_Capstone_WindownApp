@@ -64,9 +64,6 @@ void ThreadManager::setupOverloadDetector(SystemMonitor *monitor, ConfigManager*
         m_overloadDetector->setConfigManager(configManager);
 
     }, Qt::QueuedConnection);
-
-    // qDebug() << "ConfigManager thread:" << monitor->configManager()->thread();
-    // qDebug() << "OverloadDetector thread:" << m_overloadDetector->thread();
 }
 
 void ThreadManager::setupProcessManager(SystemMonitor *monitor)

@@ -6,6 +6,7 @@
     <file alias="UI/Screens/StressTest/qmldir">D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/MyWindownApp/UI/Screens/StressTest/qmldir</file>
     <file alias="UI/Screens/MainPerformance/qmldir">D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/MyWindownApp/UI/Screens/MainPerformance/qmldir</file>
     <file alias="UI/Screens/SettingConfig/qmldir">D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/MyWindownApp/UI/Screens/SettingConfig/qmldir</file>
+    <file alias="UI/Screens/Popup/qmldir">D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/MyWindownApp/UI/Screens/Popup/qmldir</file>
   </qresource>
 </RCC>
 

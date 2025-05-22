@@ -22,11 +22,6 @@ Rectangle {
             model: ["Processes", "Performance", "History", "Setting"]
             TabButton {
                 id: tabButton
-                // indicator: null
-                // leftPadding: 0
-                // rightPadding: 0
-                // topPadding: 0
-                // bottomPadding: 0
 
                 required property string modelData
                 required property int index

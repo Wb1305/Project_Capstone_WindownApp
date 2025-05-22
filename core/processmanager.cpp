@@ -12,27 +12,6 @@ ProcessManager::ProcessManager(QObject *parent)
     : QObject{parent}
 {}
 
-// QString ProcessManager::findProcessToKill(const QVector<ProcessInfo> &processesStats)
-// {
-//     filterNonRootProcesses(processesStats);
-//     applyWhitelistFilter();
-
-//     QHash<QString, int> priorityMap = loadPriorityConfig();
-//     QVector<QPair<QString, float>> ranked = rankProcessesByScore(priorityMap);
-
-//     auto maxScoreProcessIt = std::max_element(ranked.begin(), ranked.end(),
-//               [](const auto &a, const auto &b) {
-//                   return a.second < b.second;
-//               });
-
-//     if(maxScoreProcessIt == ranked.end()) return QString();
-//     QString procNeedKill = maxScoreProcessIt->first;
-
-//     qDebug() << "[ProcessManager] Process selected to terminate:" << procNeedKill;
-
-//     return procNeedKill;
-// }
-
 ProcessSelectionResult ProcessManager::findProcessToKill(const QVector<ProcessInfo> &processesStats)
 {
     ProcessSelectionResult result;
@@ -136,6 +115,25 @@ QVector<QPair<QString, float> > ProcessManager::rankProcessesByScore(QHash<QStri
     return ranked;
 }
 
+QVariantMap ProcessManager::createInfor(const QString &procName, const QDateTime &shutdownTime)
+{
+    QVariantMap info;
+    info["procName"] = procName;
+    info["shutdownTime"] = shutdownTime.toString(Qt::ISODate);
+    return info;
+}
+
+void ProcessManager::informKilledProcessInfoForUI(const ProcessSelectionResult &result)
+{
+    qDebug()<<"[ProcessManger] Inform killed process info for UI";
+    QString procName = result.procToKill;
+    QDateTime shutdownTime = result.usedProcessList[0].timestamp();
+
+    QVariantMap info = createInfor(procName, shutdownTime);
+
+    emit killedProcessInfo(info);
+}
+
 void ProcessManager::handleOverload(const QVector<ProcessInfo> &procList)
 {
     qDebug()<<"[ProcessManger] Handle Overload";
@@ -148,4 +146,35 @@ void ProcessManager::handleOverload(const QVector<ProcessInfo> &procList)
     }
 
     emit processKillDecisionReady(result.usedProcessList, result.procToKill, result.scoreMap, result.priorityMap);
+
+    informKilledProcessInfoForUI(result);
 }
+
+
+
+
+
+
+
+
+
+// QString ProcessManager::findProcessToKill(const QVector<ProcessInfo> &processesStats)
+// {
+//     filterNonRootProcesses(processesStats);
+//     applyWhitelistFilter();
+
+//     QHash<QString, int> priorityMap = loadPriorityConfig();
+//     QVector<QPair<QString, float>> ranked = rankProcessesByScore(priorityMap);
+
+//     auto maxScoreProcessIt = std::max_element(ranked.begin(), ranked.end(),
+//               [](const auto &a, const auto &b) {
+//                   return a.second < b.second;
+//               });
+
+//     if(maxScoreProcessIt == ranked.end()) return QString();
+//     QString procNeedKill = maxScoreProcessIt->first;
+
+//     qDebug() << "[ProcessManager] Process selected to terminate:" << procNeedKill;
+
+//     return procNeedKill;
+// }

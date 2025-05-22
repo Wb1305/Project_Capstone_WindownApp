@@ -20,6 +20,7 @@
     <file alias="UI/Components/CustomButton.qml">D:/NMPhuong/PROJ_Qt/MyWindownApp/UI/Components/CustomButton.qml</file>
     <file alias="UI/Screens/SettingConfig/SettingView.qml">D:/NMPhuong/PROJ_Qt/MyWindownApp/UI/Screens/SettingConfig/SettingView.qml</file>
     <file alias="UI/Screens/SettingConfig/ConfigField.qml">D:/NMPhuong/PROJ_Qt/MyWindownApp/UI/Screens/SettingConfig/ConfigField.qml</file>
+    <file alias="UI/Screens/Popup/PopupView.qml">D:/NMPhuong/PROJ_Qt/MyWindownApp/UI/Screens/Popup/PopupView.qml</file>
     <file alias="assets/icon/file.png">D:/NMPhuong/PROJ_Qt/MyWindownApp/assets/icon/file.png</file>
     <file alias="assets/icon/list.png">D:/NMPhuong/PROJ_Qt/MyWindownApp/assets/icon/list.png</file>
     <file alias="assets/icon/settings.png">D:/NMPhuong/PROJ_Qt/MyWindownApp/assets/icon/settings.png</file>

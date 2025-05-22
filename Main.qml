@@ -6,6 +6,7 @@ import "./UI/Screens/ProcessesListView"
 import "./UI/Screens/Performance"
 import "./UI/Screens/MainPerformance"
 import "./UI/Screens/SettingConfig"
+import "./UI/Screens/Popup"
 import "./UI/Components"
 
 pragma ComponentBehavior: Bound
@@ -18,7 +19,7 @@ Window {
     width: 1200
     height: 650
     visible: true
-    title: qsTr("IVI System Monitor")
+    title: qsTr("Phần mềm giám sát và tuỳ chỉnh tải hệ thống In-vehicle Infotainment")
 
 
     NavigationBar{
@@ -74,11 +75,14 @@ Window {
             configManager: ConfigManager
         }
 
-        // TestCpuLineChart{
-        //     id: testCpuChart
-        //     Layout.fillWidth: true
-        //     Layout.fillHeight: true
-        // }
-
     }
+
+    // --- popup ---
+    PopupView{
+        id: popupView
+        systemMonitorModel: SystemMonitor
+        parentWidth: mainWindow.width
+        parentHeight: mainWindow.height
+    }
+
 }

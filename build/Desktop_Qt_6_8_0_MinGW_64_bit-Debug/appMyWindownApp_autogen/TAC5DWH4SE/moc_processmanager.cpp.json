@@ -41,6 +41,18 @@
                     "index": 1,
                     "name": "processKillDecisionReady",
                     "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "info",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "index": 2,
+                    "name": "killedProcessInfo",
+                    "returnType": "void"
                 }
             ],
             "slots": [
@@ -52,7 +64,7 @@
                             "type": "QList<ProcessInfo>"
                         }
                     ],
-                    "index": 2,
+                    "index": 3,
                     "name": "handleOverload",
                     "returnType": "void"
                 }

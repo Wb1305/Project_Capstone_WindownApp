@@ -6,7 +6,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 23,
-                        "durationMicroseconds": 655,
+                        "durationMicroseconds": 581,
                         "errorMessage": "",
                         "functionName": "alignment",
                         "line": 18
@@ -14,7 +14,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 14,
-                        "durationMicroseconds": 319,
+                        "durationMicroseconds": 344,
                         "errorMessage": "",
                         "functionName": "max",
                         "line": 24
@@ -22,7 +22,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 20,
-                        "durationMicroseconds": 217,
+                        "durationMicroseconds": 230,
                         "errorMessage": "",
                         "functionName": "chartView",
                         "line": 40
@@ -30,7 +30,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 20,
-                        "durationMicroseconds": 67,
+                        "durationMicroseconds": 68,
                         "errorMessage": "Cannot load property mem from (component in D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/MemChart.qml)::seriesMemModel with type QVariant.",
                         "functionName": "viewModel",
                         "line": 41
@@ -38,7 +38,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 21,
-                        "durationMicroseconds": 232,
+                        "durationMicroseconds": 236,
                         "errorMessage": "",
                         "functionName": "maxSeconds",
                         "line": 42

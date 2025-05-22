@@ -6,6 +6,7 @@ import "./UI/Screens/ProcessesListView"
 import "./UI/Screens/Performance"
 import "./UI/Screens/MainPerformance"
 import "./UI/Screens/SettingConfig"
+import "./UI/Screens/Popup"
 import "./UI/Components"
 
 pragma ComponentBehavior: Bound
@@ -74,11 +75,14 @@ Window {
             configManager: ConfigManager
         }
 
-        // TestCpuLineChart{
-        //     id: testCpuChart
-        //     Layout.fillWidth: true
-        //     Layout.fillHeight: true
-        // }
-
     }
+
+    // --- popup ---
+    PopupView{
+        id: popupView
+        systemMonitorModel: SystemMonitor
+        parentWidth: mainWindow.width
+        parentHeight: mainWindow.height
+    }
+
 }

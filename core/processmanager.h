@@ -25,12 +25,15 @@ private:
     void applyWhitelistFilter();
     QHash<QString, int> loadPriorityConfig();
     QVector<QPair<QString, float>> rankProcessesByScore(QHash<QString, int> &priorityMap);
+    QVariantMap createInfor(const QString &procName, const QDateTime &shutdownTime);
+    void informKilledProcessInfoForUI(const ProcessSelectionResult &result);
 
 signals:
     void killProcessRequested(const QString &processName);
     void processKillDecisionReady(const QVector<ProcessInfo> &procList, const QString &killedProc,
                                   const QHash<QString, float> &scoreMap,
                                   const QHash<QString, int> &priorityMap);
+    void killedProcessInfo(const QVariantMap &info);
 
 public slots:
     void handleOverload(const QVector<ProcessInfo> &procList);

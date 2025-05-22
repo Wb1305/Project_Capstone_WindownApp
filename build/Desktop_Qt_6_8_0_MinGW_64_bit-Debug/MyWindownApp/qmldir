@@ -21,4 +21,5 @@ CustomLabel 1.0 UI/Screens/StressTest/CustomLabel.qml
 CustomButton 1.0 UI/Components/CustomButton.qml
 SettingView 1.0 UI/Screens/SettingConfig/SettingView.qml
 ConfigField 1.0 UI/Screens/SettingConfig/ConfigField.qml
+PopupView 1.0 UI/Screens/Popup/PopupView.qml
 

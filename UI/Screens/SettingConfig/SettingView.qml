@@ -57,25 +57,13 @@ Rectangle {
 
                     spacing: 30
                     Label { text: "Server IP:"; font.pixelSize: 14; font.bold: true }
-                    TextField {
+                    Text {
                         id: ipField
                         text: settingConfig.configManager.serverIp
                         font.pixelSize: 14
-                        onTextChanged:{
-                            settingConfig.configManager.setServerIp(ipField.text)
-                        }
-                        readOnly: true
+                        color: "gray"
+                        font.bold: true
                     }
-
-                    // Label { text: "Server Port:"; font.pixelSize: 14; font.bold: true }
-                    // TextField {
-                    //     id: portField
-                    //     text: settingConfig.configManager.serverPort
-                    //     font.pixelSize: 14
-                    //     onTextChanged:{
-                    //         settingConfig.configManager.setServerPort(parseInt(portField.text))
-                    //     }
-                    // }
 
                     ConfigField{
                         id: portField
@@ -369,17 +357,17 @@ Rectangle {
                         }
                     }
 
-                    ConfigField{
-                        id: potentialOverloadField
-                        labelText: "Potential Overload Count:"
-                        // value: 45
-                        value: settingConfig.configManager.potentialOverloadCount
-                        maxValue: 1000
-                        preferredWidth: settingConfig.fieldWidth
-                        onValueChanged:{
-                            settingConfig.configManager.setPotentialOverloadCount(parseInt(potentialOverloadField.value))
-                        }
-                    }
+                    // ConfigField{
+                    //     id: potentialOverloadField
+                    //     labelText: "Potential Overload Count:"
+                    //     // value: 45
+                    //     value: settingConfig.configManager.potentialOverloadCount
+                    //     maxValue: 1000
+                    //     preferredWidth: settingConfig.fieldWidth
+                    //     onValueChanged:{
+                    //         settingConfig.configManager.setPotentialOverloadCount(parseInt(potentialOverloadField.value))
+                    //     }
+                    // }
                 }
             }
 

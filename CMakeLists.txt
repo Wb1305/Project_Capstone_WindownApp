@@ -99,6 +99,8 @@ qt_add_qml_module(appMyWindownApp
         SOURCES model/OverloadConfig.h
         RESOURCES config/Priority.txt config/WhileList.txt
         SOURCES model/ProcessSelectionResult.h
+        QML_FILES UI/Screens/Popup/PopupView.qml
+        SOURCES viewmodel/configviewmodel.h viewmodel/configviewmodel.cpp
 
         # QML_FILES UI/Screens/Processes/ProcessView.qml
         # QML_FILES UI/Screens/ResourcesView.qml

@@ -3,40 +3,6 @@
 #include <QTimer>
 #include <qthread.h>
 
-// #define OVERLOADING 50
-// #define WARNING 45
-
-// // weights
-// #define WEIGHT_RAM 0.35
-// #define WEIGHT_SWAP 0.25
-// #define WEIGHT_CPU 0.25
-// #define WEIGHT_TEMP 0.10
-// #define WEIGHT_FREQ 0.05
-
-// #define TEMP_MIN 40
-// #define TEMP_MAX 90
-
-// // Critical thresholds
-// #define CRITICAL_CPU_THRESHOULD 85
-// #define CRITICAL_MEM_THRESHOULD 180
-// #define CRITICAL_TEMP_THRESHOULD 90
-
-// // --- Overload config ---
-// #define OVERLOAD_COUNT_THRESHOLD     40
-// #define OVERLOAD_CONSECUTIVE_THRESHOLD 30
-// #define OVERLOAD_DEBOUNCE_MS         10000
-
-// // --- Warning config ---
-// #define WARNING_COUNT_THRESHOLD       20
-// #define WARNING_CONSECUTIVE_THRESHOLD 15
-// #define WARNING_DEBOUNCE_MS          10000
-
-// // --- Potential Overload ---
-// #define POTENTIAL_OVERLOAD_COUNT      45
-
-
-
-
 OverloadDetector::OverloadDetector(QObject *parent)
     : QObject{parent}
 {
@@ -56,11 +22,6 @@ int OverloadDetector::detectState(const SystemStats &systemStats)
     double normTemp = std::clamp((cpuTemp - m_overloadConfig.tempMin) / (m_overloadConfig.tempMax - m_overloadConfig.tempMin)*100, 0.0, 100.0);
 
     if(isCriticalOverloading(cpuUsage, ramUsagePercent + swapUsagePercent, normTemp)) {
-        // qDebug() << "[OverloadDetector] Critical condition detected!";
-        // qDebug() << "CPU:" << cpuUsage
-        //          << "RAM:" <<  ramUsagePercent
-        //          << "SWAP:" << swapUsagePercent
-        //          << "Temp:" << normTemp;
         return (int)LoadLevel::STATE_OVERLOADED;
     }
 
@@ -319,7 +280,6 @@ void OverloadDetector::checkAndEmitSignals(int overloadCount, int warningCount)
         emit overloadDetected();
         emit overloadDetectedWithBuffer(m_snapshotBuffer);
 
-        // qDebug()<<"[OverloadDetector] Clear SnapShot Buffer - State history";
         m_snapshotBuffer.clear();
         m_stateHistory.clear();
         m_consecutiveOverload = 0;
@@ -338,13 +298,13 @@ void OverloadDetector::checkAndEmitSignals(int overloadCount, int warningCount)
         return;
     }
 
-    if (overloadCount >= m_overloadConfig.potentialOverloadCount &&
-        m_consecutiveOverload < m_overloadConfig.overloadConsecutiveThreshold)
-    {
-        qDebug() << "[Warning] Potential Overload: High frequency but not continuous.";
-        // emit potentialOverload(); // nếu cần thiết
-        return;
-    }
+    // if (overloadCount >= m_overloadConfig.potentialOverloadCount &&
+    //     m_consecutiveOverload < m_overloadConfig.overloadConsecutiveThreshold)
+    // {
+    //     qDebug() << "[Warning] Potential Overload: High frequency but not continuous.";
+    //     // emit potentialOverload(); // nếu cần thiết
+    //     return;
+    // }
 
     if (m_consecutiveOverload == 0 && m_consecutiveWarning == 0) {
         qDebug()<<"[OverloadDetector] State: NORMAL ";
@@ -423,4 +383,43 @@ void OverloadDetector::onSystemDataReceived(const SystemStats &systemStats, cons
     recordSnapshot(systemStats, processes, currState);
     emit overloadMetricsAvailable(systemStats, currState);
 }
+
+
+
+
+
+
+
+// #define OVERLOADING 50
+// #define WARNING 45
+
+// // weights
+// #define WEIGHT_RAM 0.35
+// #define WEIGHT_SWAP 0.25
+// #define WEIGHT_CPU 0.25
+// #define WEIGHT_TEMP 0.10
+// #define WEIGHT_FREQ 0.05
+
+// #define TEMP_MIN 40
+// #define TEMP_MAX 90
+
+// // Critical thresholds
+// #define CRITICAL_CPU_THRESHOULD 85
+// #define CRITICAL_MEM_THRESHOULD 180
+// #define CRITICAL_TEMP_THRESHOULD 90
+
+// // --- Overload config ---
+// #define OVERLOAD_COUNT_THRESHOLD     40
+// #define OVERLOAD_CONSECUTIVE_THRESHOLD 30
+// #define OVERLOAD_DEBOUNCE_MS         10000
+
+// // --- Warning config ---
+// #define WARNING_COUNT_THRESHOLD       20
+// #define WARNING_CONSECUTIVE_THRESHOLD 15
+// #define WARNING_DEBOUNCE_MS          10000
+
+// // --- Potential Overload ---
+// #define POTENTIAL_OVERLOAD_COUNT      45
+
+
 

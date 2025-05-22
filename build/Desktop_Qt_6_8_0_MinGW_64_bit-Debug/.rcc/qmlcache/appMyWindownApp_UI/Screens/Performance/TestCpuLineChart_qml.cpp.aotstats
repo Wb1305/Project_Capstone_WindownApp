@@ -6,7 +6,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 30,
-                        "durationMicroseconds": 416,
+                        "durationMicroseconds": 436,
                         "errorMessage": "Cannot generate efficient code for storing an array in a non-sequence type",
                         "functionName": "coreSeries",
                         "line": 14
@@ -14,7 +14,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 16,
-                        "durationMicroseconds": 304,
+                        "durationMicroseconds": 318,
                         "errorMessage": "",
                         "functionName": "theme",
                         "line": 21
@@ -22,7 +22,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 23,
-                        "durationMicroseconds": 216,
+                        "durationMicroseconds": 187,
                         "errorMessage": "",
                         "functionName": "fill",
                         "line": 18
@@ -30,7 +30,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 18,
-                        "durationMicroseconds": 406,
+                        "durationMicroseconds": 272,
                         "errorMessage": "",
                         "functionName": "max",
                         "line": 26
@@ -38,7 +38,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 28,
-                        "durationMicroseconds": 6375,
+                        "durationMicroseconds": 4945,
                         "errorMessage": "Cannot generate efficient code for call to untyped JavaScript function",
                         "functionName": "onCompleted",
                         "line": 41
@@ -46,7 +46,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 22,
-                        "durationMicroseconds": 478,
+                        "durationMicroseconds": 212,
                         "errorMessage": "Cannot load property length from (component in D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/TestCpuLineChart.qml)::coreSeries with type QVariant.",
                         "functionName": "onTriggered",
                         "line": 52
