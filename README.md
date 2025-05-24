@@ -1,1 +1,1 @@
-![Giao diện hiển thị toàn bộ tiến trình đang chạy trên hệ thống, cùng với tài nguyên mà chúng chiếm dụng] (https://drive.google.com/file/d/1O45UJJOYLb92X0qnQQzzUuVB0E2n4psX/view?usp=sharing)
+![Giao diện hiển thị toàn bộ tiến trình đang chạy trên hệ thống, cùng với tài nguyên mà chúng chiếm dụng](https://drive.google.com/file/d/1O45UJJOYLb92X0qnQQzzUuVB0E2n4psX/view?usp=sharing)
