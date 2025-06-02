@@ -6,7 +6,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 30,
-                        "durationMicroseconds": 592,
+                        "durationMicroseconds": 481,
                         "errorMessage": "Cannot generate efficient code for storing an array in a non-sequence type",
                         "functionName": "seriesList",
                         "line": 11
@@ -14,7 +14,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 31,
-                        "durationMicroseconds": 1415,
+                        "durationMicroseconds": 1459,
                         "errorMessage": "Cannot generate efficient code for storing an array in a non-sequence type",
                         "functionName": "myColorList",
                         "line": 13
@@ -22,7 +22,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 17,
-                        "durationMicroseconds": 377,
+                        "durationMicroseconds": 458,
                         "errorMessage": "",
                         "functionName": "target",
                         "line": 16
@@ -30,7 +30,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 9,
-                        "durationMicroseconds": 185,
+                        "durationMicroseconds": 202,
                         "errorMessage": "Cannot load property series from (component in D:/NMPhuong/PROJ_Qt/MyWindownApp/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/ComponentChartUpdater.qml)::viewModel with type QVariant.",
                         "functionName": "onSeriesChanged",
                         "line": 17

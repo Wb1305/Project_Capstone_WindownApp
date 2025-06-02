@@ -3,7 +3,6 @@ import QtQuick
 import QtQuick.Layouts
 // import QtCharts
 import "./UI/Screens/ProcessesListView"
-import "./UI/Screens/Performance"
 import "./UI/Screens/MainPerformance"
 import "./UI/Screens/SettingConfig"
 import "./UI/Screens/Popup"
@@ -19,7 +18,7 @@ Window {
     width: 1200
     height: 650
     visible: true
-    title: qsTr("Phần mềm giám sát và tuỳ chỉnh tải hệ thống In-vehicle Infotainment")
+    title: qsTr("IVI System Monitor")
 
 
     NavigationBar{
@@ -56,15 +55,6 @@ Window {
             preferHeight: mainWindow.height * 0.45
             preferWidth: mainWindow.width
             parentHeight: mainWindow.height
-        }
-
-        PerformanceView {
-            id: performanceView
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            performModel: SystemStatsVM
-            preferHeight: mainWindow.height * 0.45
-            preferWidth: mainWindow.width
         }
 
         SettingView{

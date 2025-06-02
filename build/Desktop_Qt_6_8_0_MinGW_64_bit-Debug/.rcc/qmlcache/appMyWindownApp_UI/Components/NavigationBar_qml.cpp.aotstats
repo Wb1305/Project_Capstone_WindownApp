@@ -30,7 +30,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 20,
-                        "durationMicroseconds": 1028,
+                        "durationMicroseconds": 2997,
                         "errorMessage": "Cannot generate efficient code for storing an array in a non-sequence type",
                         "functionName": "model",
                         "line": 22
@@ -46,7 +46,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 39,
-                        "durationMicroseconds": 242,
+                        "durationMicroseconds": 928,
                         "errorMessage": "",
                         "functionName": "centerIn",
                         "line": 32
@@ -54,7 +54,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 33,
-                        "durationMicroseconds": 105,
+                        "durationMicroseconds": 68,
                         "errorMessage": "Cannot retrieve a non-object type by ID: tabButton",
                         "functionName": "source",
                         "line": 39
@@ -62,7 +62,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 35,
-                        "durationMicroseconds": 285,
+                        "durationMicroseconds": 182,
                         "errorMessage": "",
                         "functionName": "fillMode",
                         "line": 52
@@ -70,7 +70,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 31,
-                        "durationMicroseconds": 69,
+                        "durationMicroseconds": 43,
                         "errorMessage": "Cannot retrieve a non-object type by ID: tabButton",
                         "functionName": "text",
                         "line": 56
@@ -78,7 +78,7 @@
                     {
                         "codegenSuccessfull": true,
                         "column": 44,
-                        "durationMicroseconds": 253,
+                        "durationMicroseconds": 148,
                         "errorMessage": "",
                         "functionName": "verticalAlignment",
                         "line": 60
@@ -86,7 +86,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 28,
-                        "durationMicroseconds": 100,
+                        "durationMicroseconds": 46,
                         "errorMessage": "Cannot retrieve a non-object type by ID: tabBar",
                         "functionName": "color",
                         "line": 72

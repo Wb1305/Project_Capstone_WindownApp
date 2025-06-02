@@ -45,6 +45,8 @@ appMyWindownApp_autogen/timestamp: \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/storage/datastorageworker.h \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/thread/threadmanager.cpp \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/thread/threadmanager.h \
+	D:/NMPhuong/PROJ_Qt/MyWindownApp/viewmodel/configviewmodel.cpp \
+	D:/NMPhuong/PROJ_Qt/MyWindownApp/viewmodel/configviewmodel.h \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/viewmodel/cpustatsviewmodel.cpp \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/viewmodel/cpustatsviewmodel.h \
 	D:/NMPhuong/PROJ_Qt/MyWindownApp/viewmodel/memstatsviewmodel.cpp \

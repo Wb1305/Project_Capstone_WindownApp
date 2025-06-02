@@ -24,7 +24,7 @@ RowLayout {
             font.pixelSize: 14
             font.bold: true
 
-            Layout.preferredWidth: 100
+            Layout.preferredWidth: 130
             Layout.preferredHeight: 30
             Layout.alignment: Qt.AlignTop
 
@@ -62,11 +62,11 @@ RowLayout {
         // Layout.preferredWidth: mainPerformance.preferWidth - stressTest.width
         Layout.fillWidth: true
         Layout.fillHeight: true
-        Layout.preferredWidth: mainPerformance.preferWidth - (stressTest.isToggle ? 200 : btnStess.width)
+        Layout.preferredWidth: mainPerformance.preferWidth - (stressTest.isToggle ? stressTest.width : btnStess.width)
         Layout.preferredHeight: mainPerformance.preferHeight
 
         performModel: mainPerformance.performModel
         preferHeight: mainPerformance.preferHeight
-        preferWidth: mainPerformance.preferWidth - (stressTest.isToggle ? 200 : btnStess.width)
+        preferWidth: mainPerformance.preferWidth - (stressTest.isToggle ? stressTest.width : btnStess.width)
     }
 }

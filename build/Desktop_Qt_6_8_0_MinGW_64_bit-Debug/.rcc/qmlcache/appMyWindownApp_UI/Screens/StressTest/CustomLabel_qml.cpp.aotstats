@@ -6,7 +6,7 @@
                     {
                         "codegenSuccessfull": false,
                         "column": 29,
-                        "durationMicroseconds": 175,
+                        "durationMicroseconds": 179,
                         "errorMessage": "Cannot access value for name text",
                         "functionName": "labelText",
                         "line": 10

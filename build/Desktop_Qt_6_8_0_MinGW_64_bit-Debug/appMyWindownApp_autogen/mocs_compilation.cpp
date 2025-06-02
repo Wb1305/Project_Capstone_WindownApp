@@ -7,6 +7,7 @@
 #include "TAC5DWH4SE/moc_systemmonitor.cpp"
 #include "5XLNPBDXWK/moc_datastorageworker.cpp"
 #include "C3ZIZSTKPY/moc_threadmanager.cpp"
+#include "7OCNMGYRF4/moc_configviewmodel.cpp"
 #include "7OCNMGYRF4/moc_cpustatsviewmodel.cpp"
 #include "7OCNMGYRF4/moc_memstatsviewmodel.cpp"
 #include "7OCNMGYRF4/moc_processlistviewmodel.cpp"

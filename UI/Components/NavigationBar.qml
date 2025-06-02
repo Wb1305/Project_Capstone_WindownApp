@@ -19,7 +19,7 @@ Rectangle {
         background: Rectangle { color: "transparent" }
 
         Repeater {
-            model: ["Processes", "Performance", "History", "Setting"]
+            model: ["Processes", "Performance", /*"History",*/ "Setting"]
             TabButton {
                 id: tabButton
 

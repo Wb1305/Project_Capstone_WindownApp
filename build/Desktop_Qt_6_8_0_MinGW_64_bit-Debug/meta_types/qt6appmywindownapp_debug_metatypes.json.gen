@@ -90,6 +90,47 @@
     {
         "classes": [
             {
+                "className": "ConfigViewModel",
+                "lineNumber": 7,
+                "methods": [
+                    {
+                        "access": "public",
+                        "index": 0,
+                        "name": "saveConfig",
+                        "returnType": "void"
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": false,
+                        "index": 0,
+                        "name": "config",
+                        "read": "config",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "ConfigManager*",
+                        "user": false
+                    }
+                ],
+                "qualifiedClassName": "ConfigViewModel",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "configviewmodel.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
                 "className": "CpuStatsViewModel",
                 "lineNumber": 8,
                 "methods": [

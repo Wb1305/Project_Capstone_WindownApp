@@ -54,8 +54,7 @@ QByteArray SystemMonitor::generateFakeData()
     QJsonObject systemStats;
 
     // --- Tổng giá trị CPU & RAM ---
-    // int cpuUtil = QRandomGenerator::global()->bounded(85, 100); // CPU tổng (%)
-    int cpuUtil = QRandomGenerator::global()->bounded(60, 80); // CPU tổng (%)
+    int cpuUtil = QRandomGenerator::global()->bounded(60, 70); // CPU tổng (%)
     double temp = 40.0 + (cpuUtil * 0.5);
     double freqPercent = 30.0 + (cpuUtil * 0.7);
     double freq = 1200.0 + (freqPercent / 100.0 * 1800.0); // 1.2GHz đến 3.0GHz
