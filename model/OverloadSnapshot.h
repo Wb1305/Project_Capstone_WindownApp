@@ -12,6 +12,8 @@ struct OverloadSnapshot {
     SystemStats m_systemStats;
     QVector<ProcessInfo> m_processes;
     int detectedState;
+    double score;
+    double balancePenatyVal;
 };
 
 #endif // OVERLOADSNAPSHOT_H

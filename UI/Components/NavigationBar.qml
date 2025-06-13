@@ -56,7 +56,7 @@ Rectangle {
                         text: tabButton.modelData
                         color: "black"
                         font.bold: true
-                        font.pixelSize: 15
+                        font.pixelSize: 16
                         verticalAlignment: Text.AlignVCenter
                         // Layout.alignment: Qt.AlignRight
                     }

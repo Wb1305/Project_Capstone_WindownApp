@@ -10,6 +10,7 @@ Dialog {
     property string message: "Đóng ứng dụng không cần thiết để giảm tải hệ thống!"
 
     title: "⚠️ Cảnh báo hệ thống quá tải!"
+    font.pixelSize: 15
     standardButtons: Dialog.Ok | Dialog.Cancel
     visible: false
     modal: true
@@ -34,7 +35,7 @@ Dialog {
         wrapMode: Text.WordWrap
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
-        font.pointSize: 13
+        font.pointSize: 15
         color: "black"
         anchors.fill: parent
         anchors.margins: 16

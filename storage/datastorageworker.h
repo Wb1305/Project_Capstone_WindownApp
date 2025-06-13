@@ -16,10 +16,10 @@ public:
 public slots:
     void save(const SystemStats& systemStats, const QVector<ProcessInfo> &processes);
     void saveOverloadBuffer(const QQueue<OverloadSnapshot>& buffer);
-    void writeOverloadMetrics(const SystemStats& systemStats, int stateCurr);
+    void writeOverloadMetrics(const SystemStats& systemStats, int stateCurr, double score, double balancePenatyVal);
     void writeOverloadProcessLog(const QVector<ProcessInfo> &procList,
                                  const QString &killedProc,
-                                 const QHash<QString, float> &scoreMap,
+                                 const QVector<QPair<int, float> > &scoreMap,
                                  const QHash<QString, int> &priorityMap);
 
 private:

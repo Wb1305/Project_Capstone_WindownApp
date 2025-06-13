@@ -3,7 +3,7 @@ import QtQuick.Controls
 
 Label {
     id: customLabel
-    font.pixelSize: 14
+    font.pixelSize: 15
     font.bold: true
     color: "White"
     padding: 5

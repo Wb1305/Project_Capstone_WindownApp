@@ -6,7 +6,8 @@
 
 struct ProcessSelectionResult{
     QString procToKill;
-    QHash<QString, float> scoreMap;
+    // QHash<QString, float> scoreMap;
+    QVector<QPair<int, float>> scoreMap;
     QHash<QString, int> priorityMap;
     QVector<ProcessInfo> usedProcessList;
 };

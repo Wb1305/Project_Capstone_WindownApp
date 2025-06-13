@@ -20,7 +20,7 @@ Rectangle {
     Text {
         id: titleText
         text: titleBar.label
-        font.pixelSize: 14
+        font.pixelSize: 15
         font.bold: true
         anchors.verticalCenter: parent.verticalCenter
     }

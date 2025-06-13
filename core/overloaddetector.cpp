@@ -8,10 +8,9 @@ OverloadDetector::OverloadDetector(QObject *parent)
 {
     m_lastOverloadSignal.start();
     m_lastWarningSignal.start();
-    // qDebug() << "[OverloadDetector] Created in thread:" << QThread::currentThread();
 }
 
-int OverloadDetector::detectState(const SystemStats &systemStats)
+DetectResult OverloadDetector::detectState(const SystemStats &systemStats)
 {
     double cpuTemp = systemStats.cpuStats().general().temperature();
     double cpuUsage = systemStats.cpuStats().general().utilization();
@@ -20,20 +19,23 @@ int OverloadDetector::detectState(const SystemStats &systemStats)
     double cpuFreqPercent = systemStats.cpuStats().general().frequencyPercent();
 
     double normTemp = std::clamp((cpuTemp - m_overloadConfig.tempMin) / (m_overloadConfig.tempMax - m_overloadConfig.tempMin)*100, 0.0, 100.0);
+    double balancePenaltyVal;
+    double score;
 
-    if(isCriticalOverloading(cpuUsage, ramUsagePercent + swapUsagePercent, normTemp)) {
-        return (int)LoadLevel::STATE_OVERLOADED;
-    }
-
-    double score =
+    score =
         m_overloadConfig.weightRam * ramUsagePercent +
         m_overloadConfig.weightSwap * swapUsagePercent +
         m_overloadConfig.weightCpu * cpuUsage +
         m_overloadConfig.weightTemp * normTemp +
         m_overloadConfig.weightFreq * cpuFreqPercent;
-    score += balancePenalty(systemStats.cpuStats().cores());
+    balancePenaltyVal = balancePenalty(systemStats.cpuStats().cores());
+    score += balancePenaltyVal;
 
-    return validLoading(score);
+    if(isCriticalOverloading(cpuUsage, ramUsagePercent + swapUsagePercent, normTemp)) {
+        return {(int)LoadLevel::STATE_OVERLOADED, score, balancePenaltyVal};
+    }
+
+    return {validLoading(score), score, balancePenaltyVal};
 }
 
 void OverloadDetector::evaluateOverloadTrend(int currentState)
@@ -322,13 +324,16 @@ void OverloadDetector::printStateHistory() const
     }
 }
 
-void OverloadDetector::recordSnapshot(const SystemStats &systemStats, const QVector<ProcessInfo> &processes, int detectedState)
+void OverloadDetector::recordSnapshot(const SystemStats &systemStats, const QVector<ProcessInfo> &processes,
+                                      int detectedState, double score, double balancePenatyVal)
 {
     OverloadSnapshot snapShot;
     snapShot.m_timestamp = systemStats.timestamp();
     snapShot.m_systemStats = systemStats;
     snapShot.m_processes = processes;
     snapShot.detectedState = detectedState;
+    snapShot.score = score;
+    snapShot.balancePenatyVal = balancePenatyVal;
 
     m_snapshotBuffer.enqueue(snapShot);
     if(m_snapshotBuffer.size() > 60){ //m_configManager->criticalDurationSecondsThreshold()
@@ -376,13 +381,14 @@ void OverloadDetector::reloadConfigFromManager()
 void OverloadDetector::onSystemDataReceived(const SystemStats &systemStats, const QVector<ProcessInfo> &processes)
 {
     // qDebug()<< "[Thread - OverloadDetector]: Overload received data from System Monitor";
+    DetectResult result = detectState(systemStats);
+    evaluateOverloadTrend(result.state);
 
-    int currState = detectState(systemStats);
-    evaluateOverloadTrend(currState);
-
-    recordSnapshot(systemStats, processes, currState);
-    emit overloadMetricsAvailable(systemStats, currState);
+    recordSnapshot(systemStats, processes, result.state, result.score, result.balancePenaty);
+    emit overloadMetricsAvailable(systemStats, result.state, result.score, result.balancePenaty);
 }
+
+
 
 
 

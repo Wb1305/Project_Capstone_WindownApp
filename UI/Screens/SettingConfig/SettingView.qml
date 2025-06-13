@@ -200,7 +200,7 @@ Rectangle {
 
                     ConfigField{
                         id: criticalMemField
-                        labelText: "Critical Mem (MB):"
+                        labelText: "Critical Mem (%):"
                         // value: 180
                         value: settingConfig.configManager.criticalMemThreshold
                         maxValue: 32768

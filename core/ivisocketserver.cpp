@@ -43,7 +43,7 @@ void IviSocketServer::startListening(QString hostAddress, quint16 port)
         }
 
         connect(m_discoverySocket, &QUdpSocket::readyRead, this, &IviSocketServer::onDiscoveryRequest);
-        qDebug() << "[UDP] Listening for DISCOVER_SERVER requests on port 45000";
+        qDebug() << "[UDP] Listening for requests on port 45000";
     }
 }
 

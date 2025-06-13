@@ -54,7 +54,7 @@ QByteArray SystemMonitor::generateFakeData()
     QJsonObject systemStats;
 
     // --- Tổng giá trị CPU & RAM ---
-    int cpuUtil = QRandomGenerator::global()->bounded(60, 70); // CPU tổng (%)
+    int cpuUtil = QRandomGenerator::global()->bounded(60, 80); // CPU tổng (%)
     double temp = 40.0 + (cpuUtil * 0.5);
     double freqPercent = 30.0 + (cpuUtil * 0.7);
     double freq = 1200.0 + (freqPercent / 100.0 * 1800.0); // 1.2GHz đến 3.0GHz
@@ -152,7 +152,9 @@ QByteArray SystemMonitor::generateFakeData()
         QJsonObject proc;
         proc["PID"] = 1000 + i;
         proc["User"] = "user-name";
-        proc["PName"] = QString("App_%1").arg(i + 1);
+        // proc["PName"] = QString("App_%1").arg(i + 1);
+        QStringList groupNames = {"App_Group1", "App_Group2", "App_Group3"};
+        proc["PName"] = groupNames[i % groupNames.size()];
         proc["PCPUUsagePercent"] = cpuP;
         proc["PMEMUsageMB"] = memMB;
         proc["PMEMUsagePercent"] = memPercent;
@@ -177,7 +179,8 @@ QByteArray SystemMonitor::generateFakeData()
 
 void SystemMonitor::printParsedData(const SystemStats &systemStats, const QVector<ProcessInfo> &processes)
 {
-    qDebug() << "\n[SystemMonitor] Parsed System Stats:";
+    // qDebug() << "\n[SystemMonitor] Parsed System Stats:";
+    qDebug() << "---Dữ liệu sau khi được xử lý---";
     qDebug() << "Timestamp:" << systemStats.timestamp().toString("yyyy-MM-dd HH:mm:ss");
 
     // CPU
@@ -207,9 +210,9 @@ void SystemMonitor::printParsedData(const SystemStats &systemStats, const QVecto
         qDebug() << "Name:" << proc.name()
         << "User:" <<proc.user()
         << "PID:" << proc.pid()
-        << "CPU %:" << proc.cpuUsagePercent()
-        << "MEM MB:" << proc.memUsageMB()
-        << "MEM %:" << proc.memUsagePercent();
+        << "CPU(%):" << proc.cpuUsagePercent()
+        << "MEM(MB):" << proc.memUsageMB()
+        << "MEM(%):" << proc.memUsagePercent();
     }
 }
 
@@ -333,10 +336,13 @@ ConfigManager *SystemMonitor::configManager() const
 
 void SystemMonitor::onDataReceived(const QByteArray &rawData)
 {
+    // qDebug()<<"---Dữ liệu thô nhận được từ Linux App---";
+    // qDebug()<<rawData;
     if(!m_dataProcessor) return;
     if(!m_dataProcessor->parseJsonData(rawData)){
         qWarning() << "[SystemMonitor] Failed to parse data";
     }
+    // printParsedData(m_dataProcessor->systemStats(), m_dataProcessor->processList());
 }
 
 void SystemMonitor::onOverloadDetected()

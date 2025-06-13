@@ -23,22 +23,20 @@ ProcessSelectionResult ProcessManager::findProcessToKill(const QVector<ProcessIn
     applyWhitelistFilter();
 
     QHash<QString, int> priorityMap = loadPriorityConfig();
-    QVector<QPair<QString, float>> ranked = rankProcessesByScore(priorityMap);
+    QVector<QPair<int, float>> processScores = calculateProcessScores(priorityMap);
 
-    auto maxScoreProcessIt = std::max_element(ranked.begin(), ranked.end(),
+    auto maxScoreProcessIt = std::max_element(processScores.begin(), processScores.end(),
                                               [](const auto &a, const auto &b) {
                                                   return a.second < b.second;
                                               });
 
-    if (maxScoreProcessIt != ranked.end()) {
-        result.procToKill = maxScoreProcessIt->first;
+    int procPID;
+    if (maxScoreProcessIt != processScores.end()) {
+        procPID = maxScoreProcessIt->first;
     }
 
-    QHash<QString, float> scoreMap;
-    for (const auto &pair : ranked) {
-        scoreMap[pair.first] = pair.second;
-    }
-    result.scoreMap = scoreMap;
+    result.procToKill = getProcessNameByPid(procPID);
+    result.scoreMap = processScores;
     result.priorityMap = priorityMap;
     result.usedProcessList = m_nonRootProcesses;
 
@@ -97,11 +95,13 @@ QHash<QString, int> ProcessManager::loadPriorityConfig()
     return priorities;
 }
 
-QVector<QPair<QString, float> > ProcessManager::rankProcessesByScore(QHash<QString, int> &priorityMap)
+QVector<QPair<int, float>> ProcessManager::calculateProcessScores(QHash<QString, int> &priorityMap)
 {
-    QVector<QPair<QString, float>> ranked;
+    QVector<QPair<int, float>> processScores;
     for (ProcessInfo &proc : m_nonRootProcesses) {
+        int pid = proc.pid();
         QString procName = proc.name();
+
         if (!m_validProcessNames.contains(procName))
             continue;
 
@@ -109,11 +109,18 @@ QVector<QPair<QString, float> > ProcessManager::rankProcessesByScore(QHash<QStri
         float memPercent = proc.memUsagePercent();
         int prio = priorityMap.value(procName, 2);
 
-        float score = 0.4f * cpuPercent + 0.4f * memPercent + 0.2f * prio;
-        ranked.append({procName, score});
+        float score = 0.35f * cpuPercent + 0.45f * memPercent + 0.2f * prio;
+        processScores.append({pid, score});
     }
-    return ranked;
+
+    // In ra PID và score
+    for (const auto &pair : processScores) {
+        qDebug() << "PID:" << pair.first << "Score:" << pair.second;
+    }
+
+    return processScores;
 }
+
 
 QVariantMap ProcessManager::createInfor(const QString &procName, const QDateTime &shutdownTime)
 {
@@ -134,6 +141,17 @@ void ProcessManager::informKilledProcessInfoForUI(const ProcessSelectionResult &
     emit killedProcessInfo(info);
 }
 
+QString ProcessManager::getProcessNameByPid(int pid)
+{
+    for (const ProcessInfo &proc : m_nonRootProcesses) {
+        if (proc.pid() == pid) {
+            return proc.name();
+        }
+    }
+    qWarning() << "Process with PID" << pid << "not found.";
+    return QString();
+}
+
 void ProcessManager::handleOverload(const QVector<ProcessInfo> &procList)
 {
     qDebug()<<"[ProcessManger] Handle Overload";
@@ -149,32 +167,3 @@ void ProcessManager::handleOverload(const QVector<ProcessInfo> &procList)
 
     informKilledProcessInfoForUI(result);
 }
-
-
-
-
-
-
-
-
-
-// QString ProcessManager::findProcessToKill(const QVector<ProcessInfo> &processesStats)
-// {
-//     filterNonRootProcesses(processesStats);
-//     applyWhitelistFilter();
-
-//     QHash<QString, int> priorityMap = loadPriorityConfig();
-//     QVector<QPair<QString, float>> ranked = rankProcessesByScore(priorityMap);
-
-//     auto maxScoreProcessIt = std::max_element(ranked.begin(), ranked.end(),
-//               [](const auto &a, const auto &b) {
-//                   return a.second < b.second;
-//               });
-
-//     if(maxScoreProcessIt == ranked.end()) return QString();
-//     QString procNeedKill = maxScoreProcessIt->first;
-
-//     qDebug() << "[ProcessManager] Process selected to terminate:" << procNeedKill;
-
-//     return procNeedKill;
-// }

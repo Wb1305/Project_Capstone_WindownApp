@@ -34,12 +34,12 @@ Rectangle {
                     spacing: 2
                     Text {
                         text: modelData.name.startsWith("RAM") ? "Memory" : modelData.name.startsWith("SWAP") ? "Swap" : modelData.name
-                        font.pixelSize: 13
+                        font.pixelSize: 15
                         font.bold: true
                     }
                     Text {
                         text: typeof(customLegend.getDetailFn) === "function" ? customLegend.getDetailFn(modelData.name) : ""
-                        font.pixelSize: 11
+                        font.pixelSize: 14
                         color: "#555"
                         wrapMode: Text.Wrap
                     }

@@ -13,6 +13,11 @@
 #include <qelapsedtimer.h>
 #include <QQueue>
 
+struct DetectResult {
+    int state;
+    double score;
+    double balancePenaty;
+};
 
 class OverloadDetector : public QObject
 {
@@ -26,7 +31,8 @@ public:
         STATE_OVERLOADED
     };
 
-    int detectState(const SystemStats &systemStats);
+    // int detectState(const SystemStats &systemStats);
+    DetectResult detectState(const SystemStats &systemStats);
     void evaluateOverloadTrend(int currentState);
     void setConfigManager(ConfigManager* configManager);
 
@@ -47,7 +53,9 @@ private:
 
     //=========
     void printStateHistory() const;
-    void recordSnapshot(const SystemStats &systemStats, const QVector<ProcessInfo> &processes, int detectedState);
+
+    void recordSnapshot(const SystemStats &systemStats, const QVector<ProcessInfo> &processes,
+                        int detectedState, double score, double balancePenatyVal);
 
     //=========
 
@@ -58,7 +66,7 @@ signals:
     void warningDetected();
     void systemNormal();
     void overloadDetectedWithBuffer(const QQueue<OverloadSnapshot> &buffer);
-    void overloadMetricsAvailable(const SystemStats &systemStats, int state);
+    void overloadMetricsAvailable(const SystemStats &systemStats, int state, double score, double balancePenatyVal);
 
 public slots:
     // void updateUsage(double currentCpu, double currentRam);

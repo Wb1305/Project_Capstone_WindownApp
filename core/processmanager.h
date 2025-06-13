@@ -24,14 +24,17 @@ private:
     void filterNonRootProcesses(const QVector<ProcessInfo> &processesStats);
     void applyWhitelistFilter();
     QHash<QString, int> loadPriorityConfig();
-    QVector<QPair<QString, float>> rankProcessesByScore(QHash<QString, int> &priorityMap);
+    // QVector<QPair<QString, float>> rankProcessesByScore(QHash<QString, int> &priorityMap);
+    QVector<QPair<int, float>> calculateProcessScores(QHash<QString, int> &priorityMap);
     QVariantMap createInfor(const QString &procName, const QDateTime &shutdownTime);
     void informKilledProcessInfoForUI(const ProcessSelectionResult &result);
+    QString getProcessNameByPid(int pid);
 
 signals:
     void killProcessRequested(const QString &processName);
-    void processKillDecisionReady(const QVector<ProcessInfo> &procList, const QString &killedProc,
-                                  const QHash<QString, float> &scoreMap,
+    void processKillDecisionReady(const QVector<ProcessInfo> &procList,
+                                  const QString &killedProc,
+                                  const QVector<QPair<int, float>> &scoreMap,
                                   const QHash<QString, int> &priorityMap);
     void killedProcessInfo(const QVariantMap &info);
 

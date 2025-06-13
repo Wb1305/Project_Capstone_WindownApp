@@ -53,7 +53,7 @@ Rectangle {
             return val.toString()
         }
 
-        font.pixelSize: 14
+        font.pixelSize: 16
         color: "#333"
         elide: Text.ElideRight
         anchors.verticalCenter: parent.verticalCenter
